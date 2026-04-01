@@ -66,6 +66,18 @@ public class TextBoxTest {
     }
 
     @Test
+    void fillWrongEmail(){
+
+        open("/text-box");
+
+        $("#userEmail").setValue("wrong@email");
+
+        $("#submit").click();
+
+        $("#output").shouldNotBe(visible);
+    }
+
+    @Test
     void submitEmptyForm(){
 
         open("/text-box");
@@ -73,7 +85,6 @@ public class TextBoxTest {
         $("#submit").click();
 
         $("#output").shouldNotBe(visible);
-
     }
 
     @AfterAll
