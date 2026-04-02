@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,6 +36,7 @@ public class UploadAndDownloadTest {
         open("/upload-download");
 
         $("#uploadFile").uploadFile(new File("./src/test/resources/test.jpg"));
+        $("#uploadedFilePath").shouldHave(text("test.jpg"));
     }
 
     @AfterAll
