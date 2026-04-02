@@ -1,4 +1,4 @@
-package tests.ui;
+package tests.demoqa.elements;
 
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;

@@ -1,4 +1,4 @@
-package tests.ui;
+package tests.demoqa.elements;
 
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Configuration;
@@ -326,7 +326,6 @@ public class WebTablesTest {
 
 
     }
-
 
     @AfterAll
     static void close() {
