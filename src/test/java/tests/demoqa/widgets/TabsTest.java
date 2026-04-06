@@ -17,7 +17,7 @@ public class TabsTest {
     }
 
     @Test
-    void accordionTest(){
+    void tabsTest(){
 
 
         open("/tabs");
