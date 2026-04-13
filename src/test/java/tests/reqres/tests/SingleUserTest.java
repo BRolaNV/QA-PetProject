@@ -1,20 +1,16 @@
 package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
-import tests.ConfigReader;
+import tests.reqres.APIReader;
+import tests.reqres.MyProperties;
 import tests.reqres.POJO.UserData;
 import tests.reqres.specifications.Specifications;
-
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SingleUserTest {
-
-    private final static String URL = "https://reqres.in/";
-    private final static String API_KEY = ConfigReader.getApiKey();
+public class SingleUserTest extends MyProperties {
 
     @Test
     public void getRealUserTest() {

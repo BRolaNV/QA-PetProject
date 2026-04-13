@@ -1,8 +1,8 @@
 package tests.reqres.tests;
 
-import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import tests.ConfigReader;
+import tests.reqres.APIReader;
+import tests.reqres.MyProperties;
 import tests.reqres.POJO.ForUpdateData;
 import tests.reqres.specifications.Specifications;
 
@@ -12,10 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class UpdateUserTest {
-
-    private final static String URL = "https://reqres.in/";
-    private final static String API_KEY = ConfigReader.getApiKey();
+public class UpdateUserTest extends MyProperties {
 
     @Test
     public void fullUpdateTest() {
@@ -56,7 +53,7 @@ public class UpdateUserTest {
         ForUpdateData responseUser = given()
                 .body(user)
                 .when()
-                .put("/api/users/2")
+                .patch("/api/users/2")
                 .then().log().all()
                 .extract().body().as(ForUpdateData.class);
 

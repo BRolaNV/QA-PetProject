@@ -2,16 +2,15 @@ package tests.reqres.tests;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import tests.ConfigReader;
+import tests.reqres.APIReader;
+import tests.reqres.MyProperties;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class LoginUserTest {
+public class LoginUserTest extends MyProperties {
 
-    private final static String URL = "https://reqres.in/";
-    private final static String API_KEY = ConfigReader.getApiKey();
 
     @Test
     public void successLoginTest() {

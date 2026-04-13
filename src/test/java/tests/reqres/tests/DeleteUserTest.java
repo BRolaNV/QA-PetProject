@@ -1,14 +1,12 @@
 package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
-import tests.ConfigReader;
+import tests.reqres.APIReader;
+import tests.reqres.MyProperties;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 
-public class DeleteUserTest {
-
-    private final static String URL = "https://reqres.in/";
-    private final static String API_KEY = ConfigReader.getApiKey();
+public class DeleteUserTest extends MyProperties {
 
     @Test
     public void successDeleteTest() {
