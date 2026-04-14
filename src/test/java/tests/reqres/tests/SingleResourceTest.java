@@ -1,14 +1,14 @@
 package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.POJO.ResourcesData;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SingleResourceTest extends MyProperties {
+public class SingleResourceTest extends BaseApiTest {
 
 
     @Test

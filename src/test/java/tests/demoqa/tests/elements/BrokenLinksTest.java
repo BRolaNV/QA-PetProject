@@ -1,0 +1,64 @@
+package tests.demoqa.tests.elements;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.elementsPage.BrokenLinksPage;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.url;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class BrokenLinksTest {
+
+    BrokenLinksPage brokenLinksPage = new BrokenLinksPage();
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.browser = "chrome";
+        Configuration.baseUrl = "https://demoqa.com";
+    }
+
+    @BeforeEach
+    void openPage(){
+        open("/broken");
+    }
+
+    @Test
+    void validLinkTest() {
+
+        brokenLinksPage.validLinkClick();
+        webdriver().shouldHave(url("https://demoqa.com/"));
+    }
+
+    @Test
+    void brokenLinkTest() {
+
+        brokenLinksPage.brokenLinkClick();
+        brokenLinksPage.getContent().shouldHave(text("This page returned a 500 status code."));
+    }
+
+    @Test
+    void brokenImageTest() {
+
+        assertEquals(0, brokenLinksPage.getBrokenImageWidth());
+    }
+
+    /*
+    demoqa отдает битые изображения по обеим ссылкам, корректный тест valid Image невозможен
+     */
+//    @Test
+//    void validImageTest() {
+//        assertTrue(brokenLinksPage.getValidImageWidth() > 0);
+//    }
+
+    @AfterEach
+    void close() {
+        closeWebDriver();
+    }
+}

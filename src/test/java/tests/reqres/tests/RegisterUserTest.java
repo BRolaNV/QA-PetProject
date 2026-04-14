@@ -2,13 +2,13 @@ package tests.reqres.tests;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.specifications.Specifications;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 
-public class RegisterUserTest extends MyProperties {
+public class RegisterUserTest extends BaseApiTest {
 
 
     @Test

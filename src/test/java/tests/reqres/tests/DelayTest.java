@@ -1,7 +1,7 @@
 package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.POJO.UserData;
 import tests.reqres.specifications.Specifications;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class DelayTest extends MyProperties{
+public class DelayTest extends BaseApiTest {
 
     @Test
     public void getDelayUsers() {
@@ -25,8 +25,8 @@ public class DelayTest extends MyProperties{
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", UserData.class);
 
-        users.stream().forEach(x -> assertNotNull(x.getId()));
-        users.stream().forEach(x -> assertNotNull(x.getAvatar()));
+        users.forEach(x -> assertNotNull(x.getId()));
+        users.forEach(x -> assertNotNull(x.getAvatar()));
 
     }
 }

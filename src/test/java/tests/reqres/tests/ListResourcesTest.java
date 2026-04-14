@@ -1,7 +1,7 @@
 package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.POJO.ResourcesData;
 import tests.reqres.specifications.Specifications;
 
@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class ListResourcesTest extends MyProperties {
+public class ListResourcesTest extends BaseApiTest {
 
     @Test
     public void dateOrderTest() {

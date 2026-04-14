@@ -1,16 +1,14 @@
 package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
-import tests.reqres.APIReader;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.POJO.UserData;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SingleUserTest extends MyProperties {
+public class SingleUserTest extends BaseApiTest {
 
     @Test
     public void getRealUserTest() {

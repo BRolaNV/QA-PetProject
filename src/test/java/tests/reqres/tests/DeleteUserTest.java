@@ -1,12 +1,11 @@
 package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
-import tests.reqres.APIReader;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 
-public class DeleteUserTest extends MyProperties {
+public class DeleteUserTest extends BaseApiTest {
 
     @Test
     public void successDeleteTest() {

@@ -3,7 +3,7 @@ package tests.reqres.tests;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import tests.reqres.MyProperties;
+import tests.reqres.BaseApiTest;
 import tests.reqres.specifications.Specifications;
 
 import java.time.Clock;
@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class CreateUserTest extends MyProperties {
+public class CreateUserTest extends BaseApiTest {
 
     @Test
     public void successCreateTest() {
