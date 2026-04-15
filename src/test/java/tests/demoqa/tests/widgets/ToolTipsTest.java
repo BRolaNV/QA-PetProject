@@ -3,12 +3,16 @@ package tests.demoqa.tests.widgets;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.widgetsPage.ToolTipsPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ToolTipsTest {
+
+    ToolTipsPage toolTipsPage =  new ToolTipsPage();
 
     @BeforeAll
     static void setUp() {
@@ -16,23 +20,29 @@ public class ToolTipsTest {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
+    @BeforeEach
+    void openPage(){
+        open("/tool-tips");
+    }
+
     @Test
     void toolTipsTest(){
 
+        toolTipsPage.hoverButton()
+                .getResult()
+                .shouldHave(text("You hovered over the Button"));
 
-        open("/tool-tips");
+        toolTipsPage.hoverField()
+                .getResult()
+                .shouldHave(text("You hovered over the text field"));
 
-        $("#toolTipButton").hover();
-        $x("//div[@class='tooltip-inner']").shouldHave(text("You hovered over the Button"));
+        toolTipsPage.hoverText()
+                .getResult()
+                .shouldHave(text("You hovered over the Contrary"));
 
-        $("#toolTipTextField").hover();
-        $x("//div[@class='tooltip-inner']").shouldHave(text("You hovered over the text field"));
-
-        $x("//div[@id='texToolTopContainer']//a[text()='Contrary']").hover();
-        $x("//div[@class='tooltip-inner']").shouldHave(text("You hovered over the Contrary"));
-
-        $x("//div[@id='texToolTopContainer']//a[text()='1.10.32']").hover();
-        $x("//div[@class='tooltip-inner']").shouldHave(text("You hovered over the 1.10.32"));
+        toolTipsPage.hoverDigit()
+                .getResult()
+                .shouldHave(text("You hovered over the 1.10.32"));
 
     }
 

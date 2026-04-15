@@ -3,12 +3,16 @@ package tests.demoqa.tests.widgets;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.widgetsPage.SliderPage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SliderTest {
+
+    SliderPage sliderPage = new SliderPage();
 
     @BeforeAll
     static void setUp() {
@@ -16,19 +20,17 @@ public class SliderTest {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
+    @BeforeEach
+    void openPage(){
+        open("/slider");
+    }
+
     @Test
     void sliderTest() {
 
         String value = "57";
-
-        open("/slider");
-
-        executeJavaScript("var slider = document.getElementById('slider');" +
-                "var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;" +
-                "nativeInputValueSetter.call(slider, " + value + ");" +
-                "slider.dispatchEvent(new Event('input', { bubbles: true }));");
-
-        assertEquals(value, $("#sliderValue").getValue());
+        sliderPage.setSlider(value);
+        assertEquals(value, sliderPage.getSliderValue());
     }
 
 

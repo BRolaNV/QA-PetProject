@@ -3,12 +3,16 @@ package tests.demoqa.tests.widgets;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.widgetsPage.MenuPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MenuTest {
+
+    MenuPage menuPage =  new MenuPage();
 
     @BeforeAll
     static void setUp() {
@@ -16,23 +20,26 @@ public class MenuTest {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
+    @BeforeEach
+    void openPage() {
+        open("/menu");
+    }
+
     @Test
     void menuTest(){
 
+        menuPage.hoverItem1();
+        menuPage.getSubList().shouldNotBe(visible);
 
-        open("/menu");
+        menuPage.hoverItem3();
+        menuPage.getSubList().shouldNotBe(visible);
 
-        $x("//a[text()='Main Item 1']").hover();
-        $x("//a[text()='Sub Item']").shouldNotBe(visible);
+        menuPage.hoverItem2();
+        menuPage.getSubList().shouldBe(visible);
 
-        $x("//a[text()='Main Item 3']").hover();
-        $x("//a[text()='Sub Item']").shouldNotBe(visible);
-
-        $x("//a[text()='Main Item 2']").hover();
-        $x("//a[text()='Sub Item']").shouldBe(visible);
-
-        $x("//a[text()='SUB SUB LIST »']").hover();
-        $x("//a[text()='Sub Sub Item 2']").shouldBe(visible);
+        menuPage.hoverSubList();
+        menuPage.getSubSubList1().shouldBe(visible);
+        menuPage.getSubSubList2().shouldBe(visible);
 
     }
 
