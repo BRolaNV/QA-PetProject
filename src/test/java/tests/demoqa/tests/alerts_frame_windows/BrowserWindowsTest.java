@@ -4,35 +4,45 @@ import com.codeborne.selenide.Configuration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.alerts_frame_windows_Page.BrowserWindowsPage;
 
-import static com.codeborne.selenide.Condition.text;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
 public class BrowserWindowsTest {
 
+    BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
 
     @BeforeAll
     static void setUp() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "none";
+        Configuration.timeout = 20000;
+    }
+
+    @BeforeEach
+    void openPage(){
+        open("/browser-windows");
     }
 
     @Test
     void newTapButtonTest() {
-        open("/browser-windows");
 
-        $("#tabButton").click();
+        browserWindowsPage.clickTabButton();
         switchTo().window(1);
         webdriver().shouldHave(url("https://demoqa.com/sample"));
     }
 
     @Test
     void newWindowButtonTest() {
-        open("/browser-windows");
 
-        $("#windowButton").click();
+        browserWindowsPage.clickWindowButton();
         switchTo().window(1);
         webdriver().shouldHave(url("https://demoqa.com/sample"));
     }
@@ -40,16 +50,13 @@ public class BrowserWindowsTest {
     @Test
     void newWindowMassageButtonTest() {
 
-        Configuration.pageLoadStrategy = "none";
-        open("/browser-windows");
+        browserWindowsPage.clickMessageWindowButton();
 
-        $("#messageWindowButton").click();
         switchTo().window(1);
 
-        $("body").shouldHave(text("Knowledge increases by sharing but not by saving. " +
-                "Please share this website with your friends and in your organization."));
+        browserWindowsPage.getResult().shouldHave(text("Knowledge increases by sharing but not by saving. " +
+                        "Please share this website with your friends and in your organization."), Duration.ofSeconds(10));
 
-        Configuration.pageLoadStrategy = "normal";
     }
 
     @AfterEach

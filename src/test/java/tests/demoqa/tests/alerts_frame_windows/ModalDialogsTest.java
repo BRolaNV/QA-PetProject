@@ -3,12 +3,16 @@ package tests.demoqa.tests.alerts_frame_windows;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.alerts_frame_windows_Page.ModalDialogsPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ModalDialogsTest {
+
+    ModalDialogsPage modalDialogsPage = new ModalDialogsPage();
 
     @BeforeAll
     static void setUp() {
@@ -16,29 +20,30 @@ public class ModalDialogsTest {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
+    @BeforeEach
+    void openPage() {
+        open("/modal-dialogs");
+    }
+
     @Test
     void smallModalTest() {
 
-        open("/modal-dialogs");
+        modalDialogsPage.openSmallModal();
+        modalDialogsPage.getTextInModal().shouldHave(text("Small Modal"));
 
-        $("#showSmallModal").click();
-        $x("//div[@class='modal-title h4']").shouldHave(text("Small Modal"));
-
-        $("#closeSmallModal").click();
-        $x("//h1[@class='text-center']").shouldHave(text("Modal Dialogs"));
+        modalDialogsPage.closeSmallModal();
+        modalDialogsPage.getTextOutModal().shouldHave(text("Modal Dialogs"));
 
     }
 
     @Test
     void largeModalTest() {
 
-        open("/modal-dialogs");
+        modalDialogsPage.openLargeModal();
+        modalDialogsPage.getTextInModal().shouldHave(text("Large Modal"));
 
-        $("#showLargeModal").click();
-        $x("//div[@class='modal-title h4']").shouldHave(text("Large Modal"));
-
-        $("#closeLargeModal").click();
-        $x("//h1[@class='text-center']").shouldHave(text("Modal Dialogs"));
+        modalDialogsPage.closeLargeModal();
+        modalDialogsPage.getTextOutModal().shouldHave(text("Modal Dialogs"));
 
     }
 
