@@ -4,13 +4,17 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.interactionsPage.SelectablePage;
+import tests.demoqa.pages.interactionsPage.SortablePage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SortableTest {
 
+    SortablePage sortablePage = new SortablePage();
 
     @BeforeAll
     static void setUp() {
@@ -18,34 +22,25 @@ public class SortableTest {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
+    @BeforeEach
+    void openPage(){
+        open("/sortable");
+    }
+
     @Test
     void listTest(){
-
-        open("/sortable");
-
-        SelenideElement six = $x("//div[@data-handler-id='T10']");
-        SelenideElement three = $x("//div[@data-handler-id='T4']");
-
-        actions().clickAndHold(six).moveToElement(three).release().perform();
-
-        $x("//div[@data-handler-id='T4']").shouldHave(text("Six"));
-        $x("//div[@data-handler-id='T10']").shouldHave(text("Five"));
+        sortablePage.moveElementToElement(sortablePage.getListSix(), sortablePage.getListThree());
+        sortablePage.getListThree().shouldHave(text("Six"));
+        sortablePage.getListSix().shouldHave(text("Five"));
     }
 
     @Test
     void gridTest(){
+        sortablePage.openGrid();
 
-        open("/sortable");
-
-        $x("//button[@id='demo-tab-grid']").click();
-
-        SelenideElement six = $x("//div[@data-handler-id='T22']");
-        SelenideElement three = $x("//div[@data-handler-id='T16']");
-
-        actions().clickAndHold(six).moveToElement(three).release().perform();
-
-        $x("//div[@data-handler-id='T16']").shouldHave(text("Six"));
-        $x("//div[@data-handler-id='T22']").shouldHave(text("Five"));
+        sortablePage.moveElementToElement(sortablePage.getGridSix(), sortablePage.getGridThree());
+        sortablePage.getGridThree().shouldHave(text("Six"));
+        sortablePage.getGridSix().shouldHave(text("Five"));
     }
 
 

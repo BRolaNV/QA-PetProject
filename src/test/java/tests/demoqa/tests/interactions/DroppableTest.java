@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
+import tests.demoqa.pages.interactionsPage.DroppablePage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -17,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class DroppableTest {
 
+    DroppablePage droppablePage = new DroppablePage();
+
     @BeforeAll
     static void setUp() {
         Configuration.browser = "chrome";
@@ -24,75 +27,50 @@ public class DroppableTest {
     }
 
     @BeforeEach
-    void open(){
-        Selenide.open("/droppable");
+    void openPage(){
+        open("/droppable");
     }
 
     @Test
     void simpleTest(){
-
-        SelenideElement draggable = $x("//div[@id='draggable']");
-        SelenideElement droppable = $x("//div[@id='droppable']");
-
-        actions().clickAndHold(draggable).moveToElement(droppable).release().perform();
-
-        $x("//div[@id='simpleDropContainer']//p").shouldHave(text("Dropped!"));
+        droppablePage.moveElementToElement(droppablePage.getDragMe(), droppablePage.getDropHereSimple());
+        droppablePage.getSimpleResult().shouldHave(text("Dropped!"));
     }
 
     @Test
     void acceptTest(){
 
-        $x("//button[text()='Accept']").click();
+        droppablePage.openAccept();
 
-        SelenideElement acceptable = $x("//div[@id='acceptDropContainer']//div[text()='Acceptable']");
-        SelenideElement notAcceptable = $x("//div[@id='acceptDropContainer']//div[text()='Not Acceptable']");
-        SelenideElement droppable = $x("//div[@id='acceptDropContainer']//p[text()='Drop here']");
+        droppablePage.moveElementToElement(droppablePage.getNotAcceptable(),  droppablePage.getDropHereAccept());
+        droppablePage.getAcceptResult().shouldNotHave(text("Dropped!"));
 
-        acceptable.shouldBe(visible);
-        acceptable.getLocation();
-
-        actions().clickAndHold(notAcceptable).moveToElement(droppable).release().perform();
-        $x("//div[@id='acceptDropContainer']//p").shouldNotHave(text("Dropped!"));
-
-        actions().clickAndHold(acceptable).moveToElement(droppable).release().perform();
-        $x("//div[@id='acceptDropContainer']//p").shouldHave(text("Dropped!"));
+        droppablePage.moveElementToElement(droppablePage.getAcceptable(), droppablePage.getDropHereAccept());
+        droppablePage.getAcceptResult().shouldHave(text("Dropped!"));
     }
 
     @Test
     void preventPropagationTest(){
 
-        $x("//button[text()='Prevent Propogation']").click();
+        droppablePage.openPreventPropagation();
 
-        SelenideElement dragBox = $x("//div[@id='dragBox']");
-        SelenideElement notGreedy = $x("//div[@id='notGreedyInnerDropBox']");
-        SelenideElement greedy = $x("//div[@id='greedyDropBoxInner']");
+        droppablePage.moveElementToElement(droppablePage.getDragBox(), droppablePage.getNotGreedy());
+        droppablePage.getNotGreedyResult().shouldNotHave(text("Outer droppable"));
 
-        dragBox.shouldBe(visible);
-        dragBox.getLocation();
-
-        actions().clickAndHold(dragBox).moveToElement(notGreedy).release().perform();
-        $x("//div[@id='notGreedyDropBox']//p").shouldNotHave(text("Outer droppable"));
-
-        actions().clickAndHold(dragBox).moveToElement(greedy).release().perform();
-        $x("//div[@id='greedyDropBox']//p").shouldHave(text("Outer droppable"));
+        droppablePage.moveElementToElement(droppablePage.getDragBox(), droppablePage.getGreedy());
+        droppablePage.getGreedyResult().shouldHave(text("Outer droppable"));
     }
 
     @Test
     void revertDraggableTest(){
 
-        $x("//button[text()='Revert Draggable']").click();
+        droppablePage.openRevertDraggable();
 
-        SelenideElement revertable = $x("//div[@id='revertable']");
-        SelenideElement notRevertable = $x("//div[@id='notRevertable']");
-        SelenideElement droppable = $x("//div[@id='revertableDropContainer']//div[@id='droppable']");
+        Point revStartLocation = droppablePage.getRevertable().getLocation();
+        Point notRevStartLocation = droppablePage.getNotRevertable().getLocation();
 
-        revertable.shouldBe(visible);
-
-        Point revStartLocation = revertable.getLocation();
-        Point notRevStartLocation = notRevertable.getLocation();
-
-        actions().clickAndHold(revertable).moveToElement(droppable).release().perform();
-        actions().clickAndHold(notRevertable).moveToElement(droppable).release().perform();
+        droppablePage.moveElementToElement(droppablePage.getRevertable(), droppablePage.getDropHereRevert());
+        droppablePage.moveElementToElement(droppablePage.getNotRevertable(), droppablePage.getDropHereRevert());
 
         try {
             Thread.sleep(500);
@@ -100,13 +78,13 @@ public class DroppableTest {
             throw new RuntimeException(e);
         }
 
-        Point revEndLocation = revertable.getLocation();
-        Point notRevEndLocation = notRevertable.getLocation();
+        Point revEndLocation = droppablePage.getRevertable().getLocation();
+        Point notRevEndLocation = droppablePage.getNotRevertable().getLocation();
 
         assertEquals(revStartLocation, revEndLocation);
         assertNotEquals(notRevStartLocation, notRevEndLocation);
 
-        actions().clickAndHold(notRevertable).moveToLocation(notRevStartLocation.getX(), notRevStartLocation.getY()).release().perform();
+        droppablePage.moveElementToLocation(notRevStartLocation.getX(), notRevStartLocation.getY(), droppablePage.getNotRevertable());
 
         try {
             Thread.sleep(500);
@@ -114,7 +92,7 @@ public class DroppableTest {
             throw new RuntimeException(e);
         }
 
-        Point notRevLastLocation = notRevertable.getLocation();
+        Point notRevLastLocation = droppablePage.getNotRevertable().getLocation();
 
         assertEquals(notRevEndLocation, notRevLastLocation);
     }

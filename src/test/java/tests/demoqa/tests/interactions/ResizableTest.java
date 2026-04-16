@@ -7,6 +7,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.pages.interactionsPage.ResizablePage;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
@@ -14,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ResizableTest {
 
+    ResizablePage resizablePage =  new ResizablePage();
 
     @BeforeAll
     static void setUp() {
@@ -22,19 +26,17 @@ public class ResizableTest {
     }
 
     @BeforeEach
-    void open(){
-        Selenide.open("/resizable");
+    void openPage(){
+        open("/resizable");
     }
 
     void resize(int x, int y){
-
-        SelenideElement holder = $x("//div[@id='resizableBoxWithRestriction']//span");
+        SelenideElement holder = resizablePage.getResizeableBox();
         actions().clickAndHold(holder).moveByOffset(x, y).release().perform();
     }
 
     void equals(String s){
-
-        String result = $x("//div[@id='resizableBoxWithRestriction']").getAttribute("style");
+        String result = resizablePage.getResizeableBoxResult().getAttribute("style");
         assertEquals(s, result);
     }
 
@@ -90,13 +92,14 @@ public class ResizableTest {
     @Test
     void resizableTest(){
 
-        SelenideElement holder = $x("//div[@id='resizable']//span");
-        holder.scrollIntoView(true);
-        holder.shouldBe(visible);
-        holder.getLocation();
-        actions().clickAndHold(holder).moveByOffset(-200, -200).release().perform();
+        resizablePage.getResizeable().scrollIntoView(true);
+        resizablePage.getResizeable().shouldBe(visible);
 
-        String result = $x("//div[@id='resizable']").getAttribute("style");
+        Selenide.sleep(500);
+
+        resizablePage.moveElementByOffSet(-200, -200, resizablePage.getResizeable());
+
+        String result = resizablePage.getResizeableResult().getAttribute("style");
         assertEquals("width: 20px; height: 20px;", result);
     }
 
