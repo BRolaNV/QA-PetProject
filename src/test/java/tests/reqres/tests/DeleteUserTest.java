@@ -1,4 +1,5 @@
 package tests.reqres.tests;
+
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.specifications.Specifications;

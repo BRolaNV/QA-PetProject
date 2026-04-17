@@ -38,13 +38,28 @@ public class TextBoxPage {
         return this;
     }
 
-    public void submit() {
+    public TextBoxPage submit() {
         submitButton.click(ClickOptions.usingJavaScript());
+        return this;
     }
 
-    public SelenideElement getOutputName() { return outputName; }
-    public SelenideElement getOutputEmail() { return outputEmail; }
-    public SelenideElement getOutputCurrentAddress() { return outputCurrentAddress; }
-    public SelenideElement getOutputPermanentAddress() { return outputPermanentAddress; }
-    public SelenideElement getOutput() { return output; }
+    public SelenideElement getOutputName() {
+        return outputName;
+    }
+
+    public SelenideElement getOutputEmail() {
+        return outputEmail;
+    }
+
+    public SelenideElement getOutputCurrentAddress() {
+        return outputCurrentAddress;
+    }
+
+    public SelenideElement getOutputPermanentAddress() {
+        return outputPermanentAddress;
+    }
+
+    public SelenideElement getOutput() {
+        return output;
+    }
 }

@@ -3,8 +3,8 @@ package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.POJO.RootData;
-import tests.reqres.POJO.UserData;
+import tests.reqres.pojo.RootData;
+import tests.reqres.pojo.UserData;
 import tests.reqres.specifications.Specifications;
 
 import java.util.List;
@@ -47,21 +47,21 @@ public class ListUsersTest extends BaseApiTest {
     }
 
     @Test
-    public void checkAvatarAndIdTest(){
+    public void checkAvatarAndIdTest() {
 
         List<UserData> users = getUsers();
         users.forEach(x -> assertTrue(x.getAvatar().contains(x.getId().toString())));
     }
 
     @Test
-    public void checkEmailsTest(){
+    public void checkEmailsTest() {
 
         List<UserData> users = getUsers();
         users.forEach(x -> assertTrue(x.getEmail().endsWith("reqres.in")));
     }
 
     @Test
-    public void checkNumberOfElementsTest(){
+    public void checkNumberOfElementsTest() {
 
         RootData rootData = getRoot();
         List<UserData> users = rootData.getData();
@@ -70,7 +70,7 @@ public class ListUsersTest extends BaseApiTest {
     }
 
     @Test
-    public void checkRootTest(){
+    public void checkRootTest() {
 
         RootData rootData = getRoot();
         assertEquals(2, rootData.getPage());

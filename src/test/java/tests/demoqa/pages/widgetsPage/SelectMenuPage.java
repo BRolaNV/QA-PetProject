@@ -43,7 +43,7 @@ public class SelectMenuPage {
         return selectOneField;
     }
 
-    public SelectMenuPage oldSelect(String value){
+    public SelectMenuPage oldSelect(String value) {
         oldSelectMenu.selectOptionByValue(value);
         return this;
     }
@@ -52,7 +52,7 @@ public class SelectMenuPage {
         return oldSelectMenu.getSelectedOption();
     }
 
-    public SelectMenuPage standardMultiSelect(String value){
+    public SelectMenuPage standardMultiSelect(String value) {
         standardMultiSelect.selectOptionByValue(value.toLowerCase());
         return this;
     }
@@ -61,7 +61,7 @@ public class SelectMenuPage {
         return standardMultiSelect.getSelectedOption();
     }
 
-    public SelectMenuPage multiSelectGreen(){
+    public SelectMenuPage multiSelectGreen() {
         multiSelectField.click();
         multiSelectGreen.click();
         return this;
@@ -71,7 +71,7 @@ public class SelectMenuPage {
         return multiSelectListbox;
     }
 
-    public SelectMenuPage multiSelectRemoveGreen(){
+    public SelectMenuPage multiSelectRemoveGreen() {
         multiSelectRemoveGreenBtn.click();
         return this;
     }
@@ -80,7 +80,7 @@ public class SelectMenuPage {
         return multiSelectPlaceholder;
     }
 
-    public SelectMenuPage multiSelectAll(){
+    public SelectMenuPage multiSelectAll() {
         multiSelectGreen.click();
         multiSelectBlue.click();
         multiSelectBlack.click();
@@ -88,7 +88,7 @@ public class SelectMenuPage {
         return this;
     }
 
-    public SelectMenuPage multiSelectRemoveAll(){
+    public SelectMenuPage multiSelectRemoveAll() {
         multiSelectRemoveAllBtn.click();
         return this;
     }

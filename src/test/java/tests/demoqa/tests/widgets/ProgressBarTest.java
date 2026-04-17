@@ -1,25 +1,25 @@
 package tests.demoqa.tests.widgets;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.ProgressBarPage;
+import tests.demoqa.tests.BaseUITest;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class ProgressBarTest {
+public class ProgressBarTest extends BaseUITest {
 
     ProgressBarPage progressBarPage = new ProgressBarPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
@@ -49,12 +49,6 @@ public class ProgressBarTest {
                 .getProgressBarText()
                 .shouldHave(text("0%"));
 
-    }
-
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }
 

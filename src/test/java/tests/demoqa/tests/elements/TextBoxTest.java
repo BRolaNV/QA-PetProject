@@ -1,36 +1,35 @@
 package tests.demoqa.tests.elements;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.TextBoxPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTest {
+public class TextBoxTest extends BaseUITest {
 
-    TextBoxPage textBoxPage =  new TextBoxPage();
+    TextBoxPage textBoxPage = new TextBoxPage();
     Faker faker = new Faker();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
-    void openPage (){
+    void openPage() {
         open("/text-box");
     }
 
     @Test
-    void fillFullFormTest(){
+    void fillFullFormTest() {
 
         String name = faker.name().fullName();
         String email = faker.internet().emailAddress();
@@ -51,7 +50,7 @@ public class TextBoxTest {
     }
 
     @Test
-    void fillPartialFormTest(){
+    void fillPartialFormTest() {
 
         String name = faker.name().fullName();
         String email = faker.internet().emailAddress();
@@ -70,7 +69,7 @@ public class TextBoxTest {
     }
 
     @Test
-    void fillWrongEmailTest(){
+    void fillWrongEmailTest() {
 
         textBoxPage.setEmail("wrong@email");
         textBoxPage.submit();
@@ -78,14 +77,9 @@ public class TextBoxTest {
     }
 
     @Test
-    void submitEmptyFormTest(){
+    void submitEmptyFormTest() {
 
         textBoxPage.submit();
         textBoxPage.getOutput().shouldNotBe(visible);
-    }
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

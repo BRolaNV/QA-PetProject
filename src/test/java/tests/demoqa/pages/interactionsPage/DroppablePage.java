@@ -3,7 +3,7 @@ package tests.demoqa.pages.interactionsPage;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.actions;
 
 public class DroppablePage {
@@ -41,7 +41,7 @@ public class DroppablePage {
     public DroppablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
         actions()
                 .clickAndHold(element)
-                .moveToLocation(xCoordinate,yCoordinate)
+                .moveToLocation(xCoordinate, yCoordinate)
                 .release().perform();
         return this;
     }

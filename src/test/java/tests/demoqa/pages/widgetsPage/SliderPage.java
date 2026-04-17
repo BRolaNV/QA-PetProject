@@ -14,7 +14,7 @@ public class SliderPage {
         return sliderValue.getValue();
     }
 
-    public SliderPage setSlider(String value){
+    public SliderPage setSlider(String value) {
         executeJavaScript("var slider = document.getElementById('slider');" +
                 "var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;" +
                 "nativeInputValueSetter.call(slider, " + value + ");" +

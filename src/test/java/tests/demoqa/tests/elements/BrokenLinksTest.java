@@ -1,31 +1,23 @@
 package tests.demoqa.tests.elements;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.BrokenLinksPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BrokenLinksTest {
+public class BrokenLinksTest extends BaseUITest {
 
     BrokenLinksPage brokenLinksPage = new BrokenLinksPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/broken");
     }
 

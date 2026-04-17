@@ -2,7 +2,7 @@ package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.POJO.ResourcesData;
+import tests.reqres.pojo.ResourcesData;
 import tests.reqres.specifications.Specifications;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class ListResourcesTest extends BaseApiTest {
         List<Integer> years = resources.stream().map(ResourcesData::getYear).toList();
         List<Integer> sorted = years.stream().sorted().toList();
 
-        assertEquals(sorted,  years);
+        assertEquals(sorted, years);
     }
 
     @Test

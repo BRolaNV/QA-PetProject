@@ -1,33 +1,33 @@
 package tests.demoqa.tests.interactions;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.interactionsPage.SelectablePage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class SelectableTest {
+public class SelectableTest extends BaseUITest {
 
     SelectablePage selectablePage = new SelectablePage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/selectable");
     }
 
     @Test
-    void listTest(){
+    void listTest() {
 
         String element = "Cras justo odio";
 
@@ -37,7 +37,7 @@ public class SelectableTest {
     }
 
     @Test
-    void gridTest(){
+    void gridTest() {
 
         String element = "Three";
         selectablePage.openGrid();
@@ -45,11 +45,5 @@ public class SelectableTest {
         selectablePage.getActiveGrid().shouldNotBe(visible);
         selectablePage.selectInGrid(element);
         selectablePage.getActiveGrid().shouldHave(text(element));
-    }
-
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

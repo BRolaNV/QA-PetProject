@@ -1,30 +1,27 @@
 package tests.demoqa.tests.elements;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.ButtonsPage;
-
-import java.awt.*;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class ButtonsTest {
+public class ButtonsTest extends BaseUITest {
 
     ButtonsPage buttonsPage = new ButtonsPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/buttons");
     }
 
@@ -44,10 +41,5 @@ public class ButtonsTest {
     void clickMeTest() {
         buttonsPage.clickMe();
         buttonsPage.getClickMeMess().shouldHave(text("You have done a dynamic click"));
-    }
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

@@ -2,10 +2,11 @@ package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.POJO.UserData;
+import tests.reqres.pojo.UserData;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SingleUserTest extends BaseApiTest {
@@ -31,7 +32,7 @@ public class SingleUserTest extends BaseApiTest {
                 .avatar("https://reqres.in/img/faces/2-image.jpg")
                 .build();
 
-        assertTrue(realUser.equals(user));
+        assertEquals(realUser, user);
     }
 
     @Test

@@ -14,7 +14,7 @@ public class AutoCompletePage {
             singleValue = $x("//div[contains(@class,'auto-complete__single-value')]");
 
     public AutoCompletePage remove(String value) {
-        $x("//div[@aria-label='Remove "+value+"']").click();
+        $x("//div[@aria-label='Remove " + value + "']").click();
         return this;
     }
 

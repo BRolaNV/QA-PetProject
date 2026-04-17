@@ -2,7 +2,7 @@ package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.POJO.ForUpdateData;
+import tests.reqres.pojo.ForUpdateData;
 import tests.reqres.specifications.Specifications;
 
 import java.time.Clock;

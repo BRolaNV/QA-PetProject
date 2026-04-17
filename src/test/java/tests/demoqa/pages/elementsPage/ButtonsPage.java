@@ -29,8 +29,16 @@ public class ButtonsPage {
         return this;
     }
 
-    public SelenideElement getDoubleClickMess() { return doubleClickMessage; }
-    public SelenideElement getRightClickMess() { return rightClickMessage; }
-    public SelenideElement getClickMeMess() { return dynamicClickMessage; }
+    public SelenideElement getDoubleClickMess() {
+        return doubleClickMessage;
+    }
+
+    public SelenideElement getRightClickMess() {
+        return rightClickMessage;
+    }
+
+    public SelenideElement getClickMeMess() {
+        return dynamicClickMessage;
+    }
 
 }

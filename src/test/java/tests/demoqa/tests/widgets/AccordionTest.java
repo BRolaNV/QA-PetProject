@@ -1,23 +1,22 @@
 package tests.demoqa.tests.widgets;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.AccordionPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class AccordionTest {
+public class AccordionTest extends BaseUITest {
 
     AccordionPage accordionPage = new AccordionPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
@@ -26,7 +25,7 @@ public class AccordionTest {
     }
 
     @Test
-    void accordionTest(){
+    void accordionTest() {
 
         accordionPage.openWhyDoWeUseIt();
         accordionPage.getResult()
@@ -39,11 +38,5 @@ public class AccordionTest {
         accordionPage.openWhatIsLoremIpsum();
         accordionPage.getResult()
                 .shouldHave(text("and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ev"));
-    }
-
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

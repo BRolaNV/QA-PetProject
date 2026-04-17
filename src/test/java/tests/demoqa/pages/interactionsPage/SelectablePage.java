@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.actions;
 
 public class SelectablePage {
 
@@ -20,12 +19,12 @@ public class SelectablePage {
     }
 
     public SelectablePage selectInList(String element) {
-        $x("//li[text()='"+element+"']").click();
+        $x("//li[text()='" + element + "']").click();
         return this;
     }
 
     public SelectablePage selectInGrid(String element) {
-        $x("//div[@id='gridContainer']//li[text()='"+element+"']").click();
+        $x("//div[@id='gridContainer']//li[text()='" + element + "']").click();
         return this;
     }
 }

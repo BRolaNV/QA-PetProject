@@ -2,7 +2,7 @@ package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.POJO.UserData;
+import tests.reqres.pojo.UserData;
 import tests.reqres.specifications.Specifications;
 
 import java.util.List;

@@ -1,48 +1,41 @@
 package tests.demoqa.tests.interactions;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
 import tests.demoqa.pages.interactionsPage.DroppablePage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class DroppableTest {
+public class DroppableTest extends BaseUITest {
 
     DroppablePage droppablePage = new DroppablePage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/droppable");
     }
 
     @Test
-    void simpleTest(){
+    void simpleTest() {
         droppablePage.moveElementToElement(droppablePage.getDragMe(), droppablePage.getDropHereSimple());
         droppablePage.getSimpleResult().shouldHave(text("Dropped!"));
     }
 
     @Test
-    void acceptTest(){
+    void acceptTest() {
 
         droppablePage.openAccept();
 
-        droppablePage.moveElementToElement(droppablePage.getNotAcceptable(),  droppablePage.getDropHereAccept());
+        droppablePage.moveElementToElement(droppablePage.getNotAcceptable(), droppablePage.getDropHereAccept());
         droppablePage.getAcceptResult().shouldNotHave(text("Dropped!"));
 
         droppablePage.moveElementToElement(droppablePage.getAcceptable(), droppablePage.getDropHereAccept());
@@ -50,7 +43,7 @@ public class DroppableTest {
     }
 
     @Test
-    void preventPropagationTest(){
+    void preventPropagationTest() {
 
         droppablePage.openPreventPropagation();
 
@@ -62,7 +55,7 @@ public class DroppableTest {
     }
 
     @Test
-    void revertDraggableTest(){
+    void revertDraggableTest() {
 
         droppablePage.openRevertDraggable();
 
@@ -72,11 +65,7 @@ public class DroppableTest {
         droppablePage.moveElementToElement(droppablePage.getRevertable(), droppablePage.getDropHereRevert());
         droppablePage.moveElementToElement(droppablePage.getNotRevertable(), droppablePage.getDropHereRevert());
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Selenide.sleep(500);
 
         Point revEndLocation = droppablePage.getRevertable().getLocation();
         Point notRevEndLocation = droppablePage.getNotRevertable().getLocation();
@@ -86,11 +75,7 @@ public class DroppableTest {
 
         droppablePage.moveElementToLocation(notRevStartLocation.getX(), notRevStartLocation.getY(), droppablePage.getNotRevertable());
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Selenide.sleep(500);
 
         Point notRevLastLocation = droppablePage.getNotRevertable().getLocation();
 

@@ -15,21 +15,21 @@ public class BrokenLinksPage {
             validImage = $("img[src='/images/Toolsqa.jpg']");
 
 
-    public BrokenLinksPage validLinkClick(){
+    public BrokenLinksPage validLinkClick() {
         validLink.click();
         return this;
     }
 
-    public BrokenLinksPage brokenLinkClick(){
+    public BrokenLinksPage brokenLinkClick() {
         brokenLink.click();
         return this;
     }
 
-    public SelenideElement getContent(){
+    public SelenideElement getContent() {
         return content;
     }
 
-    public Long getBrokenImageWidth(){
+    public Long getBrokenImageWidth() {
         long width = executeJavaScript(
                 "return arguments[0].naturalWidth",
                 brokenImage.toWebElement()
@@ -38,7 +38,7 @@ public class BrokenLinksPage {
         return width;
     }
 
-    public Long getValidImageWidth(){
+    public Long getValidImageWidth() {
         long width = executeJavaScript(
                 "return arguments[0].naturalWidth",
                 validImage.toWebElement()

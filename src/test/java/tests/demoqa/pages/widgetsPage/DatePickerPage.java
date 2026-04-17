@@ -1,7 +1,6 @@
 package tests.demoqa.pages.widgetsPage;
 
 import com.codeborne.selenide.SelenideElement;
-import tests.demoqa.pages.formsPage.PracticeFormPage;
 
 import java.util.HashMap;
 
@@ -18,14 +17,14 @@ public class DatePickerPage {
             dateAndTimePickerCurrentMonth = $x("//h2[contains(@class, 'react-datepicker__current-month')]"),
             dateAndTimePickerNextMonthBtn = $x("//button[@aria-label='Next Month']"),
             dateAndTimePickerPreviousMonthBtn = $x("//button[@aria-label='Previous Month']"),
-            dateAndTimePickerTime =  $x("//ul[@class='react-datepicker__time-list']");
+            dateAndTimePickerTime = $x("//ul[@class='react-datepicker__time-list']");
 
-    public String getDatePickerValue(){
+    public String getDatePickerValue() {
         String s = datePickerInput.getValue();
         return s;
     }
 
-    public String getDateAndTimePickerValue(){
+    public String getDateAndTimePickerValue() {
         String s = dateAndTimePickerInput.getValue();
         return s;
     }
@@ -39,7 +38,7 @@ public class DatePickerPage {
 
         int monthInt = Integer.parseInt(s[0]);
         String month = String.valueOf(monthInt - 1);
-        String year  = s[2];
+        String year = s[2];
 
         HashMap<String, String> map = new HashMap<>();
         map.put("0", "January");
@@ -58,7 +57,7 @@ public class DatePickerPage {
         datePickerInput.click();
         datePickerMonth.selectOptionByValue(month);
         datePickerYear.selectOptionByValue(year);
-        $x("//div[contains(@class,'react-datepicker__day')][contains(@aria-label, '"+map.get(month)+" "+day+"')]").click();
+        $x("//div[contains(@class,'react-datepicker__day')][contains(@aria-label, '" + map.get(month) + " " + day + "')]").click();
 
         return this;
     }
@@ -72,8 +71,7 @@ public class DatePickerPage {
 
         String month = s[0];
 
-        int yearInt = Integer.parseInt(s[2]);
-        String year  = s[2];
+        String year = s[2];
 
         String[] times = s[3].split(":");
         StringBuilder sb = new StringBuilder();
@@ -107,15 +105,11 @@ public class DatePickerPage {
 
         dateAndTimePickerInput.click();
 
-        while(!dateAndTimePickerCurrentMonth.getText().equals(month + " " + 2027)){
-            dateAndTimePickerNextMonthBtn.click();
-        }
-
-        while(!dateAndTimePickerCurrentMonth.getText().equals(month + " " + year)){
+        while (!dateAndTimePickerCurrentMonth.getText().equals(month + " " + year)) {
             dateAndTimePickerPreviousMonthBtn.click();
         }
 
-        $x("//div[contains(@class,'react-datepicker__day')][contains(@aria-label, '"+month+" "+day+"')]").click();
+        $x("//div[contains(@class,'react-datepicker__day')][contains(@aria-label, '" + month + " " + day + "')]").click();
         dateAndTimePickerTime.find(byText(time)).click();
 
         return this;

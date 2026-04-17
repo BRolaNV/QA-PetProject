@@ -6,14 +6,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.DynamicPropertiesPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
 
-public class DynamicPropertiesTest {
+public class DynamicPropertiesTest extends BaseUITest {
 
-    DynamicPropertiesPage dynamicPropertiesPage =  new DynamicPropertiesPage();
+    DynamicPropertiesPage dynamicPropertiesPage = new DynamicPropertiesPage();
 
     @BeforeAll
     static void setUp() {
@@ -22,8 +24,13 @@ public class DynamicPropertiesTest {
         Configuration.timeout = 5100;
     }
 
+    @AfterAll
+    static void close() {
+        closeWebDriver();
+    }
+
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/dynamic-properties");
     }
 
@@ -46,10 +53,5 @@ public class DynamicPropertiesTest {
 
         dynamicPropertiesPage.getChangeColor().shouldNotHave(cssClass("text-danger"));
         dynamicPropertiesPage.getChangeColor().shouldHave(cssClass("text-danger"));
-    }
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

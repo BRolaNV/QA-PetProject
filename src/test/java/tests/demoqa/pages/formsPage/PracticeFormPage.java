@@ -50,9 +50,15 @@ public class PracticeFormPage {
 
     public PracticeFormPage setGender(String Male_Female_Other) {
         switch (Male_Female_Other.toLowerCase()) {
-            case "male": genderMale.click(); break;
-            case "female": genderFemale.click(); break;
-            case "other": genderOther.click(); break;
+            case "male":
+                genderMale.click();
+                break;
+            case "female":
+                genderFemale.click();
+                break;
+            case "other":
+                genderOther.click();
+                break;
         }
         return this;
     }
@@ -72,7 +78,7 @@ public class PracticeFormPage {
         int dayInt = Integer.parseInt(s[0]);
         String day = String.valueOf(dayInt);
         String month = s[1];
-        String year  = s[2];
+        String year = s[2];
 
         HashMap<String, String> map = new HashMap<>();
         map.put("January", "0");
@@ -91,7 +97,7 @@ public class PracticeFormPage {
         datePickerContainer.click();
         datePickerMonth.selectOptionByValue(map.get(month));
         datePickerYear.selectOptionByValue(year);
-        $x("//div[contains(@class,'react-datepicker__day')][text()='"+day+"'][1]").click();
+        $x("//div[contains(@class,'react-datepicker__day')][text()='" + day + "'][1]").click();
 
         return this;
     }
@@ -102,17 +108,17 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage selectHobbySport(){
+    public PracticeFormPage selectHobbySport() {
         hobbySports.click();
         return this;
     }
 
-    public PracticeFormPage selectHobbyReading(){
+    public PracticeFormPage selectHobbyReading() {
         hobbyReading.click();
         return this;
     }
 
-    public PracticeFormPage selectHobbyMusic(){
+    public PracticeFormPage selectHobbyMusic() {
         hobbyMusic.click();
         return this;
     }
@@ -122,34 +128,34 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage selectCurrentAddress(String s){
+    public PracticeFormPage selectCurrentAddress(String s) {
         currentAddress.setValue(s);
         return this;
     }
 
     public PracticeFormPage selectState(String s) {
         state.setValue(s);
-        $x("//div[text()='"+s+"']").click();
+        $x("//div[text()='" + s + "']").click();
         return this;
     }
 
     public PracticeFormPage selectCity(String s) {
         city.setValue(s);
-        $x("//div[text()='"+s+"']").click();
+        $x("//div[text()='" + s + "']").click();
         return this;
     }
 
-    public PracticeFormPage submit () {
+    public PracticeFormPage submit() {
         submitBtn.click(ClickOptions.usingJavaScript());
         return this;
     }
 
-    public PracticeFormPage removeSubject (String s) {
-        $x("//div[@aria-label='Remove "+s+"']").click();
+    public PracticeFormPage removeSubject(String s) {
+        $x("//div[@aria-label='Remove " + s + "']").click();
         return this;
     }
 
-    public SelenideElement getTable(){
+    public SelenideElement getTable() {
         return result;
     }
 }

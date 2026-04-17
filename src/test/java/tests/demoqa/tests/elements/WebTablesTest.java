@@ -1,36 +1,35 @@
 package tests.demoqa.tests.elements;
 
-import com.codeborne.selenide.Configuration;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.data.WebTablesData;
 import tests.demoqa.pages.elementsPage.WebTablesPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-public class WebTablesTest {
+public class WebTablesTest extends BaseUITest {
 
     WebTablesPage webTablesPage = new WebTablesPage();
     Faker faker = new Faker();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/webtables");
     }
 
-    public WebTablesData fillFormAndSubmit(String email, String age, String salary){
+    public WebTablesData fillFormAndSubmit(String email, String age, String salary) {
 
         WebTablesData webTablesData = new WebTablesData(
                 faker.name().firstName(),
@@ -191,10 +190,5 @@ public class WebTablesTest {
 
         webTablesPage.select("Show 50");
         webTablesPage.getNavigationBtnResult().shouldHave(text("1 of 2"));
-    }
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

@@ -2,10 +2,11 @@ package tests.reqres.tests;
 
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.POJO.ResourcesData;
+import tests.reqres.pojo.ResourcesData;
 import tests.reqres.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SingleResourceTest extends BaseApiTest {
@@ -32,7 +33,7 @@ public class SingleResourceTest extends BaseApiTest {
                 .pantone_value("17-2031")
                 .build();
 
-        assertTrue(realResource.equals(resource));
+        assertEquals(realResource, resource);
     }
 
     @Test

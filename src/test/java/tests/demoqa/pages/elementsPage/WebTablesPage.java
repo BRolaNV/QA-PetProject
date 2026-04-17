@@ -61,12 +61,12 @@ public class WebTablesPage {
         return this;
     }
 
-    public WebTablesPage clickSubmit(){
+    public WebTablesPage clickSubmit() {
         submit.click();
         return this;
     }
 
-    public SelenideElement getTable(){
+    public SelenideElement getTable() {
         return tbody;
     }
 
@@ -75,12 +75,12 @@ public class WebTablesPage {
         return this;
     }
 
-    public WebTablesPage clickEditBtn(){
+    public WebTablesPage clickEditBtn() {
         editRecord.click();
         return this;
     }
 
-    public WebTablesPage delete(String s){
+    public WebTablesPage delete(String s) {
         $x("//td[text()='" + s + "']/following-sibling::td//span[@title='Delete']").click();
         return this;
     }
@@ -89,27 +89,27 @@ public class WebTablesPage {
         return navigationBtnResult;
     }
 
-    public WebTablesPage clickNextBtn(){
+    public WebTablesPage clickNextBtn() {
         nextButton.click(ClickOptions.usingJavaScript());
         return this;
     }
 
-    public WebTablesPage clickPreviousBtn(){
+    public WebTablesPage clickPreviousBtn() {
         previousButton.click(ClickOptions.usingJavaScript());
         return this;
     }
 
-    public WebTablesPage clickLastBtn(){
+    public WebTablesPage clickLastBtn() {
         lastButton.click(ClickOptions.usingJavaScript());
         return this;
     }
 
-    public WebTablesPage clickFirstBtn(){
+    public WebTablesPage clickFirstBtn() {
         firstButton.click(ClickOptions.usingJavaScript());
         return this;
     }
 
-    public WebTablesPage select(String s){
+    public WebTablesPage select(String s) {
         selectButton.selectOption(s);
         return this;
     }

@@ -1,28 +1,28 @@
 package tests.demoqa.tests.widgets;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.AutoCompletePage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
 
-public class AutoCompleteTest {
+public class AutoCompleteTest extends BaseUITest {
 
     String color1 = "Red";
     String color2 = "Green";
     String color3 = "Blue";
 
-    AutoCompletePage autoCompletePage =  new AutoCompletePage();
+    AutoCompletePage autoCompletePage = new AutoCompletePage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
@@ -66,11 +66,6 @@ public class AutoCompleteTest {
 
         autoCompletePage.singleInput(color2);
         autoCompletePage.getSingleValue().shouldHave(text(color2));
-    }
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 
 

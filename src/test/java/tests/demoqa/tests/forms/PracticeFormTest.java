@@ -1,36 +1,35 @@
 package tests.demoqa.tests.forms;
 
-import com.codeborne.selenide.Configuration;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.data.PracticeFormData;
 import tests.demoqa.pages.formsPage.PracticeFormPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeFormTest {
+public class PracticeFormTest extends BaseUITest {
 
     Faker faker = new Faker();
-    PracticeFormPage practiceFormPage = new  PracticeFormPage();
+    PracticeFormPage practiceFormPage = new PracticeFormPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/automation-practice-form");
     }
 
-    public PracticeFormData fillRequiredFields(String gender, String number){
+    public PracticeFormData fillRequiredFields(String gender, String number) {
 
         PracticeFormData practiceFormData = PracticeFormData.builder()
                 .firstName(faker.name().firstName())
@@ -120,10 +119,5 @@ public class PracticeFormTest {
         PracticeFormData practiceFormData = fillRequiredFields(null, faker.number().digits(9));
         practiceFormPage.submit();
         practiceFormPage.getTable().shouldNotBe(visible);
-    }
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

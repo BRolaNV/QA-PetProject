@@ -1,50 +1,50 @@
 package tests.demoqa.tests.widgets;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.SelectMenuPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class SelectMenuTest {
+public class SelectMenuTest extends BaseUITest {
 
     SelectMenuPage selectMenuPage = new SelectMenuPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/select-menu");
     }
 
     @Test
-    void selectValueTest(){
+    void selectValueTest() {
         selectMenuPage.selectValue();
         selectMenuPage.getSelectValueResult().shouldHave(text("Group 2, option 2"));
     }
 
     @Test
-    void selectOneTest(){
+    void selectOneTest() {
         selectMenuPage.selectOne();
         selectMenuPage.getSelectOneResult().shouldHave(text("Mr."));
     }
 
     @Test
-    void oldStyleTest(){
+    void oldStyleTest() {
         selectMenuPage.oldSelect("3");
         selectMenuPage.getOldSelectResult().shouldHave(text("Yellow"));
     }
 
     @Test
-    void multiSelectTest(){
+    void multiSelectTest() {
 
         selectMenuPage.multiSelectGreen();
         selectMenuPage.getMultiSelectListbox().shouldNotHave(text("Green"));
@@ -61,15 +61,9 @@ public class SelectMenuTest {
     }
 
     @Test
-    void standardMultiSelectTest(){
+    void standardMultiSelectTest() {
         String car = "Saab";
         selectMenuPage.standardMultiSelect(car);
         selectMenuPage.getStandardMultiSelectResult().shouldHave(text(car));
-    }
-
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

@@ -1,29 +1,22 @@
 package tests.demoqa.tests.elements;
 
-import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.LinksPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-public class LinksTest {
+public class LinksTest extends BaseUITest {
 
-    LinksPage linksPage =  new LinksPage();
+    LinksPage linksPage = new LinksPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @BeforeEach
-    void openPage(){
+    void openPage() {
         open("/links");
     }
 

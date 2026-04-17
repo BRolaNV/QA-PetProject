@@ -1,23 +1,23 @@
 package tests.demoqa.tests.widgets;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.MenuPage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class MenuTest {
+public class MenuTest extends BaseUITest {
 
-    MenuPage menuPage =  new MenuPage();
+    MenuPage menuPage = new MenuPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+
+    @AfterAll
+    static void close() {
+        closeWebDriver();
     }
 
     @BeforeEach
@@ -26,7 +26,7 @@ public class MenuTest {
     }
 
     @Test
-    void menuTest(){
+    void menuTest() {
 
         menuPage.hoverItem1();
         menuPage.getSubList().shouldNotBe(visible);
@@ -41,11 +41,5 @@ public class MenuTest {
         menuPage.getSubSubList1().shouldBe(visible);
         menuPage.getSubSubList2().shouldBe(visible);
 
-    }
-
-
-    @AfterAll
-    static void close() {
-        closeWebDriver();
     }
 }

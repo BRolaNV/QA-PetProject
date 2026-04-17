@@ -39,7 +39,7 @@ public class LoginUserTest extends BaseApiTest {
                 .when()
                 .post("/api/login")
                 .then().log().all()
-                .body("error",  equalTo("Missing password"))
+                .body("error", equalTo("Missing password"))
                 .extract().response();
     }
 }

@@ -14,7 +14,7 @@ public class SortablePage {
     private final SelenideElement listSix = $x("//div[@data-handler-id='T10']"),
             listThree = $x("//div[@data-handler-id='T4']"),
             gridSix = $x("//div[@data-handler-id='T22']"),
-            gridThree = $x("//div[@data-handler-id='T16']");;
+            gridThree = $x("//div[@data-handler-id='T16']");
 
     public SortablePage openGrid() {
         grid.click();

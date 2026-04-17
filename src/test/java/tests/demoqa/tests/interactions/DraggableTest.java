@@ -1,36 +1,30 @@
 package tests.demoqa.tests.interactions;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
 import tests.demoqa.pages.interactionsPage.DraggablePage;
+import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DraggableTest {
+public class DraggableTest extends BaseUITest {
 
     DraggablePage draggablePage = new DraggablePage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @BeforeEach
-    void open(){
+    void open() {
         Selenide.open("/dragabble");
     }
 
     @Test
-    void simpleTest(){
+    void simpleTest() {
 
         int xOffset = 200;
         int yOffset = 200;
@@ -38,12 +32,12 @@ public class DraggableTest {
         draggablePage.getDragMe().shouldBe(visible);
         draggablePage.moveElementByOffSet(xOffset, yOffset, draggablePage.getDragMe());
 
-        assertEquals("position: relative; left: "+xOffset+"px; top: "+yOffset+"px;",
+        assertEquals("position: relative; left: " + xOffset + "px; top: " + yOffset + "px;",
                 draggablePage.getDragMeEndPosition());
     }
 
     @Test
-    void axisRestrictedTest(){
+    void axisRestrictedTest() {
 
         int xOffset = 200;
         int yOffset = 200;
@@ -56,14 +50,14 @@ public class DraggableTest {
         draggablePage.moveElementByOffSet(xOffset, yOffset, draggablePage.getOnlyX());
         draggablePage.moveElementByOffSet(xOffset, yOffset, draggablePage.getOnlyY());
 
-        assertEquals("position: relative; left: "+xOffset+"px; top: 0px;",
+        assertEquals("position: relative; left: " + xOffset + "px; top: 0px;",
                 draggablePage.getOnlyXEndPosition());
-        assertEquals("position: relative; left: 0px; top: "+yOffset+"px;",
+        assertEquals("position: relative; left: 0px; top: " + yOffset + "px;",
                 draggablePage.getOnlyYEndPosition());
     }
 
     @Test
-    void containerRestrictedContainerTest(){
+    void containerRestrictedContainerTest() {
 
         draggablePage.openContainerRestricted();
         draggablePage.getContainingInBox().shouldBe(visible);
@@ -74,7 +68,7 @@ public class DraggableTest {
         int x = container.getX() + container.getWidth() - startPosition.getX() - startPosition.getWidth();
         int y = container.getY() + container.getHeight() - startPosition.getY() - startPosition.getHeight();
 
-        draggablePage.moveElementByOffSet(x + 100, y + 100,draggablePage.getContainingInBox());
+        draggablePage.moveElementByOffSet(x + 100, y + 100, draggablePage.getContainingInBox());
 
         Rectangle afterMove = draggablePage.getContainingInBox().getRect();
 
@@ -89,7 +83,7 @@ public class DraggableTest {
     }
 
     @Test
-    void containerRestrictedParentTest(){
+    void containerRestrictedParentTest() {
 
         draggablePage.openContainerRestricted();
         draggablePage.getContainingInParent().shouldBe(visible);
@@ -100,7 +94,7 @@ public class DraggableTest {
         int x = container.getX() + container.getWidth() - startPosition.getX() - startPosition.getWidth();
         int y = container.getY() + container.getHeight() - startPosition.getY() - startPosition.getHeight();
 
-        draggablePage.moveElementByOffSet(x + 10, y + 10,draggablePage.getContainingInParent());
+        draggablePage.moveElementByOffSet(x + 10, y + 10, draggablePage.getContainingInParent());
 
         Rectangle afterMove = draggablePage.getContainingInParent().getRect();
 
@@ -115,7 +109,7 @@ public class DraggableTest {
     }
 
     @Test
-    void cursorStyleTest(){
+    void cursorStyleTest() {
 
         int xCoordinate = 400;
         int yCoordinate = 300;
@@ -136,7 +130,7 @@ public class DraggableTest {
         Point centerPoint = new Point((int) (Math.round((centerRec.getX() + (double) centerRec.getWidth() / 2) / 100.0) * 100),
                 (int) (Math.round((centerRec.getY() + (double) centerRec.getHeight() / 2) / 100.0) * 100));
 
-        Point topLeftPoint = new Point((int)Math.round(topLeftRec.getX() / 100.0) * 100, (int)Math.round(topLeftRec.getY() / 100.0) * 100);
+        Point topLeftPoint = new Point((int) Math.round(topLeftRec.getX() / 100.0) * 100, (int) Math.round(topLeftRec.getY() / 100.0) * 100);
 
         int bottomY = (int) (Math.round((bottomRec.getY() + bottomRec.getHeight()) / 100.0) * 100);
 
