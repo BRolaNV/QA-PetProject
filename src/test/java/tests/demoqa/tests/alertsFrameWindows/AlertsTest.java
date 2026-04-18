@@ -20,7 +20,6 @@ public class AlertsTest extends BaseUITest {
 
     AlertsPage alertsPage = new AlertsPage();
 
-
     @BeforeEach
     void openPage() {
         open("/alerts");
@@ -62,8 +61,7 @@ public class AlertsTest extends BaseUITest {
 
         alertsPage.clickConfirmButton();
         assertEquals("Do you confirm action?", switchTo().alert().getText());
-
-        alertsPage.clickConfirmButton();
+        
         switchTo().alert().dismiss();
         assertEquals("You selected Cancel", alertsPage.getConfirmResult().getText());
     }

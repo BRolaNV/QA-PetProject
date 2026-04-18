@@ -2,11 +2,13 @@ package tests.demoqa.tests.bookStoreApplication.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class BookData {
 
     private String isbn;

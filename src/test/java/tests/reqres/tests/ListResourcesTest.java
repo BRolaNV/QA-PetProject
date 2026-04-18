@@ -3,20 +3,20 @@ package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ResourcesData;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+//Flaky кидает 403
 public class ListResourcesTest extends BaseApiTest {
 
     @Test
     public void dateOrderTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         List<ResourcesData> resources = given()
@@ -35,7 +35,7 @@ public class ListResourcesTest extends BaseApiTest {
     @Test
     public void notNullTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         List<ResourcesData> resources = given()

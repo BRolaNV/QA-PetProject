@@ -11,7 +11,7 @@ import tests.demoqa.tests.BaseUITest;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+//Flaky страница не всегда успевает прогрузиться
 public class ResizableTest extends BaseUITest {
 
     ResizablePage resizablePage = new ResizablePage();

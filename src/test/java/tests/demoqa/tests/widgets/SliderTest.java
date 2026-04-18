@@ -14,7 +14,6 @@ public class SliderTest extends BaseUITest {
 
     SliderPage sliderPage = new SliderPage();
 
-
     @AfterAll
     static void close() {
         closeWebDriver();
@@ -28,6 +27,7 @@ public class SliderTest extends BaseUITest {
     @Test
     void sliderTest() {
 
+        //Flaky не всегда страница успевает прогрузится
         String value = "57";
         sliderPage.setSlider(value);
         assertEquals(value, sliderPage.getSliderValue());

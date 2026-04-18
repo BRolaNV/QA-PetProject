@@ -13,7 +13,6 @@ public class NestedFramesTest extends BaseUITest {
 
     NestedFramesPage nestedFramesPage = new NestedFramesPage();
 
-
     @BeforeEach
     void openPage() {
         open("/nestedframes");

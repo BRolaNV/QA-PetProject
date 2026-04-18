@@ -3,7 +3,7 @@ package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ForUpdateData;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.time.Clock;
 
@@ -11,12 +11,13 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+//Flaky иногда кидает 403
 public class UpdateUserTest extends BaseApiTest {
 
     @Test
     public void fullUpdateTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         ForUpdateData user = ForUpdateData.builder()
@@ -33,6 +34,7 @@ public class UpdateUserTest extends BaseApiTest {
 
         String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");
 
+        //Flaky
         assertEquals(currentTime, responseUser.getUpdatedAt().replaceAll("(.{5})$", ""));
         assertEquals(user.getJob(), responseUser.getJob());
         assertEquals(user.getName(), responseUser.getName());
@@ -42,7 +44,7 @@ public class UpdateUserTest extends BaseApiTest {
     @Test
     public void partialUpdateTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         ForUpdateData user = ForUpdateData.builder()
@@ -57,7 +59,7 @@ public class UpdateUserTest extends BaseApiTest {
                 .extract().body().as(ForUpdateData.class);
 
         String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");
-
+//Flaky
         assertEquals(currentTime, responseUser.getUpdatedAt().replaceAll("(.{5})$", ""));
         assertNull(responseUser.getJob());
         assertEquals(user.getName(), responseUser.getName());

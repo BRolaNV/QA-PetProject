@@ -1,21 +1,23 @@
 package tests.demoqa.tests.bookStoreApplication;
 
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
+import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
 import tests.demoqa.tests.bookStoreApplication.pojo.UserData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 
 public class AuthorizedTest extends BaseApiTest {
 
+    DefaultData defaultData =  new DefaultData();
+
     @Test
     public void successAuthorizedTest() {
-        UserData validUser = UserData.builder()
-                .userName("forAuthorized")
-                .password("Pass123@")
-                .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        UserData validUser = defaultData.getValidUser();
+
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         given()
@@ -36,7 +38,7 @@ public class AuthorizedTest extends BaseApiTest {
                 .password("Pass123@")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(404));
 
         given()

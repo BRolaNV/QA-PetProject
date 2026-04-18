@@ -1,9 +1,10 @@
 package tests.demoqa.tests.bookStoreApplication;
 
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
 import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +12,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+//Flaky кидает 406
 public class AddListOfBooksTest extends BaseApiTest {
 
     DefaultData defaultData = new DefaultData();
@@ -21,14 +22,14 @@ public class AddListOfBooksTest extends BaseApiTest {
 
         String id = defaultData.getId();
         String token = defaultData.getToken();
-        BookData defaultBook = defaultData.getDefaultBook();
+        BookData defaultBook = DefaultData.defaultBook;
 
         Map<String, Object> body = Map.of(
                 "userId", id,
                 "collectionOfIsbns", List.of(Map.of("isbn", defaultBook.getIsbn()))
         );
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(201));
 
         String isbn = given()

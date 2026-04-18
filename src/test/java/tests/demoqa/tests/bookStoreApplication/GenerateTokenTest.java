@@ -3,8 +3,10 @@ package tests.demoqa.tests.bookStoreApplication;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
+import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
 import tests.demoqa.tests.bookStoreApplication.pojo.UserData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 
 import static io.restassured.RestAssured.given;
@@ -12,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GenerateTokenTest extends BaseApiTest {
 
+    DefaultData defaultData = new DefaultData();
+
     @Test
     public void successGenerateTokenTest() {
-        UserData validUser = UserData.builder()
-                .userName("forAuthorized")
-                .password("Pass123@")
-                .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        UserData validUser = defaultData.getValidUser();
+
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         Response response = given()
@@ -52,7 +54,7 @@ public class GenerateTokenTest extends BaseApiTest {
                 .password("Pass123@")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         Response response = given()

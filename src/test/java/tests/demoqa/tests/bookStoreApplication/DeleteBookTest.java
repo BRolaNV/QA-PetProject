@@ -1,9 +1,10 @@
 package tests.demoqa.tests.bookStoreApplication;
 
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
 import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,14 +20,14 @@ public class DeleteBookTest extends BaseApiTest {
 
         String id = defaultData.getId();
         String token = defaultData.getToken();
-        BookData defaultBook = defaultData.getDefaultBook();
+        BookData defaultBook = DefaultData.defaultBook;
         defaultData.addDefaultBook();
 
         Map<String, String> map = new HashMap<>();
         map.put("isbn", defaultBook.getIsbn());
         map.put("userId", id);
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(204));
 
         given()

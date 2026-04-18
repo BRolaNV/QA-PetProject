@@ -3,18 +3,17 @@ package tests.reqres.tests;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class LoginUserTest extends BaseApiTest {
-
-
+    //flaky отдельно работает, совместно выдает 403
     @Test
     public void successLoginTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         Response response = given()
@@ -28,10 +27,11 @@ public class LoginUserTest extends BaseApiTest {
 
     }
 
+    //flaky отдельно работает, совместно выдает 403
     @Test
-    public void unsuccessLoginTest() {
+    public void unsuccessfulLoginTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(400));
 
         Response response = given()

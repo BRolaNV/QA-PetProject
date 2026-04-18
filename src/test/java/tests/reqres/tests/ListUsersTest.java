@@ -5,20 +5,20 @@ import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.RootData;
 import tests.reqres.pojo.UserData;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+//Flaky кидает 403
 public class ListUsersTest extends BaseApiTest {
 
 
     public List<UserData> getUsers() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         List<UserData> users = given()
@@ -33,7 +33,7 @@ public class ListUsersTest extends BaseApiTest {
 
     public RootData getRoot() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         RootData rootData = given()

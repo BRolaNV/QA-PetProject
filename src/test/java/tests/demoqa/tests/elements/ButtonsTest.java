@@ -9,7 +9,7 @@ import tests.demoqa.tests.BaseUITest;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-
+//Flaky страница не всегда успевает прогрузиться
 public class ButtonsTest extends BaseUITest {
 
     ButtonsPage buttonsPage = new ButtonsPage();

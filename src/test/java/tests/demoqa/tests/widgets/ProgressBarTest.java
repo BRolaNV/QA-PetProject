@@ -37,7 +37,7 @@ public class ProgressBarTest extends BaseUITest {
         progressBarPage.clickStartStopBtn()
                 .getStartStopBtnText()
                 .shouldHave(text("Start"));
-
+        //Flaky может пропустить и уйти на 100%
         progressBarPage.clickStartStopBtn()
                 .getProgressBarText()
                 .shouldHave(text("99%"), Duration.ofSeconds(10));

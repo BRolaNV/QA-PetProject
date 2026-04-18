@@ -2,8 +2,7 @@ package tests.demoqa.tests.bookStoreApplication.pojo;
 
 import lombok.Getter;
 import net.datafaker.Faker;
-import tests.demoqa.tests.bookStoreApplication.BaseApiTest;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 import java.util.Map;
@@ -11,14 +10,16 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 @Getter
-public class DefaultData extends BaseApiTest {
+public class DefaultData {
+
+    private final String URL = "https://demoqa.com/";
 
     UserData validUser = new UserData(new Faker().name().firstName(), "Pass123@");
 
     String id = registerUser();
     String token = loginUser();
 
-    BookData defaultBook = BookData.builder()
+    public static BookData defaultBook = BookData.builder()
             .isbn("9781449325862")
             .title("Git Pocket Guide")
             .subTitle("A Working Introduction")
@@ -33,7 +34,7 @@ public class DefaultData extends BaseApiTest {
             .website("http://chimera.labs.oreilly.com/books/1230000000561/index.html")
             .build();
 
-    BookData bookForChange = BookData.builder()
+    public static BookData bookForChange = BookData.builder()
             .isbn("9781449331818")
             .title("Learning JavaScript Design Patterns")
             .subTitle("A JavaScript and jQuery Developer's Guide")
@@ -50,7 +51,7 @@ public class DefaultData extends BaseApiTest {
 
     String registerUser() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(201));
 
         return given()
@@ -63,7 +64,7 @@ public class DefaultData extends BaseApiTest {
 
     String loginUser() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         return given()
@@ -81,7 +82,7 @@ public class DefaultData extends BaseApiTest {
                 "collectionOfIsbns", List.of(Map.of("isbn", defaultBook.getIsbn()))
         );
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(201));
 
         given()

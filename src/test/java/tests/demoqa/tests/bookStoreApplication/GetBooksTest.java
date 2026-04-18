@@ -1,8 +1,9 @@
 package tests.demoqa.tests.bookStoreApplication;
 
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class GetBooksTest extends BaseApiTest {
     @Test
     public void getBooksTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         List<BookData> books = given()

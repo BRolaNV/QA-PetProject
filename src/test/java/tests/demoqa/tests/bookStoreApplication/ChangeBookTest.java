@@ -1,9 +1,10 @@
 package tests.demoqa.tests.bookStoreApplication;
 
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
 import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,15 +22,15 @@ public class ChangeBookTest extends BaseApiTest {
 
         String id = defaultData.getId();
         String token = defaultData.getToken();
-        BookData defaultBook = defaultData.getDefaultBook();
-        BookData bookForChange = defaultData.getBookForChange();
+        BookData defaultBook = DefaultData.defaultBook;
+        BookData bookForChange = DefaultData.bookForChange;
         defaultData.addDefaultBook();
 
         Map<String, String> map = new HashMap<>();
         map.put("isbn", bookForChange.getIsbn());
         map.put("userId", id);
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         List<BookData> list = given()
@@ -43,15 +44,6 @@ public class ChangeBookTest extends BaseApiTest {
 
         BookData responseBook = list.get(0);
 
-        assertEquals(bookForChange.getIsbn(), responseBook.getIsbn());
-        assertEquals(bookForChange.getAuthor(), responseBook.getAuthor());
-        assertEquals(bookForChange.getDescription(), responseBook.getDescription());
-        assertEquals(bookForChange.getPublisher(), responseBook.getPublisher());
-        assertEquals(bookForChange.getPages(), responseBook.getPages());
-        assertEquals(bookForChange.getTitle(), responseBook.getTitle());
-        assertEquals(bookForChange.getWebsite(), responseBook.getWebsite());
-        assertEquals(bookForChange.getPublish_date(), responseBook.getPublish_date());
-        assertEquals(bookForChange.getSubTitle(), responseBook.getSubTitle());
-
+        assertEquals(bookForChange, responseBook);
     }
 }

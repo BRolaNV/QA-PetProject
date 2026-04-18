@@ -3,9 +3,10 @@ package tests.demoqa.tests.bookStoreApplication;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
 import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class GetUsersBooksTest extends BaseApiTest {
         String id = defaultData.getId();
         String token = defaultData.getToken();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(200));
 
         Response response = given()

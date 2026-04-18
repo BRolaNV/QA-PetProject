@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+//Flaky страница не всегда успевает прогрузиться
 public class BrokenLinksTest extends BaseUITest {
 
     BrokenLinksPage brokenLinksPage = new BrokenLinksPage();

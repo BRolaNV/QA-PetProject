@@ -13,10 +13,10 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
+//Flaky - страница не всегда успевает прогрузиться
 public class DraggableTest extends BaseUITest {
 
     DraggablePage draggablePage = new DraggablePage();
-
 
     @BeforeEach
     void open() {

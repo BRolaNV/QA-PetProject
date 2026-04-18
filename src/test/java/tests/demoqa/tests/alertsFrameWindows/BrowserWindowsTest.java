@@ -19,9 +19,7 @@ public class BrowserWindowsTest extends BaseUITest {
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
 
     @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+    static void setUpPageLoad() {
         Configuration.pageLoadStrategy = "none";
         Configuration.timeout = 20000;
     }

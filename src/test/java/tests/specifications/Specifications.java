@@ -1,4 +1,4 @@
-package tests.demoqa.tests.bookStoreApplication.specifications;
+package tests.specifications;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -10,7 +10,15 @@ import io.restassured.specification.ResponseSpecification;
 
 public class Specifications {
 
-    public static RequestSpecification requestSpecification(String URL) {
+    public static RequestSpecification requestSpecificationReqRes(String URL, String apiKey) {
+        return new RequestSpecBuilder()
+                .setBaseUri(URL)
+                .setContentType(ContentType.JSON)
+                .addHeader("x-api-key", apiKey)
+                .build();
+    }
+
+    public static RequestSpecification requestSpecificationDemoQA(String URL) {
         return new RequestSpecBuilder()
                 .setBaseUri(URL)
                 .setContentType(ContentType.JSON)

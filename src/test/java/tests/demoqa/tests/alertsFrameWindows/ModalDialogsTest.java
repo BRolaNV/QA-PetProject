@@ -14,7 +14,6 @@ public class ModalDialogsTest extends BaseUITest {
 
     ModalDialogsPage modalDialogsPage = new ModalDialogsPage();
 
-
     @BeforeEach
     void openPage() {
         open("/modal-dialogs");

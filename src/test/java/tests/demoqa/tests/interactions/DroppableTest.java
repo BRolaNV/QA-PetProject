@@ -14,10 +14,11 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+
+//Flaky страница не всегда успевает прогрузиться, а селенид уже пытается перемещать элементы
 public class DroppableTest extends BaseUITest {
 
     DroppablePage droppablePage = new DroppablePage();
-
 
     @BeforeEach
     void openPage() {

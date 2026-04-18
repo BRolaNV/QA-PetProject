@@ -3,19 +3,19 @@ package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ResourcesData;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+//Flaky иногда кидает 403
 public class SingleResourceTest extends BaseApiTest {
 
 
     @Test
     public void getRealResourceTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         ResourcesData resource = given()
@@ -39,7 +39,7 @@ public class SingleResourceTest extends BaseApiTest {
     @Test
     public void getUnrealResourceTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(404));
 
         ResourcesData resourcesData = given()

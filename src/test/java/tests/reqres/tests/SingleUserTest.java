@@ -3,18 +3,18 @@ package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.UserData;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+//Flaky иногда кидает 403
 public class SingleUserTest extends BaseApiTest {
 
     @Test
     public void getRealUserTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         UserData user = given()
@@ -35,10 +35,11 @@ public class SingleUserTest extends BaseApiTest {
         assertEquals(realUser, user);
     }
 
+    //flaky отдельно отрабатывает, при совместном вызове выдает 403
     @Test
     public void getUnrealUserTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(404));
 
         UserData user = given()

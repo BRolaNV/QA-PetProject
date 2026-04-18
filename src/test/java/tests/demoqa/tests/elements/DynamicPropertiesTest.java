@@ -12,15 +12,13 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-
+//flaky страница не всегда успевает прогрузиться
 public class DynamicPropertiesTest extends BaseUITest {
 
     DynamicPropertiesPage dynamicPropertiesPage = new DynamicPropertiesPage();
 
     @BeforeAll
-    static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+    static void setUpTimeOut() {
         Configuration.timeout = 5100;
     }
 

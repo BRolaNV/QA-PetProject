@@ -3,7 +3,7 @@ package tests.reqres.tests;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.UserData;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class DelayTest extends BaseApiTest {
     @Test
     public void getDelayUsers() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         List<UserData> users = given()

@@ -13,7 +13,6 @@ public class FramesTest extends BaseUITest {
 
     FramesPage framesPage = new FramesPage();
 
-
     @BeforeEach
     public void openPage() {
         open("/frames");

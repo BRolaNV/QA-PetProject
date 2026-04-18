@@ -3,7 +3,7 @@ package tests.reqres.tests;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import tests.reqres.BaseApiTest;
-import tests.reqres.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -11,11 +11,11 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class RegisterUserTest extends BaseApiTest {
 
-
+    //flaky отдельно отрабатывает, если вызывать вместе выдает 403
     @Test
     public void successRegisterTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(200));
 
         Response response = given()
@@ -31,9 +31,9 @@ public class RegisterUserTest extends BaseApiTest {
     }
 
     @Test
-    public void unsuccessRegisterTest() {
+    public void unsuccessfulRegisterTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL, API_KEY),
+        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
                 Specifications.responseSpecification(400));
 
         Response response = given()

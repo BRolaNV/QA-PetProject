@@ -2,8 +2,9 @@ package tests.demoqa.tests.bookStoreApplication;
 
 import net.datafaker.Faker;
 import org.junit.jupiter.api.Test;
+import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.UserData;
-import tests.demoqa.tests.bookStoreApplication.specifications.Specifications;
+import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +19,7 @@ public class RegisterUserTest extends BaseApiTest {
                 .password("Pass123@")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(201));
 
         String responseUsername = given()
@@ -34,14 +35,14 @@ public class RegisterUserTest extends BaseApiTest {
     }
 
     @Test
-    public void unsuccessRegisterTest() {
+    public void unsuccessfulRegisterTest() {
 
         UserData invalidUser = UserData.builder()
                 .userName(new Faker().name().firstName())
                 .password("Password")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecification(URL),
+        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
                 Specifications.responseSpecification(400));
 
         String errorMess = given()
