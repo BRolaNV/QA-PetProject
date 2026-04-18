@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class DeleteBookTest extends BaseApiTest {
 
-    DefaultData defaultData = new DefaultData();
+    DefaultData defaultData = new DefaultData().init();
 
     @Test
     public void deleteBookTest() {
@@ -27,16 +27,15 @@ public class DeleteBookTest extends BaseApiTest {
         map.put("isbn", defaultBook.getIsbn());
         map.put("userId", id);
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(204));
-
         given()
+                .spec(requestSpec())
                 .header("Authorization", "Bearer " + token)
                 .body(map)
                 .log().all()
                 .when()
                 .delete("BookStore/v1/Book")
-                .then().log().all();
+                .then()
+                .spec(Specifications.responseSpecification(204));
 
     }
 }

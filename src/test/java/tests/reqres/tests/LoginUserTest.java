@@ -13,15 +13,15 @@ public class LoginUserTest extends BaseApiTest {
     @Test
     public void successLoginTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         Response response = given()
+                .spec(requestSpec())
                 .body("{\"email\": \"eve.holt@reqres.in\"," +
                         "\"password\": \"cityslicka\"}")
                 .when()
                 .post("/api/login")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .body("token", equalTo("QpwL5tke4Pnpja7X4"))
                 .extract().response();
 
@@ -31,14 +31,14 @@ public class LoginUserTest extends BaseApiTest {
     @Test
     public void unsuccessfulLoginTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(400));
-
         Response response = given()
+                .spec(requestSpec())
                 .body("{\"email\": \"eve.holt@reqres.in\"}")
                 .when()
                 .post("/api/login")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(400))
+                .log().all()
                 .body("error", equalTo("Missing password"))
                 .extract().response();
     }

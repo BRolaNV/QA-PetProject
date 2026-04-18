@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ChangeBookTest extends BaseApiTest {
 
-    DefaultData defaultData = new DefaultData();
+    DefaultData defaultData = new DefaultData().init();
 
     @Test
     public void changeBookTest() {
@@ -30,16 +30,16 @@ public class ChangeBookTest extends BaseApiTest {
         map.put("isbn", bookForChange.getIsbn());
         map.put("userId", id);
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         List<BookData> list = given()
+                .spec(requestSpec())
                 .header("Authorization", "Bearer " + token)
                 .body(map)
                 .log().all()
                 .when()
                 .put("BookStore/v1/Books/" + defaultBook.getIsbn())
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getList("books", BookData.class);
 
         BookData responseBook = list.get(0);

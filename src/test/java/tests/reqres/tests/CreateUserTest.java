@@ -19,18 +19,18 @@ public class CreateUserTest extends BaseApiTest {
     @Test
     public void successCreateTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(201));
-
         Map<String, String> user = new HashMap<>();
         user.put("name", "morpheus");
         user.put("job", "zeon resident");
 
         Response response = given()
+                .spec(requestSpec())
                 .body(user)
                 .when()
                 .post("/api/users")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(201))
+                .log().all()
                 .extract().response();
 
         JsonPath jsonPath = response.jsonPath();

@@ -30,9 +30,4 @@ public class Specifications {
                 .expectStatusCode(statusCode)
                 .build();
     }
-
-    public static void installSpecifications(RequestSpecification request, ResponseSpecification response) {
-        RestAssured.requestSpecification = request;
-        RestAssured.responseSpecification = response;
-    }
 }

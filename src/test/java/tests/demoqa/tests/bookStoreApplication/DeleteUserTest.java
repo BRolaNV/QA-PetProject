@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class DeleteUserTest extends BaseApiTest {
 
-    DefaultData defaultData = new DefaultData();
+    DefaultData defaultData = new DefaultData().init();
 
     @Test
     public void successDeleteUserTest() {
@@ -17,13 +17,12 @@ public class DeleteUserTest extends BaseApiTest {
         String id = defaultData.getId();
         String token = defaultData.getToken();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(204));
-
         given()
+                .spec(requestSpec())
                 .header("Authorization", "Bearer " + token)
                 .when()
                 .delete("Account/v1/User/" + id)
-                .then().log().all();
+                .then()
+                .spec(Specifications.responseSpecification(204));
     }
 }

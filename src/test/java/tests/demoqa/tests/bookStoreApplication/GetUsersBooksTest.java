@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GetUsersBooksTest extends BaseApiTest {
 
-    DefaultData defaultData = new DefaultData();
+    DefaultData defaultData = new DefaultData().init();
 
     @Test
     public void getUsersBooksTest() {
@@ -24,14 +24,14 @@ public class GetUsersBooksTest extends BaseApiTest {
         String id = defaultData.getId();
         String token = defaultData.getToken();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         Response response = given()
+                .spec(requestSpec())
                 .header("Authorization", "Bearer " + token)
                 .when()
                 .get("Account/v1/User/" + id)
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().response();
 
         JsonPath jsonPath = response.jsonPath();

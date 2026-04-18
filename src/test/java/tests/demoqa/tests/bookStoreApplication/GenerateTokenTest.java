@@ -14,22 +14,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GenerateTokenTest extends BaseApiTest {
 
-    DefaultData defaultData = new DefaultData();
+    DefaultData defaultData = new DefaultData().init();
 
     @Test
     public void successGenerateTokenTest() {
 
         UserData validUser = defaultData.getValidUser();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         Response response = given()
+                .spec(requestSpec())
                 .log().all()
                 .body(validUser)
                 .when()
                 .post("Account/v1/GenerateToken")
                 .then()
+                .spec(Specifications.responseSpecification(200))
                 .log().all()
                 .extract().response();
 
@@ -46,6 +45,7 @@ public class GenerateTokenTest extends BaseApiTest {
         assertEquals("Success", status);
     }
 
+    //Flaky 406
     @Test
     public void errorGenerateTokenTest() {
 
@@ -54,15 +54,14 @@ public class GenerateTokenTest extends BaseApiTest {
                 .password("Pass123@")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         Response response = given()
+                .spec(requestSpec())
                 .log().all()
                 .body(invalidUser)
                 .when()
                 .post("Account/v1/GenerateToken")
                 .then()
+                .spec(Specifications.responseSpecification(200))
                 .log().all()
                 .extract().response();
 

@@ -89,20 +89,6 @@ public class DatePickerPage {
 
         String time = sb.toString();
 
-        HashMap<String, String> map = new HashMap<>();
-        map.put("January", "0");
-        map.put("February", "1");
-        map.put("March", "2");
-        map.put("April", "3");
-        map.put("May", "4");
-        map.put("June", "5");
-        map.put("July", "6");
-        map.put("August", "7");
-        map.put("September", "8");
-        map.put("October", "9");
-        map.put("November", "10");
-        map.put("December", "11");
-
         dateAndTimePickerInput.click();
 
         while (!dateAndTimePickerCurrentMonth.getText().equals(month + " " + year)) {

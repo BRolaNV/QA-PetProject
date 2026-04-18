@@ -14,14 +14,14 @@ public class SingleUserTest extends BaseApiTest {
     @Test
     public void getRealUserTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         UserData user = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("/api/users/2")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getObject("data", UserData.class);
 
         UserData realUser = UserData.builder()
@@ -39,14 +39,14 @@ public class SingleUserTest extends BaseApiTest {
     @Test
     public void getUnrealUserTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(404));
-
         UserData user = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("/api/users/666")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(404))
+                .log().all()
                 .extract().body().jsonPath().getObject("data", UserData.class);
     }
 }

@@ -18,14 +18,14 @@ public class ListUsersTest extends BaseApiTest {
 
     public List<UserData> getUsers() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         List<UserData> users = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("api/users?page=2")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getList("data", UserData.class);
 
         return users;
@@ -33,14 +33,14 @@ public class ListUsersTest extends BaseApiTest {
 
     public RootData getRoot() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         RootData rootData = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("api/users?page=2")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getObject(".", RootData.class);
 
         return rootData;

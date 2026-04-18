@@ -16,14 +16,14 @@ public class ListResourcesTest extends BaseApiTest {
     @Test
     public void dateOrderTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         List<ResourcesData> resources = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("/api/unknown")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getList("data", ResourcesData.class);
 
         List<Integer> years = resources.stream().map(ResourcesData::getYear).toList();
@@ -35,14 +35,14 @@ public class ListResourcesTest extends BaseApiTest {
     @Test
     public void notNullTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         List<ResourcesData> resources = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("/api/unknown")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getList("data", ResourcesData.class);
 
         resources.forEach(x -> assertNotNull(x.getYear()));

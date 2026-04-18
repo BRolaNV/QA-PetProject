@@ -16,13 +16,13 @@ public class GetBooksTest extends BaseApiTest {
     @Test
     public void getBooksTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         List<BookData> books = given()
+                .spec(requestSpec())
                 .when()
                 .get("BookStore/v1/Books")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getList("books", BookData.class);
 
         assertEquals(8, books.size());

@@ -16,14 +16,14 @@ public class GetBookTest extends BaseApiTest {
 
         BookData defaultBook = DefaultData.defaultBook;
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         BookData responseBook = given()
+                .spec(requestSpec())
                 .queryParam("ISBN", defaultBook.getIsbn())
                 .when()
                 .get("BookStore/v1/Book")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().as(BookData.class);
 
         assertEquals(defaultBook, responseBook);

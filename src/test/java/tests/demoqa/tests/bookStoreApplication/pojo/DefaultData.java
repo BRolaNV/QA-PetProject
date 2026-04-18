@@ -14,10 +14,16 @@ public class DefaultData {
 
     private final String URL = "https://demoqa.com/";
 
-    UserData validUser = new UserData(new Faker().name().firstName(), "Pass123@");
+    private final UserData validUser = new UserData(new Faker().name().firstName(), "Pass123@");
 
-    String id = registerUser();
-    String token = loginUser();
+    private String id;
+    private String token;
+
+    public DefaultData init(){
+        this.id = registerUser();
+        this.token = loginUser();
+        return this;
+    }
 
     public static BookData defaultBook = BookData.builder()
             .isbn("9781449325862")
@@ -49,48 +55,49 @@ public class DefaultData {
             .website("http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/")
             .build();
 
-    String registerUser() {
-
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(201));
+    private String registerUser() {
 
         return given()
+                .spec(Specifications.requestSpecificationDemoQA(URL))
                 .body(validUser)
                 .when()
                 .post("Account/v1/User")
                 .then()
+                .spec(Specifications.responseSpecification(201))
                 .extract().jsonPath().getString("userID");
     }
 
-    String loginUser() {
-
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
+    private String loginUser() {
 
         return given()
+                .spec(Specifications.requestSpecificationDemoQA(URL))
                 .body(validUser)
                 .when()
                 .post("Account/v1/GenerateToken")
                 .then()
+                .spec(Specifications.responseSpecification(200))
                 .extract().jsonPath().getString("token");
     }
 
     public void addDefaultBook() {
+        if (id == null || token == null) {
+            throw new IllegalStateException("DefaultData not initialized. Call init() first.");
+        }
 
         Map<String, Object> body = Map.of(
                 "userId", id,
                 "collectionOfIsbns", List.of(Map.of("isbn", defaultBook.getIsbn()))
         );
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(201));
-
         given()
+                .spec(Specifications.requestSpecificationDemoQA(URL))
                 .header("Authorization", "Bearer " + token)
                 .body(body)
                 .when()
                 .post("BookStore/v1/Books")
-                .then().log().all();
+                .then()
+                .spec(Specifications.responseSpecification(201))
+                .log().all();
 
     }
 }

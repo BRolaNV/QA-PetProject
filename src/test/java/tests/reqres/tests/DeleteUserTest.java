@@ -12,13 +12,12 @@ public class DeleteUserTest extends BaseApiTest {
     @Test
     public void successDeleteTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(204));
-
         given()
+                .spec(requestSpec())
                 .when()
                 .delete("/api/users/2")
-                .then().log().all();
+                .then()
+                .spec(Specifications.responseSpecification(204));
 
     }
 }

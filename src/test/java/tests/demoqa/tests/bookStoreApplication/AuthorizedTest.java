@@ -10,23 +10,21 @@ import static io.restassured.RestAssured.given;
 
 public class AuthorizedTest extends BaseApiTest {
 
-    DefaultData defaultData =  new DefaultData();
+    DefaultData defaultData =  new DefaultData().init();
 
     @Test
     public void successAuthorizedTest() {
 
         UserData validUser = defaultData.getValidUser();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(200));
-
         given()
+                .spec(requestSpec())
                 .log().all()
                 .body(validUser)
                 .when()
                 .post("Account/v1/Authorized")
                 .then()
-                .log().all();
+                .spec(Specifications.responseSpecification(200));
 
     }
 
@@ -38,16 +36,14 @@ public class AuthorizedTest extends BaseApiTest {
                 .password("Pass123@")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(404));
-
         given()
+                .spec(requestSpec())
                 .log().all()
                 .body(invalidUser)
                 .when()
                 .post("Account/v1/Authorized")
                 .then()
-                .log().all();
+                .spec(Specifications.responseSpecification(404));
 
     }
 }

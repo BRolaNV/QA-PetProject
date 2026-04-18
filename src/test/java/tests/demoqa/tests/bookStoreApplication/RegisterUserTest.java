@@ -19,15 +19,14 @@ public class RegisterUserTest extends BaseApiTest {
                 .password("Pass123@")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(201));
-
         String responseUsername = given()
+                .spec(requestSpec())
                 .log().all()
                 .body(validUser)
                 .when()
                 .post("Account/v1/User")
                 .then()
+                .spec(Specifications.responseSpecification(201))
                 .log().all()
                 .extract().jsonPath().getString("username");
 
@@ -42,15 +41,14 @@ public class RegisterUserTest extends BaseApiTest {
                 .password("Password")
                 .build();
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(400));
-
         String errorMess = given()
+                .spec(requestSpec())
                 .log().all()
                 .body(invalidUser)
                 .when()
                 .post("Account/v1/User")
                 .then()
+                .spec(Specifications.responseSpecification(400))
                 .log().all()
                 .extract().jsonPath().getString("message");
 

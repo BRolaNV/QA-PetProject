@@ -15,14 +15,14 @@ public class DelayTest extends BaseApiTest {
     @Test
     public void getDelayUsers() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         List<UserData> users = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("api/users?delay=3")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getList("data", UserData.class);
 
         users.forEach(x -> assertNotNull(x.getId()));

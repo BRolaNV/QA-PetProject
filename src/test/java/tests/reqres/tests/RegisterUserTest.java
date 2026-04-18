@@ -15,15 +15,15 @@ public class RegisterUserTest extends BaseApiTest {
     @Test
     public void successRegisterTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         Response response = given()
+                .spec(requestSpec())
                 .body("{\"email\": \"eve.holt@reqres.in\"," +
                         "\"password\": \"pistol\"}")
                 .when()
                 .post("/api/register")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .body("id", equalTo(4))
                 .body("token", equalTo("QpwL5tke4Pnpja7X4"))
                 .extract().response();
@@ -33,14 +33,14 @@ public class RegisterUserTest extends BaseApiTest {
     @Test
     public void unsuccessfulRegisterTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(400));
-
         Response response = given()
+                .spec(requestSpec())
                 .body("{\"email\": \"eve.holt@reqres.in\"}")
                 .when()
                 .post("/api/register")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(400))
+                .log().all()
                 .body("error", equalTo("Missing password"))
                 .extract().response();
     }

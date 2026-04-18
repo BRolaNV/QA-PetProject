@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //Flaky кидает 406
 public class AddListOfBooksTest extends BaseApiTest {
 
-    DefaultData defaultData = new DefaultData();
+    DefaultData defaultData = new DefaultData().init();
 
     @Test
     public void addListOfBooksTest() {
@@ -29,15 +29,15 @@ public class AddListOfBooksTest extends BaseApiTest {
                 "collectionOfIsbns", List.of(Map.of("isbn", defaultBook.getIsbn()))
         );
 
-        Specifications.installSpecifications(Specifications.requestSpecificationDemoQA(URL),
-                Specifications.responseSpecification(201));
-
         String isbn = given()
+                .spec(requestSpec())
                 .header("Authorization", "Bearer " + token)
                 .body(body)
                 .when()
                 .post("BookStore/v1/Books")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(201))
+                .log().all()
                 .extract().body().jsonPath().getString("books[0].isbn");
 
         assertEquals(defaultBook.getIsbn(), isbn);

@@ -17,19 +17,19 @@ public class UpdateUserTest extends BaseApiTest {
     @Test
     public void fullUpdateTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         ForUpdateData user = ForUpdateData.builder()
                 .name("morpheus")
                 .job("zion resident")
                 .build();
 
         ForUpdateData responseUser = given()
+                .spec(requestSpec())
                 .body(user)
                 .when()
                 .put("/api/users/2")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().as(ForUpdateData.class);
 
         String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");
@@ -44,18 +44,18 @@ public class UpdateUserTest extends BaseApiTest {
     @Test
     public void partialUpdateTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         ForUpdateData user = ForUpdateData.builder()
                 .name("morpheus")
                 .build();
 
         ForUpdateData responseUser = given()
+                .spec(requestSpec())
                 .body(user)
                 .when()
                 .patch("/api/users/2")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().as(ForUpdateData.class);
 
         String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");

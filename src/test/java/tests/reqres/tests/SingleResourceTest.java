@@ -15,14 +15,14 @@ public class SingleResourceTest extends BaseApiTest {
     @Test
     public void getRealResourceTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(200));
-
         ResourcesData resource = given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("/api/products/2")
-                .then().log().all()
+                .then()
+                .spec(Specifications.responseSpecification(200))
+                .log().all()
                 .extract().body().jsonPath().getObject("data", ResourcesData.class);
 
         ResourcesData realResource = ResourcesData.builder()
@@ -39,14 +39,13 @@ public class SingleResourceTest extends BaseApiTest {
     @Test
     public void getUnrealResourceTest() {
 
-        Specifications.installSpecifications(Specifications.requestSpecificationReqRes(URL, API_KEY),
-                Specifications.responseSpecification(404));
-
-        ResourcesData resourcesData = given()
+        given()
+                .spec(requestSpec())
                 .log().all()
                 .when()
                 .get("/api/products/666")
-                .then().log().all()
-                .extract().body().jsonPath().getObject("data", ResourcesData.class);
+                .then()
+                .spec(Specifications.responseSpecification(404))
+                .log().all();
     }
 }
