@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
 import tests.demoqa.pages.interactionsPage.DraggablePage;
@@ -13,7 +14,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
-//Flaky - страница не всегда успевает прогрузиться
+/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry. */
+
 public class DraggableTest extends BaseUITest {
 
     DraggablePage draggablePage = new DraggablePage();
@@ -23,7 +26,7 @@ public class DraggableTest extends BaseUITest {
         Selenide.open("/dragabble");
     }
 
-    @Test
+    @RetryingTest(3)
     void simpleTest() {
 
         int xOffset = 200;
@@ -36,7 +39,7 @@ public class DraggableTest extends BaseUITest {
                 draggablePage.getDragMeEndPosition());
     }
 
-    @Test
+    @RetryingTest(3)
     void axisRestrictedTest() {
 
         int xOffset = 200;
@@ -56,7 +59,7 @@ public class DraggableTest extends BaseUITest {
                 draggablePage.getOnlyYEndPosition());
     }
 
-    @Test
+    @RetryingTest(3)
     void containerRestrictedContainerTest() {
 
         draggablePage.openContainerRestricted();
@@ -82,7 +85,7 @@ public class DraggableTest extends BaseUITest {
 
     }
 
-    @Test
+    @RetryingTest(3)
     void containerRestrictedParentTest() {
 
         draggablePage.openContainerRestricted();
@@ -108,7 +111,7 @@ public class DraggableTest extends BaseUITest {
 
     }
 
-    @Test
+    @RetryingTest(3)
     void cursorStyleTest() {
 
         int xCoordinate = 400;

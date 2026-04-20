@@ -1,7 +1,7 @@
 package tests.reqres.tests;
 
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.specifications.Specifications;
 
@@ -9,8 +9,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class LoginUserTest extends BaseApiTest {
-    //flaky отдельно работает, совместно выдает 403
-    @Test
+
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void successLoginTest() {
 
         Response response = given()
@@ -27,8 +27,7 @@ public class LoginUserTest extends BaseApiTest {
 
     }
 
-    //flaky отдельно работает, совместно выдает 403
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void unsuccessfulLoginTest() {
 
         Response response = given()

@@ -1,6 +1,6 @@
 package tests.reqres.tests;
 
-import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.UserData;
 import tests.specifications.Specifications;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class DelayTest extends BaseApiTest {
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void getDelayUsers() {
 
         List<UserData> users = given()

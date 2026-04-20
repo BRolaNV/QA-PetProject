@@ -1,7 +1,7 @@
 package tests.reqres.tests;
 
 
-import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.RootData;
 import tests.reqres.pojo.UserData;
@@ -12,7 +12,8 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-//Flaky кидает 403
+
+
 public class ListUsersTest extends BaseApiTest {
 
 
@@ -46,21 +47,21 @@ public class ListUsersTest extends BaseApiTest {
         return rootData;
     }
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void checkAvatarAndIdTest() {
 
         List<UserData> users = getUsers();
         users.forEach(x -> assertTrue(x.getAvatar().contains(x.getId().toString())));
     }
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void checkEmailsTest() {
 
         List<UserData> users = getUsers();
         users.forEach(x -> assertTrue(x.getEmail().endsWith("reqres.in")));
     }
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void checkNumberOfElementsTest() {
 
         RootData rootData = getRoot();
@@ -69,7 +70,7 @@ public class ListUsersTest extends BaseApiTest {
         assertEquals(rootData.getPer_page(), users.size());
     }
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void checkRootTest() {
 
         RootData rootData = getRoot();

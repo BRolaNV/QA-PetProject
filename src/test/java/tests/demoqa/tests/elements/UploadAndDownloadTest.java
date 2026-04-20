@@ -10,7 +10,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-//Flaky страница не всегда успевает прогрузиться
+
+
 public class UploadAndDownloadTest extends BaseUITest {
 
     UploadAndDownloadPage uploadAndDownloadPage = new UploadAndDownloadPage();

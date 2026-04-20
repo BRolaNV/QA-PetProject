@@ -2,8 +2,7 @@ package tests.demoqa.pages.widgetsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ToolTipsPage {
 
@@ -18,22 +17,34 @@ public class ToolTipsPage {
     }
 
     public ToolTipsPage hoverButton() {
-        button.hover();
+        actions()
+                .moveToLocation(0,0)
+                .moveToElement(button)
+                .perform();
         return this;
     }
 
     public ToolTipsPage hoverField() {
-        field.hover();
+        actions()
+                .moveToLocation(0,0)
+                .moveToElement(field)
+                .perform();
         return this;
     }
 
     public ToolTipsPage hoverText() {
-        text.hover();
+        actions()
+                .moveToLocation(0,0)
+                .moveToElement(this.text)
+                .perform();
         return this;
     }
 
     public ToolTipsPage hoverDigit() {
-        digit.hover();
+        actions()
+                .moveToLocation(0,0)
+                .moveToElement(digit)
+                .perform();
         return this;
     }
 }

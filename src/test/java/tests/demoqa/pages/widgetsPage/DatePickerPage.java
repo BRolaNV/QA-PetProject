@@ -2,7 +2,10 @@ package tests.demoqa.pages.widgetsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -91,8 +94,22 @@ public class DatePickerPage {
 
         dateAndTimePickerInput.click();
 
-        while (!dateAndTimePickerCurrentMonth.getText().equals(month + " " + year)) {
-            dateAndTimePickerPreviousMonthBtn.click();
+        YearMonth target = YearMonth.parse((month + " " + year),
+                DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
+
+        YearMonth current = YearMonth.parse(dateAndTimePickerCurrentMonth.getText(),
+                DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
+
+        while (!current.equals(target)) {
+
+            if (current.isBefore(target)) {
+                dateAndTimePickerNextMonthBtn.click();
+            } else {
+                dateAndTimePickerPreviousMonthBtn.click();
+            }
+
+            current = YearMonth.parse(dateAndTimePickerCurrentMonth.getText(),
+                    DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
         }
 
         $x("//div[contains(@class,'react-datepicker__day')][contains(@aria-label, '" + month + " " + day + "')]").click();

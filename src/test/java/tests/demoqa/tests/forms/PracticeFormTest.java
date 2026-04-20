@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-//Flaky страница не всегда успевает прогрузиться
+
 public class PracticeFormTest extends BaseUITest {
 
     Faker faker = new Faker();
@@ -67,7 +67,7 @@ public class PracticeFormTest extends BaseUITest {
                 .selectHobbyReading()
                 .uploadFile(fileName)
                 .selectCurrentAddress(currentAddress)
-                .selectState(state) //Flaky нужно прокрутить страницу вниз
+                .selectState(state)
                 .selectCity(city);
 
         practiceFormPage.submit();

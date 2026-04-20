@@ -16,6 +16,8 @@ public class ResizablePage {
 
     public ResizablePage moveElementByOffSet(int xOffset, int yOffset, SelenideElement element) {
         actions()
+                .moveToElement(element)
+                .pause(200)
                 .clickAndHold(element)
                 .moveByOffset(xOffset, yOffset)
                 .release().perform();

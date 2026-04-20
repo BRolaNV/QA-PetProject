@@ -25,6 +25,8 @@ public class DraggablePage {
 
     public DraggablePage moveElementByOffSet(int xOffset, int yOffset, SelenideElement element) {
         actions()
+                .moveToElement(element)
+                .pause(200)
                 .clickAndHold(element)
                 .moveByOffset(xOffset, yOffset)
                 .release().perform();
@@ -33,6 +35,8 @@ public class DraggablePage {
 
     public DraggablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
         actions()
+                .moveToElement(element)
+                .pause(200)
                 .clickAndHold(element)
                 .moveToLocation(xCoordinate, yCoordinate)
                 .release().perform();

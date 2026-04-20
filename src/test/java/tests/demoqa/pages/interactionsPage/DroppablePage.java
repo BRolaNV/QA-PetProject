@@ -32,6 +32,8 @@ public class DroppablePage {
 
     public DroppablePage moveElementToElement(SelenideElement moveIt, SelenideElement toIt) {
         actions()
+                .moveToElement(moveIt)
+                .pause(200)
                 .clickAndHold(moveIt)
                 .moveToElement(toIt)
                 .release().perform();
@@ -40,6 +42,8 @@ public class DroppablePage {
 
     public DroppablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
         actions()
+                .moveToElement(element)
+                .pause(200)
                 .clickAndHold(element)
                 .moveToLocation(xCoordinate, yCoordinate)
                 .release().perform();

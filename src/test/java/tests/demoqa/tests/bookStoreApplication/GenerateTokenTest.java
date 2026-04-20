@@ -2,12 +2,12 @@ package tests.demoqa.tests.bookStoreApplication;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
 import tests.demoqa.tests.bookStoreApplication.pojo.UserData;
 import tests.specifications.Specifications;
-
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,9 +43,10 @@ public class GenerateTokenTest extends BaseApiTest {
         assertNotNull(expires);
         assertEquals("User authorized successfully.", result);
         assertEquals("Success", status);
+
+        defaultData.setToken(token);
     }
 
-    //Flaky 406
     @Test
     public void errorGenerateTokenTest() {
 
@@ -77,5 +78,10 @@ public class GenerateTokenTest extends BaseApiTest {
         assertEquals("User authorization failed.", result);
         assertEquals("Failed", status);
 
+    }
+
+    @AfterEach
+    void cleanUp(){
+        defaultData.cleanUp();
     }
 }

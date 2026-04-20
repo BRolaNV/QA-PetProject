@@ -1,20 +1,19 @@
 package tests.reqres.tests;
 
-import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ForUpdateData;
 import tests.specifications.Specifications;
 
-import java.time.Clock;
+import java.time.Duration;
+import java.time.Instant;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
-//Flaky иногда кидает 403
 public class UpdateUserTest extends BaseApiTest {
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void fullUpdateTest() {
 
         ForUpdateData user = ForUpdateData.builder()
@@ -32,16 +31,17 @@ public class UpdateUserTest extends BaseApiTest {
                 .log().all()
                 .extract().body().as(ForUpdateData.class);
 
-        String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");
+        Instant now = Instant.now();
+        Instant serverTime = Instant.parse(responseUser.getUpdatedAt());
+        Duration diff = Duration.between(serverTime, now).abs();
 
-        //Flaky
-        assertEquals(currentTime, responseUser.getUpdatedAt().replaceAll("(.{5})$", ""));
+        assertTrue(diff.toSeconds() < 10);
         assertEquals(user.getJob(), responseUser.getJob());
         assertEquals(user.getName(), responseUser.getName());
 
     }
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void partialUpdateTest() {
 
         ForUpdateData user = ForUpdateData.builder()
@@ -58,9 +58,11 @@ public class UpdateUserTest extends BaseApiTest {
                 .log().all()
                 .extract().body().as(ForUpdateData.class);
 
-        String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");
-//Flaky
-        assertEquals(currentTime, responseUser.getUpdatedAt().replaceAll("(.{5})$", ""));
+        Instant now = Instant.now();
+        Instant serverTime = Instant.parse(responseUser.getUpdatedAt());
+        Duration diff = Duration.between(serverTime, now).abs();
+
+        assertTrue(diff.toSeconds() < 10);
         assertNull(responseUser.getJob());
         assertEquals(user.getName(), responseUser.getName());
 

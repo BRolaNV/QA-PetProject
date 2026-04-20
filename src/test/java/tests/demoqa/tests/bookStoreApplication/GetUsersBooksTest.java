@@ -2,6 +2,7 @@ package tests.demoqa.tests.bookStoreApplication;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
@@ -43,5 +44,10 @@ public class GetUsersBooksTest extends BaseApiTest {
         assertEquals(defaultData.getValidUser().getUserName(), responseUsername);
         assertEquals(id, responseID);
         assertTrue(books.isEmpty());
+    }
+
+    @AfterEach
+    void cleanUp(){
+        defaultData.cleanUp();
     }
 }

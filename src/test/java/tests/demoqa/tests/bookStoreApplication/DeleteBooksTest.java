@@ -1,5 +1,6 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.DefaultData;
@@ -27,5 +28,10 @@ public class DeleteBooksTest extends BaseApiTest {
                 .then()
                 .spec(Specifications.responseSpecification(204));
 
+    }
+
+    @AfterEach
+    void cleanUp(){
+        defaultData.cleanUp();
     }
 }

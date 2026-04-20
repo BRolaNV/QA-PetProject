@@ -1,7 +1,9 @@
 package tests.demoqa.pages.elementsPage;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -15,16 +17,19 @@ public class ButtonsPage {
             dynamicClickMessage = $("#dynamicClickMessage");
 
     public ButtonsPage doubleClick() {
+        doubleClickBtn.shouldBe(visible);
         doubleClickBtn.doubleClick();
         return this;
     }
 
     public ButtonsPage rightClick() {
+        rightClickBtn.shouldBe(visible);
         rightClickBtn.contextClick();
         return this;
     }
 
     public ButtonsPage clickMe() {
+        clickMeBtn.shouldBe(visible);
         clickMeBtn.click();
         return this;
     }

@@ -15,7 +15,7 @@ public class RegisterUserTest extends BaseApiTest {
     public void successRegisterTest() {
 
         UserData validUser = UserData.builder()
-                .userName(new Faker().name().firstName())
+                .userName(new Faker().name().firstName() + "_" + System.currentTimeMillis())
                 .password("Pass123@")
                 .build();
 

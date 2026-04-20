@@ -12,19 +12,6 @@ import static io.restassured.RestAssured.given;
 @Getter
 public class DefaultData {
 
-    private final String URL = "https://demoqa.com/";
-
-    private final UserData validUser = new UserData(new Faker().name().firstName(), "Pass123@");
-
-    private String id;
-    private String token;
-
-    public DefaultData init(){
-        this.id = registerUser();
-        this.token = loginUser();
-        return this;
-    }
-
     public static BookData defaultBook = BookData.builder()
             .isbn("9781449325862")
             .title("Git Pocket Guide")
@@ -39,7 +26,6 @@ public class DefaultData {
                     "as well as a reference to common commands and procedures for those of you with Git exp")
             .website("http://chimera.labs.oreilly.com/books/1230000000561/index.html")
             .build();
-
     public static BookData bookForChange = BookData.builder()
             .isbn("9781449331818")
             .title("Learning JavaScript Design Patterns")
@@ -54,6 +40,26 @@ public class DefaultData {
                     "If you want to keep your code efficient, more manageable, and up-to-da")
             .website("http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/")
             .build();
+
+    private final String URL = "https://demoqa.com/";
+
+    private final UserData validUser = new UserData(
+            new Faker().name().firstName() + "_" + System.currentTimeMillis(),
+                    "Pass123@"
+    );
+
+    private String id;
+    private String token;
+
+    public DefaultData init() {
+        this.id = registerUser();
+        this.token = loginUser();
+        return this;
+    }
+
+    public void setToken(String token){
+        this.token = token;
+    }
 
     private String registerUser() {
 
@@ -99,5 +105,20 @@ public class DefaultData {
                 .spec(Specifications.responseSpecification(201))
                 .log().all();
 
+    }
+
+    public void cleanUp() {
+
+        if (id == null || token == null) {
+            return;
+        }
+
+        given()
+                .spec(Specifications.requestSpecificationDemoQA(URL))
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("Account/v1/User/" + id)
+                .then()
+                .spec(Specifications.responseSpecification(204));
     }
 }

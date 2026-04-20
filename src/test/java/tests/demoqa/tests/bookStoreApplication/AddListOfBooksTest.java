@@ -1,5 +1,6 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
@@ -12,7 +13,6 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//Flaky кидает 406
 public class AddListOfBooksTest extends BaseApiTest {
 
     DefaultData defaultData = new DefaultData().init();
@@ -42,5 +42,10 @@ public class AddListOfBooksTest extends BaseApiTest {
 
         assertEquals(defaultBook.getIsbn(), isbn);
 
+    }
+
+    @AfterEach
+    void cleanUp(){
+        defaultData.cleanUp();
     }
 }

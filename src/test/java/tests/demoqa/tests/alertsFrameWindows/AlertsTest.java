@@ -61,7 +61,7 @@ public class AlertsTest extends BaseUITest {
 
         alertsPage.clickConfirmButton();
         assertEquals("Do you confirm action?", switchTo().alert().getText());
-        
+
         switchTo().alert().dismiss();
         assertEquals("You selected Cancel", alertsPage.getConfirmResult().getText());
     }

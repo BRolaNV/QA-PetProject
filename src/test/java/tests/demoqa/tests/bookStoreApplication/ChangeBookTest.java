@@ -1,5 +1,6 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
@@ -45,5 +46,10 @@ public class ChangeBookTest extends BaseApiTest {
         BookData responseBook = list.get(0);
 
         assertEquals(bookForChange, responseBook);
+    }
+
+    @AfterEach
+    void cleanUp(){
+        defaultData.cleanUp();
     }
 }

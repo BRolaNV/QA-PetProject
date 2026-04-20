@@ -5,17 +5,20 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.interactionsPage.ResizablePage;
 import tests.demoqa.tests.BaseUITest;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-//Flaky страница не всегда успевает прогрузиться
+
+/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry. */
+
 public class ResizableTest extends BaseUITest {
 
     ResizablePage resizablePage = new ResizablePage();
-
 
     @BeforeEach
     void openPage() {
@@ -32,28 +35,28 @@ public class ResizableTest extends BaseUITest {
         assertEquals(s, result);
     }
 
-    @Test
+    @RetryingTest(3)
     void resizableBoxPositiveTest() {
 
         resize(100, 50);
         assertStyle("width: 300px; height: 250px;");
     }
 
-    @Test
+    @RetryingTest(3)
     void resizableBoxBellowMinimumTest() {
 
         resize(-100, -100);
         assertStyle("width: 150px; height: 150px;");
     }
 
-    @Test
+    @RetryingTest(3)
     void resizableBoxAboveMaximumTest() {
 
         resize(350, 150);
         assertStyle("width: 500px; height: 300px;");
     }
 
-    @Test
+    @RetryingTest(3)
     void resizableBoxBoundaryTest() {
 
         resize(-49, -49);
@@ -81,7 +84,7 @@ public class ResizableTest extends BaseUITest {
         resize(-300, -200);
     }
 
-    @Test
+    @RetryingTest(3)
     void resizableTest() {
 
         resizablePage.getResizeable().scrollIntoView(true);

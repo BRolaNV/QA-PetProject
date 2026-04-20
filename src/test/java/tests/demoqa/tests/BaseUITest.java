@@ -8,5 +8,8 @@ public abstract class BaseUITest {
     static void setUp() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.timeout = 10000;
+        Configuration.pageLoadStrategy = "normal";
+        Configuration.browserSize = "1920x1080";
     }
 }

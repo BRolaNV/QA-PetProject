@@ -1,18 +1,18 @@
 package tests.reqres.tests;
 
-import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ResourcesData;
 import tests.specifications.Specifications;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-//Flaky иногда кидает 403
+
+
 public class SingleResourceTest extends BaseApiTest {
 
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void getRealResourceTest() {
 
         ResourcesData resource = given()
@@ -36,7 +36,7 @@ public class SingleResourceTest extends BaseApiTest {
         assertEquals(realResource, resource);
     }
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void getUnrealResourceTest() {
 
         given()

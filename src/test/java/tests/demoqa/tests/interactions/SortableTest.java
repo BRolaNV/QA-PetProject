@@ -14,7 +14,6 @@ public class SortableTest extends BaseUITest {
 
     SortablePage sortablePage = new SortablePage();
 
-
     @AfterAll
     static void close() {
         closeWebDriver();

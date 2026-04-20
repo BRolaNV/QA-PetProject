@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import tests.demoqa.pages.interactionsPage.DroppablePage;
 import tests.demoqa.tests.BaseUITest;
@@ -14,8 +15,9 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry. */
 
-//Flaky страница не всегда успевает прогрузиться, а селенид уже пытается перемещать элементы
 public class DroppableTest extends BaseUITest {
 
     DroppablePage droppablePage = new DroppablePage();
@@ -25,13 +27,13 @@ public class DroppableTest extends BaseUITest {
         open("/droppable");
     }
 
-    @Test
+    @RetryingTest(3)
     void simpleTest() {
         droppablePage.moveElementToElement(droppablePage.getDragMe(), droppablePage.getDropHereSimple());
         droppablePage.getSimpleResult().shouldHave(text("Dropped!"));
     }
 
-    @Test
+    @RetryingTest(3)
     void acceptTest() {
 
         droppablePage.openAccept();
@@ -43,7 +45,7 @@ public class DroppableTest extends BaseUITest {
         droppablePage.getAcceptResult().shouldHave(text("Dropped!"));
     }
 
-    @Test
+    @RetryingTest(3)
     void preventPropagationTest() {
 
         droppablePage.openPreventPropagation();
@@ -55,7 +57,7 @@ public class DroppableTest extends BaseUITest {
         droppablePage.getGreedyResult().shouldHave(text("Outer droppable"));
     }
 
-    @Test
+    @RetryingTest(3)
     void revertDraggableTest() {
 
         droppablePage.openRevertDraggable();

@@ -27,7 +27,6 @@ public class SliderTest extends BaseUITest {
     @Test
     void sliderTest() {
 
-        //Flaky не всегда страница успевает прогрузится
         String value = "57";
         sliderPage.setSlider(value);
         assertEquals(value, sliderPage.getSliderValue());

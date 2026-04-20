@@ -2,21 +2,22 @@ package tests.reqres.tests;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.specifications.Specifications;
 
-import java.time.Clock;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-//Flaky кидает 403 иногда
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class CreateUserTest extends BaseApiTest {
 
-    @Test
+    @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
     public void successCreateTest() {
 
         Map<String, String> user = new HashMap<>();
@@ -35,10 +36,11 @@ public class CreateUserTest extends BaseApiTest {
 
         JsonPath jsonPath = response.jsonPath();
 
-        String currentTime = Clock.systemUTC().instant().toString().replaceAll("(.{11})$", "");
+        Instant now = Instant.now();
+        Instant serverTime = Instant.parse(jsonPath.get("createdAt"));
+        Duration diff = Duration.between(serverTime, now).abs();
 
-        //Flaky
-        assertEquals(currentTime, jsonPath.get("createdAt").toString().replaceAll("(.{5})$", ""));
+        assertTrue(diff.toSeconds() < 10);
         assertNotNull(jsonPath.get("id"));
 
     }
