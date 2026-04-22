@@ -1,6 +1,7 @@
 package tests.demoqa.pages.interactionsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -29,7 +30,7 @@ public class DroppablePage {
             notRevertable = $x("//div[@id='notRevertable']"),
             dropHereRevert = $x("//div[@id='revertableDropContainer']//div[@id='droppable']");
 
-
+    @Step("Move element to element")
     public DroppablePage moveElementToElement(SelenideElement moveIt, SelenideElement toIt) {
         actions()
                 .moveToElement(moveIt)
@@ -40,6 +41,7 @@ public class DroppablePage {
         return this;
     }
 
+    @Step("Move element to location")
     public DroppablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
         actions()
                 .moveToElement(element)
@@ -50,16 +52,19 @@ public class DroppablePage {
         return this;
     }
 
+    @Step("Open accept page")
     public DroppablePage openAccept() {
         accept.click();
         return this;
     }
 
+    @Step("Open prevent propagation page")
     public DroppablePage openPreventPropagation() {
         preventPropagation.click();
         return this;
     }
 
+    @Step("Open revert draggable page")
     public DroppablePage openRevertDraggable() {
         revertDraggable.click();
         return this;

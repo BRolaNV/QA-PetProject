@@ -1,5 +1,7 @@
 package tests.reqres.tests;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ResourcesData;
@@ -11,9 +13,17 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Epic("ReqRes")
+@Feature("Default API")
+@Story("List resources")
 public class ListResourcesTest extends BaseApiTest {
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Check sorted by date")
+    @Description(
+            "Get resources" + "\n" +
+                    "Check that sorted by date")
+    @Severity(SeverityLevel.NORMAL)
     public void dateOrderTest() {
 
         List<ResourcesData> resources = given()
@@ -33,6 +43,11 @@ public class ListResourcesTest extends BaseApiTest {
     }
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Check not null")
+    @Description(
+            "Get resources" + "\n" +
+                    "Check that fields not null")
+    @Severity(SeverityLevel.NORMAL)
     public void notNullTest() {
 
         List<ResourcesData> resources = given()

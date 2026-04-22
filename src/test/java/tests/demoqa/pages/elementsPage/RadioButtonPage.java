@@ -1,6 +1,7 @@
 package tests.demoqa.pages.elementsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -12,11 +13,13 @@ public class RadioButtonPage {
             impressiveRadio = $("#impressiveRadio"),
             noRadio = $("#noRadio");
 
+    @Step("Click 'yes' button")
     public RadioButtonPage clickYesRadio() {
         yesRadio.click();
         return this;
     }
 
+    @Step("Click 'impressive' button")
     public RadioButtonPage clickImpressiveRadio() {
         impressiveRadio.click();
         return this;

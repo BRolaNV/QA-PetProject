@@ -1,8 +1,10 @@
 package tests.demoqa.tests.forms;
 
+import io.qameta.allure.*;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.data.PracticeFormData;
 import tests.demoqa.pages.formsPage.PracticeFormPage;
@@ -13,11 +15,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("DemoQA UI")
+@Feature("Forms")
+@Story("Practice Form")
 public class PracticeFormTest extends BaseUITest {
 
     Faker faker = new Faker();
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-
 
     @AfterAll
     static void close() {
@@ -29,6 +33,7 @@ public class PracticeFormTest extends BaseUITest {
         open("/automation-practice-form");
     }
 
+    @Step("Fill required fields")
     public PracticeFormData fillRequiredFields(String gender, String number) {
 
         PracticeFormData practiceFormData = PracticeFormData.builder()
@@ -47,6 +52,8 @@ public class PracticeFormTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Filling out the form correctly")
+    @Severity(SeverityLevel.NORMAL)
     void correctFillTest() {
 
         String email = faker.internet().emailAddress();
@@ -86,6 +93,8 @@ public class PracticeFormTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Change subjects")
+    @Severity(SeverityLevel.NORMAL)
     void changeSubjectsTest() {
 
         String subject1 = "English";
@@ -104,6 +113,8 @@ public class PracticeFormTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill wrong email")
+    @Severity(SeverityLevel.NORMAL)
     void wrongEmailTest() {
 
         String email = "wrong@email";
@@ -114,6 +125,8 @@ public class PracticeFormTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill wrong mobile number")
+    @Severity(SeverityLevel.NORMAL)
     void wrongMobileNumberTest() {
 
         PracticeFormData practiceFormData = fillRequiredFields(null, faker.number().digits(9));

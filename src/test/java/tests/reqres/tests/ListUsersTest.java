@@ -1,6 +1,8 @@
 package tests.reqres.tests;
 
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.RootData;
@@ -13,10 +15,12 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
+@Epic("ReqRes")
+@Feature("Default API")
+@Story("List users")
 public class ListUsersTest extends BaseApiTest {
 
-
+    @Step("Get users")
     public List<UserData> getUsers() {
 
         List<UserData> users = given()
@@ -32,6 +36,7 @@ public class ListUsersTest extends BaseApiTest {
         return users;
     }
 
+    @Step("Get root")
     public RootData getRoot() {
 
         RootData rootData = given()
@@ -48,6 +53,11 @@ public class ListUsersTest extends BaseApiTest {
     }
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Check avatar and id")
+    @Description(
+            "Get users" + "\n" +
+                    "Check that avatar and id are equal")
+    @Severity(SeverityLevel.NORMAL)
     public void checkAvatarAndIdTest() {
 
         List<UserData> users = getUsers();
@@ -55,6 +65,11 @@ public class ListUsersTest extends BaseApiTest {
     }
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Check emails")
+    @Description(
+            "Get users" + "\n" +
+                    "Check that emails end with 'reqres.in'")
+    @Severity(SeverityLevel.NORMAL)
     public void checkEmailsTest() {
 
         List<UserData> users = getUsers();
@@ -62,6 +77,12 @@ public class ListUsersTest extends BaseApiTest {
     }
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Check number of elements")
+    @Description(
+            "Get users" + "\n" +
+                    "Get root" + "\n" +
+                    "Check that the quantity matches")
+    @Severity(SeverityLevel.NORMAL)
     public void checkNumberOfElementsTest() {
 
         RootData rootData = getRoot();
@@ -71,6 +92,11 @@ public class ListUsersTest extends BaseApiTest {
     }
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Check root")
+    @Description(
+            "Get root" + "\n" +
+                    "Check that the quantity matches")
+    @Severity(SeverityLevel.NORMAL)
     public void checkRootTest() {
 
         RootData rootData = getRoot();

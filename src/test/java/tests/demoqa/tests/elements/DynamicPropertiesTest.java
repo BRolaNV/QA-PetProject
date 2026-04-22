@@ -1,10 +1,8 @@
 package tests.demoqa.tests.elements;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.*;
 import tests.demoqa.pages.elementsPage.DynamicPropertiesPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -12,6 +10,9 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("DemoQA UI")
+@Feature("Elements")
+@Story("Dynamic Properties")
 public class DynamicPropertiesTest extends BaseUITest {
 
     DynamicPropertiesPage dynamicPropertiesPage = new DynamicPropertiesPage();
@@ -27,6 +28,8 @@ public class DynamicPropertiesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Button becomes enabled after 5 seconds")
+    @Severity(SeverityLevel.NORMAL)
     void willEnableButtonTest() {
 
         dynamicPropertiesPage.getEnableAfter().shouldNotBe(enabled);
@@ -34,6 +37,8 @@ public class DynamicPropertiesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Button becomes visible after 5 seconds")
+    @Severity(SeverityLevel.NORMAL)
     void visibleAfterButtonTest() {
 
         dynamicPropertiesPage.getVisibleAfter().shouldNotBe(visible);
@@ -41,6 +46,8 @@ public class DynamicPropertiesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Button changes color after 5 seconds")
+    @Severity(SeverityLevel.NORMAL)
     void changeColorButtonTest() {
 
         dynamicPropertiesPage.getChangeColor().shouldNotHave(cssClass("text-danger"));

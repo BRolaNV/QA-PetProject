@@ -1,6 +1,7 @@
 package tests.demoqa.pages.widgetsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
@@ -22,16 +23,7 @@ public class DatePickerPage {
             dateAndTimePickerPreviousMonthBtn = $x("//button[@aria-label='Previous Month']"),
             dateAndTimePickerTime = $x("//ul[@class='react-datepicker__time-list']");
 
-    public String getDatePickerValue() {
-        String s = datePickerInput.getValue();
-        return s;
-    }
-
-    public String getDateAndTimePickerValue() {
-        String s = dateAndTimePickerInput.getValue();
-        return s;
-    }
-
+    @Step("Set date")
     public DatePickerPage setDate(String date) {
 
         String[] s = date.split("/");
@@ -65,6 +57,7 @@ public class DatePickerPage {
         return this;
     }
 
+    @Step("Set date and time")
     public DatePickerPage setDateAndTime(String date) {
 
         String[] s = date.split("[ ,]+");
@@ -116,6 +109,14 @@ public class DatePickerPage {
         dateAndTimePickerTime.find(byText(time)).click();
 
         return this;
+    }
+
+    public String getDatePickerValue() {
+        return datePickerInput.getValue();
+    }
+
+    public String getDateAndTimePickerValue() {
+        return dateAndTimePickerInput.getValue();
     }
 
 }

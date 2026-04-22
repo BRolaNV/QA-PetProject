@@ -1,8 +1,10 @@
 package tests.demoqa.tests.interactions;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
@@ -17,6 +19,10 @@ import static org.junit.jupiter.api.Assertions.*;
 /**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
  * решить паузами, таймаутом получилось не до конца - поэтому retry. */
 
+@Epic("DemoQA UI")
+@Feature("Interactions")
+@Story("Draggable")
+@Flaky
 public class DraggableTest extends BaseUITest {
 
     DraggablePage draggablePage = new DraggablePage();
@@ -27,7 +33,9 @@ public class DraggableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
-    void simpleTest() {
+    @DisplayName("Drag element and check")
+    @Severity(SeverityLevel.NORMAL)
+     void simpleTest() {
 
         int xOffset = 200;
         int yOffset = 200;
@@ -40,6 +48,8 @@ public class DraggableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag elements restricted to single axis")
+    @Severity(SeverityLevel.NORMAL)
     void axisRestrictedTest() {
 
         int xOffset = 200;
@@ -60,6 +70,8 @@ public class DraggableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag element inside container and check")
+    @Severity(SeverityLevel.NORMAL)
     void containerRestrictedContainerTest() {
 
         draggablePage.openContainerRestricted();
@@ -86,6 +98,8 @@ public class DraggableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag element inside parent and check")
+    @Severity(SeverityLevel.NORMAL)
     void containerRestrictedParentTest() {
 
         draggablePage.openContainerRestricted();
@@ -112,6 +126,8 @@ public class DraggableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag element and check cursor style")
+    @Severity(SeverityLevel.NORMAL)
     void cursorStyleTest() {
 
         int xCoordinate = 400;

@@ -1,7 +1,9 @@
 package tests.reqres.tests;
 
+import io.qameta.allure.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.specifications.Specifications;
@@ -15,9 +17,17 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Epic("ReqRes")
+@Feature("Default API")
+@Story("Create user")
 public class CreateUserTest extends BaseApiTest {
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Successful create")
+    @Description(
+            "Create new user" + "\n" +
+                    "Check that response id and created time matches ")
+    @Severity(SeverityLevel.NORMAL)
     public void successCreateTest() {
 
         Map<String, String> user = new HashMap<>();

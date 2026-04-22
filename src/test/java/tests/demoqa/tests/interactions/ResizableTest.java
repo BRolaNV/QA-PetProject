@@ -2,8 +2,10 @@ package tests.demoqa.tests.interactions;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.interactionsPage.ResizablePage;
@@ -16,6 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
  * решить паузами, таймаутом получилось не до конца - поэтому retry. */
 
+@Epic("DemoQA UI")
+@Feature("Interactions")
+@Story("Resizable")
+@Flaky
 public class ResizableTest extends BaseUITest {
 
     ResizablePage resizablePage = new ResizablePage();
@@ -25,6 +31,7 @@ public class ResizableTest extends BaseUITest {
         open("/resizable");
     }
 
+    @Step("Resize")
     void resize(int x, int y) {
         SelenideElement holder = resizablePage.getResizeableBox();
         actions().clickAndHold(holder).moveByOffset(x, y).release().perform();
@@ -36,6 +43,8 @@ public class ResizableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Resize within acceptable limits")
+    @Severity(SeverityLevel.NORMAL)
     void resizableBoxPositiveTest() {
 
         resize(100, 50);
@@ -43,13 +52,17 @@ public class ResizableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
-    void resizableBoxBellowMinimumTest() {
+    @DisplayName("Resize to below minimum limit")
+    @Severity(SeverityLevel.NORMAL)
+    void resizableBoxBelowMinimumTest() {
 
         resize(-100, -100);
         assertStyle("width: 150px; height: 150px;");
     }
 
     @RetryingTest(3)
+    @DisplayName("Resize to above maximum limit")
+    @Severity(SeverityLevel.NORMAL)
     void resizableBoxAboveMaximumTest() {
 
         resize(350, 150);
@@ -57,6 +70,8 @@ public class ResizableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Check the boundary values")
+    @Severity(SeverityLevel.NORMAL)
     void resizableBoxBoundaryTest() {
 
         resize(-49, -49);
@@ -85,6 +100,8 @@ public class ResizableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Resize without limits")
+    @Severity(SeverityLevel.NORMAL)
     void resizableTest() {
 
         resizablePage.getResizeable().scrollIntoView(true);

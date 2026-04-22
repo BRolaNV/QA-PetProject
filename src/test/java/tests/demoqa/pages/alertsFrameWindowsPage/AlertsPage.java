@@ -1,6 +1,7 @@
 package tests.demoqa.pages.alertsFrameWindowsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -13,21 +14,25 @@ public class AlertsPage {
             promptBtn = $("#promtButton"),
             promptResult = $("#promptResult");
 
+    @Step("Click the alert button")
     public AlertsPage clickAlertButton() {
         alertBtn.click();
         return this;
     }
 
+    @Step("Click the timer alert button")
     public AlertsPage clickTimerAlertButton() {
         timerAlertBtn.click();
         return this;
     }
 
+    @Step("Click the confirm button")
     public AlertsPage clickConfirmButton() {
         confirmBtn.click();
         return this;
     }
 
+    @Step("Click the prompt button")
     public AlertsPage clickPromptButton() {
         promptBtn.click();
         return this;

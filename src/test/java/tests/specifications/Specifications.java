@@ -1,5 +1,6 @@
 package tests.specifications;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -14,6 +15,7 @@ public class Specifications {
                 .setBaseUri(URL)
                 .setContentType(ContentType.JSON)
                 .addHeader("x-api-key", apiKey)
+                .addFilter(new AllureRestAssured())
                 .build();
     }
 
@@ -21,6 +23,7 @@ public class Specifications {
         return new RequestSpecBuilder()
                 .setBaseUri(URL)
                 .setContentType(ContentType.JSON)
+                .addFilter(new AllureRestAssured())
                 .build();
     }
 

@@ -1,6 +1,8 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
@@ -13,11 +15,22 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("DemoQA API")
+@Feature("Book Store")
+@Story("Add books")
 public class AddListOfBooksTest extends BaseApiTest {
 
     DefaultData defaultData = new DefaultData().init();
 
     @Test
+    @DisplayName("Add list of books")
+    @Description(
+            "Create new user" + "\n" +
+            "Login" + "\n" +
+            "Add list of books" + "\n" +
+            "Check that book is added" + "\n" +
+            "Delete user")
+    @Severity(SeverityLevel.NORMAL)
     public void addListOfBooksTest() {
 
         String id = defaultData.getId();

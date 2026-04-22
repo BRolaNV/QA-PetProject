@@ -1,5 +1,7 @@
 package tests.reqres.tests;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.UserData;
@@ -10,9 +12,17 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Epic("ReqRes")
+@Feature("Default API")
+@Story("Delayed response")
 public class DelayTest extends BaseApiTest {
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Get users with delayed response")
+    @Description(
+            "Send request with 3 sec delay" + "\n" +
+                    "Check that response data is valid")
+    @Severity(SeverityLevel.NORMAL)
     public void getDelayUsers() {
 
         List<UserData> users = given()

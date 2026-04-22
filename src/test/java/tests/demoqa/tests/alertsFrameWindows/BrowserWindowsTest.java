@@ -1,10 +1,8 @@
 package tests.demoqa.tests.alertsFrameWindows;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.*;
 import tests.demoqa.pages.alertsFrameWindowsPage.BrowserWindowsPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -14,6 +12,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
+@Epic("DemoQA UI")
+@Feature("Alerts, Frame & Windows")
+@Story("Browser Windows")
 public class BrowserWindowsTest extends BaseUITest {
 
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
@@ -30,7 +31,9 @@ public class BrowserWindowsTest extends BaseUITest {
     }
 
     @Test
-    void newTapButtonTest() {
+    @DisplayName("Open new tab")
+    @Severity(SeverityLevel.NORMAL)
+    void newTabButtonTest() {
 
         browserWindowsPage.clickTabButton();
         switchTo().window(1);
@@ -38,6 +41,8 @@ public class BrowserWindowsTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Open new window")
+    @Severity(SeverityLevel.NORMAL)
     void newWindowButtonTest() {
 
         browserWindowsPage.clickWindowButton();
@@ -46,7 +51,9 @@ public class BrowserWindowsTest extends BaseUITest {
     }
 
     @Test
-    void newWindowMassageButtonTest() {
+    @DisplayName("Open new window (about:blank)")
+    @Severity(SeverityLevel.NORMAL)
+    void newWindowMessageButtonTest() {
 
         browserWindowsPage.clickMessageWindowButton();
 

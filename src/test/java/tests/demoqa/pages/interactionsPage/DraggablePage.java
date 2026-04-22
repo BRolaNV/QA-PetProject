@@ -1,6 +1,10 @@
 package tests.demoqa.pages.interactionsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -23,6 +27,7 @@ public class DraggablePage {
             cursorTopLeft = $x("//div[@id='cursorTopLeft']"),
             cursorBottom = $x("//div[@id='cursorBottom']");
 
+    @Step("Move element by offset")
     public DraggablePage moveElementByOffSet(int xOffset, int yOffset, SelenideElement element) {
         actions()
                 .moveToElement(element)
@@ -33,6 +38,7 @@ public class DraggablePage {
         return this;
     }
 
+    @Step("Move element to location")
     public DraggablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
         actions()
                 .moveToElement(element)
@@ -43,23 +49,26 @@ public class DraggablePage {
         return this;
     }
 
-    public String getDragMeEndPosition() {
-        return dragMe.getAttribute("style");
-    }
-
+    @Step("Open axis restricted page")
     public DraggablePage openAxisRestricted() {
         axisRestricted.click();
         return this;
     }
 
+    @Step("Open container restricted page")
     public DraggablePage openContainerRestricted() {
         containerRestricted.click();
         return this;
     }
 
+    @Step("Open cursor style page")
     public DraggablePage openCursorStyle() {
         cursorStyle.click();
         return this;
+    }
+
+    public String getDragMeEndPosition() {
+        return dragMe.getAttribute("style");
     }
 
     public String getOnlyXEndPosition() {

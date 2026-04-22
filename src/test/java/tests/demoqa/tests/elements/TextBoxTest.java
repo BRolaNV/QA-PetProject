@@ -1,8 +1,10 @@
 package tests.demoqa.tests.elements;
 
+import io.qameta.allure.*;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.TextBoxPage;
 import tests.demoqa.tests.BaseUITest;
@@ -12,6 +14,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("DemoQA UI")
+@Feature("Elements")
+@Story("Text Box")
 public class TextBoxTest extends BaseUITest {
 
     TextBoxPage textBoxPage = new TextBoxPage();
@@ -29,6 +34,8 @@ public class TextBoxTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Filling out the form correctly")
+    @Severity(SeverityLevel.NORMAL)
     void fillFullFormTest() {
 
         String name = faker.name().fullName();
@@ -50,6 +57,8 @@ public class TextBoxTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill only required fields")
+    @Severity(SeverityLevel.NORMAL)
     void fillPartialFormTest() {
 
         String name = faker.name().fullName();
@@ -69,6 +78,8 @@ public class TextBoxTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill wrong email")
+    @Severity(SeverityLevel.NORMAL)
     void fillWrongEmailTest() {
 
         textBoxPage.setEmail("wrong@email");
@@ -77,6 +88,8 @@ public class TextBoxTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Try submit empty form")
+    @Severity(SeverityLevel.NORMAL)
     void submitEmptyFormTest() {
 
         textBoxPage.submit();

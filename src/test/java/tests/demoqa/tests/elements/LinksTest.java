@@ -1,7 +1,9 @@
 package tests.demoqa.tests.elements;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.LinksPage;
 import tests.demoqa.tests.BaseUITest;
@@ -10,6 +12,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
+@Epic("DemoQA UI")
+@Feature("Elements")
+@Story("Links")
 public class LinksTest extends BaseUITest {
 
     LinksPage linksPage = new LinksPage();
@@ -21,6 +26,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check status code 204")
+    @Severity(SeverityLevel.NORMAL)
     void noContentLinkTest() {
 
         linksPage.noContentClick();
@@ -28,6 +35,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check status code 301")
+    @Severity(SeverityLevel.NORMAL)
     void movedLinkTest() {
 
         linksPage.movedClick();
@@ -35,6 +44,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check status code 400")
+    @Severity(SeverityLevel.NORMAL)
     void badRequestLinkTest() {
 
         linksPage.badRequestClick();
@@ -42,6 +53,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check status code 401")
+    @Severity(SeverityLevel.NORMAL)
     void unauthorizedLinkTest() {
 
         linksPage.unauthorizedClick();
@@ -49,6 +62,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check status code 403")
+    @Severity(SeverityLevel.NORMAL)
     void forbiddenLinkTest() {
 
         linksPage.forbiddenClick();
@@ -56,6 +71,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check status code 404")
+    @Severity(SeverityLevel.NORMAL)
     void notFoundLinkTest() {
 
         linksPage.invalidURLClick();
@@ -63,6 +80,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check redirect to main page")
+    @Severity(SeverityLevel.NORMAL)
     void homeLinkTest() {
 
         linksPage.simpleLinkClick();
@@ -71,6 +90,8 @@ public class LinksTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check redirect to main page via dynamic link")
+    @Severity(SeverityLevel.NORMAL)
     void dynamicLinkTest() {
 
         linksPage.dynamicLinkClick();

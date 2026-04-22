@@ -2,6 +2,7 @@ package tests.demoqa.pages.formsPage;
 
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.io.File;
 import java.util.HashMap;
@@ -33,21 +34,25 @@ public class PracticeFormPage {
             submitBtn = $x("//button[text()='Submit']"),
             result = $("tbody");
 
+    @Step("Fill first name")
     public PracticeFormPage setFirstName(String s) {
         firstName.setValue(s);
         return this;
     }
 
+    @Step("Fill last name")
     public PracticeFormPage setLastName(String s) {
         lastName.setValue(s);
         return this;
     }
 
+    @Step("Fill email")
     public PracticeFormPage setUserEmail(String s) {
         userEmail.setValue(s);
         return this;
     }
 
+    @Step("Fill gender")
     public PracticeFormPage setGender(String Male_Female_Other) {
         switch (Male_Female_Other.toLowerCase()) {
             case "male":
@@ -63,14 +68,13 @@ public class PracticeFormPage {
         return this;
     }
 
+    @Step("Fill mobile number")
     public PracticeFormPage setMobileNumber(String s) {
         mobileNumber.setValue(s);
         return this;
     }
 
-    /**
-     * @param date format "dd MMMM,yyyy", e.g. "01 January,2001"
-     */
+    @Step("Fill birthday (date format \"dd MMMM,yyyy\", e.g. \"01 January,2001\")")
     public PracticeFormPage setBirthday(String date) {
 
         String[] s = date.split("[ ,]+");
@@ -102,54 +106,64 @@ public class PracticeFormPage {
         return this;
     }
 
+    @Step("Fill subject")
     public PracticeFormPage setSubject(String s) {
         subjectsInput.setValue(s);
         subjectsChoose.click();
         return this;
     }
 
+    @Step("Select hobby (Sport)")
     public PracticeFormPage selectHobbySport() {
         hobbySports.click();
         return this;
     }
 
+    @Step("Select hobby (Reading)")
     public PracticeFormPage selectHobbyReading() {
         hobbyReading.click();
         return this;
     }
 
+    @Step("Select hobby (Music)")
     public PracticeFormPage selectHobbyMusic() {
         hobbyMusic.click();
         return this;
     }
 
+    @Step("Upload file")
     public PracticeFormPage uploadFile(String path) {
         uploadBtn.uploadFile(new File(path));
         return this;
     }
 
+    @Step("Fill current address")
     public PracticeFormPage selectCurrentAddress(String s) {
         currentAddress.setValue(s);
         return this;
     }
 
+    @Step("Fill state")
     public PracticeFormPage selectState(String s) {
         state.setValue(s);
         $x("//div[text()='" + s + "']").click();
         return this;
     }
 
+    @Step("Fill city")
     public PracticeFormPage selectCity(String s) {
         city.setValue(s);
         $x("//div[text()='" + s + "']").click();
         return this;
     }
 
+    @Step("Submit")
     public PracticeFormPage submit() {
         submitBtn.click(ClickOptions.usingJavaScript());
         return this;
     }
 
+    @Step("Remove subject")
     public PracticeFormPage removeSubject(String s) {
         $x("//div[@aria-label='Remove " + s + "']").click();
         return this;

@@ -1,7 +1,9 @@
 package tests.demoqa.tests.widgets;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.TabsPage;
 import tests.demoqa.tests.BaseUITest;
@@ -10,6 +12,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+
+@Epic("DemoQA UI")
+@Feature("Widgets")
+@Story("Tabs")
 public class TabsTest extends BaseUITest {
 
     TabsPage tabsPage = new TabsPage();
@@ -26,6 +32,8 @@ public class TabsTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check text in tabs")
+    @Severity(SeverityLevel.NORMAL)
     void tabsTest() {
 
         tabsPage.openUse()

@@ -1,5 +1,7 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
@@ -11,9 +13,17 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Epic("DemoQA API")
+@Feature("Book Store")
+@Story("Get books")
 public class GetBooksTest extends BaseApiTest {
 
     @Test
+    @DisplayName("Get all books")
+    @Description(
+            "Get books" + "\n" +
+                    "Check that fields not null")
+    @Severity(SeverityLevel.NORMAL)
     public void getBooksTest() {
 
         List<BookData> books = given()

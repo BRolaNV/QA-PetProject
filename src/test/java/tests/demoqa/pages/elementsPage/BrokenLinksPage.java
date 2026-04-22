@@ -1,6 +1,7 @@
 package tests.demoqa.pages.elementsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -14,12 +15,13 @@ public class BrokenLinksPage {
             brokenImage = $("img[src='/images/Toolsqa_1.jpg']"),
             validImage = $("img[src='/images/Toolsqa.jpg']");
 
-
+    @Step("Open main page")
     public BrokenLinksPage validLinkClick() {
         validLink.click();
         return this;
     }
 
+    @Step("Open page with status code 500")
     public BrokenLinksPage brokenLinkClick() {
         brokenLink.click();
         return this;

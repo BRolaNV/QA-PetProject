@@ -1,6 +1,10 @@
 package tests.demoqa.pages.interactionsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -16,11 +20,13 @@ public class SortablePage {
             gridSix = $x("//div[@data-handler-id='T22']"),
             gridThree = $x("//div[@data-handler-id='T16']");
 
+    @Step("Open 'grid' page")
     public SortablePage openGrid() {
         grid.click();
         return this;
     }
 
+    @Step("Move element to element")
     public SortablePage moveElementToElement(SelenideElement moveIt, SelenideElement toIt) {
         actions()
                 .clickAndHold(moveIt)

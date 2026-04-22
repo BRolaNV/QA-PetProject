@@ -1,6 +1,7 @@
 package tests.demoqa.pages.elementsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.io.File;
 
@@ -12,6 +13,7 @@ public class UploadAndDownloadPage {
     private final SelenideElement uploadFileBtn = $("#uploadFile"),
             uploadedFilePath = $("#uploadedFilePath");
 
+    @Step("Upload file")
     public UploadAndDownloadPage uploadFile(String fileName) {
         uploadFileBtn.uploadFile(new File(fileName));
         return this;

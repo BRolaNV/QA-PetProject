@@ -1,5 +1,7 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.BookData;
@@ -9,9 +11,18 @@ import tests.specifications.Specifications;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("DemoQA API")
+@Feature("Book Store")
+@Story("Get book")
 public class GetBookTest extends BaseApiTest {
 
     @Test
+    @DisplayName("Get single book")
+    @Description(
+            "Select default book" + "\n" +
+                    "Send book" + "\n" +
+                    "Check that response matches default book")
+    @Severity(SeverityLevel.NORMAL)
     public void getBookTest() {
 
         BookData defaultBook = DefaultData.defaultBook;

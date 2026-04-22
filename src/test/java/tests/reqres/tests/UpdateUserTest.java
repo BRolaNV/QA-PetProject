@@ -1,5 +1,7 @@
 package tests.reqres.tests;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;
 import tests.reqres.pojo.ForUpdateData;
@@ -11,9 +13,18 @@ import java.time.Instant;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("ReqRes")
+@Feature("Default API")
+@Story("Update User")
 public class UpdateUserTest extends BaseApiTest {
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Full update")
+    @Description(
+            "Create user with new data" + "\n" +
+                    "Send" + "\n" +
+                    "Check that data is updated")
+    @Severity(SeverityLevel.NORMAL)
     public void fullUpdateTest() {
 
         ForUpdateData user = ForUpdateData.builder()
@@ -42,6 +53,12 @@ public class UpdateUserTest extends BaseApiTest {
     }
 
     @RetryingTest(maxAttempts = 3, suspendForMs = 2000)
+    @DisplayName("Partial update")
+    @Description(
+            "Create user with new name only" + "\n" +
+                    "Send" + "\n" +
+                    "Check that only name is updated")
+    @Severity(SeverityLevel.NORMAL)
     public void partialUpdateTest() {
 
         ForUpdateData user = ForUpdateData.builder()

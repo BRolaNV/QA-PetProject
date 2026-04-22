@@ -2,6 +2,7 @@ package tests.demoqa.pages.elementsPage;
 
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -18,26 +19,31 @@ public class TextBoxPage {
             outputPermanentAddress = $("#output #permanentAddress"),
             output = $("#output");
 
+    @Step("Fill name")
     public TextBoxPage setName(String name) {
         nameInput.setValue(name);
         return this;
     }
 
+    @Step("Fill email")
     public TextBoxPage setEmail(String email) {
         emailInput.setValue(email);
         return this;
     }
 
+    @Step("Fill current address")
     public TextBoxPage setCurrentAddress(String address) {
         currentAddressInput.setValue(address);
         return this;
     }
 
+    @Step("Fill permanent address")
     public TextBoxPage setPermanentAddress(String address) {
         permanentAddressInput.setValue(address);
         return this;
     }
 
+    @Step("Submit")
     public TextBoxPage submit() {
         submitButton.click(ClickOptions.usingJavaScript());
         return this;

@@ -1,6 +1,8 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import io.qameta.allure.*;
 import net.datafaker.Faker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;
 import tests.demoqa.tests.bookStoreApplication.pojo.UserData;
@@ -9,9 +11,19 @@ import tests.specifications.Specifications;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("DemoQA API")
+@Feature("Book Store")
+@Story("Register User")
 public class RegisterUserTest extends BaseApiTest {
 
     @Test
+    @DisplayName("Successful register")
+    @Description(
+            "Create new user" + "\n" +
+                    "Register" + "\n" +
+                    "Check that response matches username" + "\n" +
+                    "Delete user")
+    @Severity(SeverityLevel.NORMAL)
     public void successRegisterTest() {
 
         UserData validUser = UserData.builder()
@@ -34,6 +46,13 @@ public class RegisterUserTest extends BaseApiTest {
     }
 
     @Test
+    @DisplayName("Unsuccessful register")
+    @Description(
+            "Create new user with wrong password" + "\n" +
+                    "Try register" + "\n" +
+                    "Check response error message" + "\n" +
+                    "Delete user")
+    @Severity(SeverityLevel.NORMAL)
     public void unsuccessfulRegisterTest() {
 
         UserData invalidUser = UserData.builder()

@@ -1,8 +1,10 @@
 package tests.demoqa.tests.interactions;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
@@ -18,6 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 /**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
  * решить паузами, таймаутом получилось не до конца - поэтому retry. */
 
+@Epic("DemoQA UI")
+@Feature("Interactions")
+@Story("Droppable")
+@Flaky
 public class DroppableTest extends BaseUITest {
 
     DroppablePage droppablePage = new DroppablePage();
@@ -28,12 +34,16 @@ public class DroppableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag element to the drop")
+    @Severity(SeverityLevel.NORMAL)
     void simpleTest() {
         droppablePage.moveElementToElement(droppablePage.getDragMe(), droppablePage.getDropHereSimple());
         droppablePage.getSimpleResult().shouldHave(text("Dropped!"));
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag 'acceptable' and 'not...' element to the drop")
+    @Severity(SeverityLevel.NORMAL)
     void acceptTest() {
 
         droppablePage.openAccept();
@@ -46,6 +56,8 @@ public class DroppableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Drag element to the 'greedy' and 'not...' drop")
+    @Severity(SeverityLevel.NORMAL)
     void preventPropagationTest() {
 
         droppablePage.openPreventPropagation();
@@ -58,6 +70,8 @@ public class DroppableTest extends BaseUITest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Check revert draggable element")
+    @Severity(SeverityLevel.NORMAL)
     void revertDraggableTest() {
 
         droppablePage.openRevertDraggable();

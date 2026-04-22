@@ -1,7 +1,9 @@
 package tests.demoqa.tests.widgets;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.widgetsPage.ProgressBarPage;
 import tests.demoqa.tests.BaseUITest;
@@ -12,10 +14,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+
+@Epic("DemoQA UI")
+@Feature("Widgets")
+@Story("Progress Bar")
 public class ProgressBarTest extends BaseUITest {
 
     ProgressBarPage progressBarPage = new ProgressBarPage();
-
 
     @AfterAll
     static void close() {
@@ -28,6 +33,8 @@ public class ProgressBarTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Check progress bar filling and control buttons")
+    @Severity(SeverityLevel.NORMAL)
     void progressBarTest() {
 
         progressBarPage.clickStartStopBtn()

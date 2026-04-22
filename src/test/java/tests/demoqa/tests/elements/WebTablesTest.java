@@ -1,8 +1,10 @@
 package tests.demoqa.tests.elements;
 
+import io.qameta.allure.*;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.data.WebTablesData;
 import tests.demoqa.pages.elementsPage.WebTablesPage;
@@ -13,11 +15,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("DemoQA UI")
+@Feature("Elements")
+@Story("Web Tables")
 public class WebTablesTest extends BaseUITest {
 
     WebTablesPage webTablesPage = new WebTablesPage();
     Faker faker = new Faker();
-
 
     @AfterAll
     static void close() {
@@ -29,6 +33,7 @@ public class WebTablesTest extends BaseUITest {
         open("/webtables");
     }
 
+    @Step("Fill form and submit")
     public WebTablesData fillFormAndSubmit(String email, String age, String salary) {
 
         WebTablesData webTablesData = new WebTablesData(
@@ -52,6 +57,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Filling out the form correctly")
+    @Severity(SeverityLevel.NORMAL)
     void successAddTest() {
 
         webTablesPage.addNewRecord();
@@ -64,6 +71,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill wrong email")
+    @Severity(SeverityLevel.NORMAL)
     void wrongEmailTest() {
 
         webTablesPage.addNewRecord();
@@ -76,6 +85,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill negative age")
+    @Severity(SeverityLevel.NORMAL)
     void negativeAgeTest() {
 
         webTablesPage.addNewRecord();
@@ -88,6 +99,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill negative salary")
+    @Severity(SeverityLevel.NORMAL)
     void negativeSalaryTest() {
 
         webTablesPage.addNewRecord();
@@ -100,6 +113,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Fill text instead of numbers")
+    @Severity(SeverityLevel.NORMAL)
     void notDigitTest() {
 
         webTablesPage.addNewRecord();
@@ -112,6 +127,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Search existing record")
+    @Severity(SeverityLevel.NORMAL)
     void successSearchTest() {
 
         webTablesPage.addNewRecord();
@@ -125,16 +142,17 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Search non-existent record")
+    @Severity(SeverityLevel.NORMAL)
     void wrongSearchTest() {
 
-        webTablesPage.addNewRecord();
-        WebTablesData webTablesData = fillFormAndSubmit(null, null, null);
         webTablesPage.search("SameTextForWrongSearch");
-
         webTablesPage.getTable().shouldNotBe(visible);
     }
 
     @Test
+    @DisplayName("Edit data")
+    @Severity(SeverityLevel.NORMAL)
     void editButtonTest() {
 
         webTablesPage.clickEditBtn();
@@ -147,6 +165,8 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Delete data")
+    @Severity(SeverityLevel.NORMAL)
     void deleteButtonTest() {
 
         webTablesPage.addNewRecord();
@@ -166,10 +186,11 @@ public class WebTablesTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Navigating the table")
+    @Severity(SeverityLevel.NORMAL)
     void navigationButtonsTest() {
 
         for (int i = 0; i < 50; i++) {
-
             webTablesPage.addNewRecord();
             WebTablesData webTablesData = fillFormAndSubmit(null, null, null);
         }
