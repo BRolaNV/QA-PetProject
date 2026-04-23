@@ -1,5 +1,6 @@
 package tests.demoqa.pages.elementsPage;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public class UploadAndDownloadPage {
 
     private final SelenideElement uploadFileBtn = $("#uploadFile"),
+            downloadFileBtn = $("#downloadButton"),
             uploadedFilePath = $("#uploadedFilePath");
 
     @Step("Upload file")
@@ -24,7 +26,7 @@ public class UploadAndDownloadPage {
     }
 
     public String getDownloadFileName() {
-
+        downloadFileBtn.shouldBe(Condition.visible);
         String base64 = executeJavaScript(
                 "return document.getElementById('downloadButton').getAttribute('href')"
         );

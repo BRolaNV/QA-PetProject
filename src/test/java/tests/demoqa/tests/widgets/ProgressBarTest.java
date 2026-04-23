@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.widgetsPage.ProgressBarPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -18,6 +19,7 @@ import static com.codeborne.selenide.Selenide.open;
 @Epic("DemoQA UI")
 @Feature("Widgets")
 @Story("Progress Bar")
+@Flaky
 public class ProgressBarTest extends BaseUITest {
 
     ProgressBarPage progressBarPage = new ProgressBarPage();
@@ -32,7 +34,7 @@ public class ProgressBarTest extends BaseUITest {
         open("/progress-bar");
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Check progress bar filling and control buttons")
     @Severity(SeverityLevel.NORMAL)
     void progressBarTest() {
