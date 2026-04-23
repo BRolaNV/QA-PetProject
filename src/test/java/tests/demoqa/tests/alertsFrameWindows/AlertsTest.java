@@ -51,7 +51,7 @@ public class AlertsTest extends BaseUITest {
 
         assertTrue(isNotPresent);
 
-        Wait().withTimeout(Duration.ofSeconds(5)).until(ExpectedConditions.alertIsPresent());
+        Wait().withTimeout(Duration.ofSeconds(7)).until(ExpectedConditions.alertIsPresent());
         assertEquals("This alert appeared after 5 seconds", switchTo().alert().getText());
     }
 

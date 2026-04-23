@@ -30,7 +30,7 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline finished'
+            allure results: ['target/allure-results']
         }
     }
 }

@@ -24,6 +24,7 @@ public class Specifications {
                 .setBaseUri(URL)
                 .setContentType(ContentType.JSON)
                 .addFilter(new AllureRestAssured())
+                .setRelaxedHTTPSValidation()
                 .build();
     }
 
