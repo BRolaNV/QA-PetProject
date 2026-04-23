@@ -21,7 +21,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn test -Dremote=true -DgridUrl=http://selenium-hub:4444/wd/hub'
+                withCredentials([string(credentialsId: 'REQRES_API_KEY', variable: 'REQRES_API_KEY')]) {
+                    sh 'mvn test -Dremote=true -DgridUrl=http://selenium-hub:4444/wd/hub'
+                }
             }
         }
     }
