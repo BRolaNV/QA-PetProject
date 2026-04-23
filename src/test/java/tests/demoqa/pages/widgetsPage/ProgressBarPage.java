@@ -1,5 +1,6 @@
 package tests.demoqa.pages.widgetsPage;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -38,6 +39,7 @@ public class ProgressBarPage {
     }
 
     public SelenideElement getProgressBarText() {
+        progressBar.shouldBe(Condition.visible);
         return progressBar;
     }
 
