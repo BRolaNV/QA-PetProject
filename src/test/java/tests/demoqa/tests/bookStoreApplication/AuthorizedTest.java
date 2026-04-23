@@ -71,7 +71,7 @@ public class AuthorizedTest extends BaseApiTest {
     }
 
     @AfterEach
-    void cleanUp(){
+    void cleanUp() {
         defaultData.cleanUp();
     }
 }

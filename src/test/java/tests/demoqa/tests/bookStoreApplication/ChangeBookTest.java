@@ -63,7 +63,7 @@ public class ChangeBookTest extends BaseApiTest {
     }
 
     @AfterEach
-    void cleanUp(){
+    void cleanUp() {
         defaultData.cleanUp();
     }
 }

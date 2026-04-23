@@ -1,7 +1,7 @@
 package tests.demoqa.pages.interactionsPage;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.*;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;

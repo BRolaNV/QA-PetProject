@@ -1,8 +1,10 @@
 package tests.demoqa.tests.elements;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.DynamicPropertiesPage;
 import tests.demoqa.tests.BaseUITest;
 

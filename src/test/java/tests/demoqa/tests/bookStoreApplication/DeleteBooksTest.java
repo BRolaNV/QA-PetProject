@@ -44,7 +44,7 @@ public class DeleteBooksTest extends BaseApiTest {
     }
 
     @AfterEach
-    void cleanUp(){
+    void cleanUp() {
         defaultData.cleanUp();
     }
 }

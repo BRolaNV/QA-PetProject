@@ -1,16 +1,17 @@
 package tests.demoqa.tests;
+
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.AllureAttachmentsExtension;
 import io.qameta.allure.selenide.AllureSelenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 @ExtendWith(AllureAttachmentsExtension.class)
 public abstract class BaseUITest {
-    @BeforeAll
-    static void setUp() {
+    @BeforeEach
+    void setUp() {
         Configuration.browser = "chrome";
 
         Configuration.baseUrl = "https://demoqa.com";

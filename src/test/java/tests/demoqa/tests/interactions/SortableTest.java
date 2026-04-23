@@ -4,7 +4,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.interactionsPage.SortablePage;
 import tests.demoqa.tests.BaseUITest;
@@ -12,8 +11,11 @@ import tests.demoqa.tests.BaseUITest;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
- * решить паузами, таймаутом получилось не до конца - поэтому retry. */
+
+/**
+ * Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry.
+ */
 
 @Epic("DemoQA UI")
 @Feature("Interactions")

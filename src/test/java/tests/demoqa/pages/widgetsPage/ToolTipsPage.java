@@ -16,7 +16,7 @@ public class ToolTipsPage {
     @Step("Hover over button")
     public ToolTipsPage hoverButton() {
         actions()
-                .moveToLocation(0,0)
+                .moveToLocation(0, 0)
                 .moveToElement(button)
                 .perform();
         return this;
@@ -25,7 +25,7 @@ public class ToolTipsPage {
     @Step("Hover over field")
     public ToolTipsPage hoverField() {
         actions()
-                .moveToLocation(0,0)
+                .moveToLocation(0, 0)
                 .moveToElement(field)
                 .perform();
         return this;
@@ -34,7 +34,7 @@ public class ToolTipsPage {
     @Step("Hover over text")
     public ToolTipsPage hoverText() {
         actions()
-                .moveToLocation(0,0)
+                .moveToLocation(0, 0)
                 .moveToElement(this.text)
                 .perform();
         return this;
@@ -43,7 +43,7 @@ public class ToolTipsPage {
     @Step("Hover over digit")
     public ToolTipsPage hoverDigit() {
         actions()
-                .moveToLocation(0,0)
+                .moveToLocation(0, 0)
                 .moveToElement(digit)
                 .perform();
         return this;

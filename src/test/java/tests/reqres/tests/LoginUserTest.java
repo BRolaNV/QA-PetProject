@@ -1,7 +1,6 @@
 package tests.reqres.tests;
 
 import io.qameta.allure.*;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.reqres.BaseApiTest;

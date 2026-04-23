@@ -26,10 +26,10 @@ public class AddListOfBooksTest extends BaseApiTest {
     @DisplayName("Add list of books")
     @Description(
             "Create new user" + "\n" +
-            "Login" + "\n" +
-            "Add list of books" + "\n" +
-            "Check that book is added" + "\n" +
-            "Delete user")
+                    "Login" + "\n" +
+                    "Add list of books" + "\n" +
+                    "Check that book is added" + "\n" +
+                    "Delete user")
     @Severity(SeverityLevel.NORMAL)
     public void addListOfBooksTest() {
 
@@ -58,7 +58,7 @@ public class AddListOfBooksTest extends BaseApiTest {
     }
 
     @AfterEach
-    void cleanUp(){
+    void cleanUp() {
         defaultData.cleanUp();
     }
 }

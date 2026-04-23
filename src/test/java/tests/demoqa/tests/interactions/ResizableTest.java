@@ -3,7 +3,9 @@ package tests.demoqa.tests.interactions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.interactionsPage.ResizablePage;
 import tests.demoqa.tests.BaseUITest;
@@ -12,8 +14,10 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
- * решить паузами, таймаутом получилось не до конца - поэтому retry. */
+/**
+ * Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry.
+ */
 
 @Epic("DemoQA UI")
 @Feature("Interactions")

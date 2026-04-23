@@ -5,7 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import tests.demoqa.pages.interactionsPage.DroppablePage;
@@ -17,8 +16,10 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
- * решить паузами, таймаутом получилось не до конца - поэтому retry. */
+/**
+ * Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry.
+ */
 
 @Epic("DemoQA UI")
 @Feature("Interactions")

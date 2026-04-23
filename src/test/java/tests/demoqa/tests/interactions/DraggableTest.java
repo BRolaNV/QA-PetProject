@@ -5,7 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
@@ -16,8 +15,10 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**  Flaky на этой странице, элементы не всегда успевают прогрузиться,
- * решить паузами, таймаутом получилось не до конца - поэтому retry. */
+/**
+ * Flaky на этой странице, элементы не всегда успевают прогрузиться,
+ * решить паузами, таймаутом получилось не до конца - поэтому retry.
+ */
 
 @Epic("DemoQA UI")
 @Feature("Interactions")
@@ -35,7 +36,7 @@ public class DraggableTest extends BaseUITest {
     @RetryingTest(3)
     @DisplayName("Drag element and check")
     @Severity(SeverityLevel.NORMAL)
-     void simpleTest() {
+    void simpleTest() {
 
         int xOffset = 200;
         int yOffset = 200;

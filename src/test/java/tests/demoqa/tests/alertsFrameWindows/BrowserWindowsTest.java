@@ -2,7 +2,10 @@ package tests.demoqa.tests.alertsFrameWindows;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.alertsFrameWindowsPage.BrowserWindowsPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -19,8 +22,8 @@ public class BrowserWindowsTest extends BaseUITest {
 
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
 
-    @BeforeAll
-    static void setUpPageLoad() {
+    @BeforeEach
+    void setUpPageLoad() {
         Configuration.pageLoadStrategy = "none";
         Configuration.timeout = 20000;
     }

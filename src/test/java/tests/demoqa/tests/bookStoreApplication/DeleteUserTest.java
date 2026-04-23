@@ -1,7 +1,6 @@
 package tests.demoqa.tests.bookStoreApplication;
 
 import io.qameta.allure.*;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.tests.bookStoreApplication.baseTest.BaseApiTest;

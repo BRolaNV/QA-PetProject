@@ -45,7 +45,7 @@ public class DefaultData {
 
     private final UserData validUser = new UserData(
             new Faker().name().firstName() + "_" + System.currentTimeMillis(),
-                    "Pass123@"
+            "Pass123@"
     );
 
     private String id;
@@ -57,7 +57,7 @@ public class DefaultData {
         return this;
     }
 
-    public void setToken(String token){
+    public void setToken(String token) {
         this.token = token;
     }
 
