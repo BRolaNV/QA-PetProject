@@ -1,194 +1,193 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","18266","Select and unselect one sub-item","","Thu Apr 23 19:45:07 UTC 2026","passed","Thu Apr 23 19:45:25 UTC 2026","","tests.demoqa.tests.elements.CheckBoxTest","tests.demoqa.tests.elements.CheckBoxTest","selectAndUnselectTest"
-"","1684","Delete data","","Thu Apr 23 19:46:44 UTC 2026","passed","Thu Apr 23 19:46:46 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","deleteButtonTest"
-"","32954","Select element in grid","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:08 UTC 2026","","tests.demoqa.tests.interactions.SelectableTest","tests.demoqa.tests.interactions.SelectableTest","gridTest"
-"","5403","Select one","","Thu Apr 23 19:45:33 UTC 2026","passed","Thu Apr 23 19:45:39 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","selectOneTest"
-"","27379","Verify text inside the large modal dialog","","Thu Apr 23 19:45:04 UTC 2026","passed","Thu Apr 23 19:45:31 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","largeModalTest"
+"","28114","Hover and check text [1]","","Thu Apr 23 21:22:39 UTC 2026","passed","Thu Apr 23 21:23:07 UTC 2026","","tests.demoqa.tests.widgets.ToolTipsTest","tests.demoqa.tests.widgets.ToolTipsTest","toolTipsTest"
+"Create new user with wrong password
+Try register
+Check response error message
+Delete user","3475","Unsuccessful register","","Thu Apr 23 21:22:44 UTC 2026","passed","Thu Apr 23 21:22:47 UTC 2026","","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","unsuccessfulRegisterTest"
 "Create new user
 Login
 Check token, status, message
-Delete user","5796","Successful Generate Token","","Thu Apr 23 19:45:08 UTC 2026","passed","Thu Apr 23 19:45:14 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","successGenerateTokenTest"
-"","12030","Select element in list","","Thu Apr 23 19:45:09 UTC 2026","passed","Thu Apr 23 19:45:21 UTC 2026","","tests.demoqa.tests.interactions.SelectableTest","tests.demoqa.tests.interactions.SelectableTest","listTest"
-"","26231","Multiselect drop down","","Thu Apr 23 19:45:07 UTC 2026","passed","Thu Apr 23 19:45:33 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","multiSelectTest"
-"","3532","Standard multi select","","Thu Apr 23 19:45:39 UTC 2026","passed","Thu Apr 23 19:45:42 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","standardMultiSelectTest"
-"","5097","Drag element inside parent and check [1]","","Thu Apr 23 19:45:54 UTC 2026","passed","Thu Apr 23 19:45:59 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","containerRestrictedParentTest"
-"","1569","Fill negative salary","","Thu Apr 23 19:46:43 UTC 2026","passed","Thu Apr 23 19:46:44 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","negativeSalaryTest"
-"","3798","Fill wrong email","","Thu Apr 23 19:45:50 UTC 2026","passed","Thu Apr 23 19:45:54 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","wrongEmailTest"
-"","32362","Move element in grid and check sortable [1]","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:08 UTC 2026","","tests.demoqa.tests.interactions.SortableTest","tests.demoqa.tests.interactions.SortableTest","gridTest"
-"","28384","On button click, confirm box will appear. Set accept","","Thu Apr 23 19:45:05 UTC 2026","passed","Thu Apr 23 19:45:33 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","confirmButtonAcceptTest"
-"","33561","Drag element to the drop [1]","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:09 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","simpleTest"
-"","76530","Navigating the table","","Thu Apr 23 19:45:26 UTC 2026","passed","Thu Apr 23 19:46:43 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","navigationButtonsTest"
-"Create new invalid user
-Authorized
-Check that response has 404","4598","Unsuccessful Authorized","","Thu Apr 23 19:44:52 UTC 2026","passed","Thu Apr 23 19:44:57 UTC 2026","","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","notFoundAuthorizedTest"
-"Get resources
-Check that sorted by date","1187","Check sorted by date [1]","","Thu Apr 23 19:44:58 UTC 2026","passed","Thu Apr 23 19:45:00 UTC 2026","","tests.reqres.tests.ListResourcesTest","tests.reqres.tests.ListResourcesTest","dateOrderTest"
-"","0","Valid image has non-zero width","","Thu Apr 23 19:45:40 UTC 2026","skipped","Thu Apr 23 19:45:40 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","validImageTest"
-"Get resources
-Check that fields not null","1556","Check not null [1]","","Thu Apr 23 19:44:57 UTC 2026","passed","Thu Apr 23 19:44:58 UTC 2026","","tests.reqres.tests.ListResourcesTest","tests.reqres.tests.ListResourcesTest","notNullTest"
-"","9630","Check multiple fill","","Thu Apr 23 19:45:32 UTC 2026","passed","Thu Apr 23 19:45:42 UTC 2026","","tests.demoqa.tests.widgets.AutoCompleteTest","tests.demoqa.tests.widgets.AutoCompleteTest","multipleTypeTest"
-"","16940","Check progress bar filling and control buttons [2]","","Thu Apr 23 19:45:29 UTC 2026","passed","Thu Apr 23 19:45:46 UTC 2026","","tests.demoqa.tests.widgets.ProgressBarTest","tests.demoqa.tests.widgets.ProgressBarTest","progressBarTest"
-"Create new user
-Check that response id and created time matches ","1147","Successful create [1]","","Thu Apr 23 19:45:17 UTC 2026","passed","Thu Apr 23 19:45:18 UTC 2026","","tests.reqres.tests.CreateUserTest","tests.reqres.tests.CreateUserTest","successCreateTest"
-"","7144","Check 'yes' button","","Thu Apr 23 19:45:19 UTC 2026","passed","Thu Apr 23 19:45:26 UTC 2026","","tests.demoqa.tests.elements.RadioButtonTest","tests.demoqa.tests.elements.RadioButtonTest","tapYesTest"
-"","28578","Check 'impressive' button","","Thu Apr 23 19:44:39 UTC 2026","passed","Thu Apr 23 19:45:07 UTC 2026","","tests.demoqa.tests.elements.RadioButtonTest","tests.demoqa.tests.elements.RadioButtonTest","tapImpressiveTest"
-"","28384","Open new tab","","Thu Apr 23 19:45:02 UTC 2026","passed","Thu Apr 23 19:45:31 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","newTabButtonTest"
-"Get root
-Check that the quantity matches","1052","Check root [1]","","Thu Apr 23 19:45:14 UTC 2026","passed","Thu Apr 23 19:45:15 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkRootTest"
-"","4849","Select date","","Thu Apr 23 19:45:41 UTC 2026","passed","Thu Apr 23 19:45:46 UTC 2026","","tests.demoqa.tests.widgets.DatePickerTest","tests.demoqa.tests.widgets.DatePickerTest","selectDateTest"
-"","32629","Drag element and check cursor style [1]","","Thu Apr 23 19:45:01 UTC 2026","passed","Thu Apr 23 19:45:34 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","cursorStyleTest"
-"Delete user
-Check status code 204","932","Successful delete [1]","","Thu Apr 23 19:45:10 UTC 2026","passed","Thu Apr 23 19:45:11 UTC 2026","","tests.reqres.tests.DeleteUserTest","tests.reqres.tests.DeleteUserTest","successDeleteTest"
-"","25880","Check menu and all subitems","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:01 UTC 2026","","tests.demoqa.tests.widgets.MenuTest","tests.demoqa.tests.widgets.MenuTest","menuTest"
-"","4396","Resize without limits [1]","","Thu Apr 23 19:46:00 UTC 2026","passed","Thu Apr 23 19:46:05 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableTest"
-"","52640","Change subjects","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:28 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","changeSubjectsTest"
-"","28709","Verify text after right click","","Thu Apr 23 19:44:38 UTC 2026","passed","Thu Apr 23 19:45:07 UTC 2026","","tests.demoqa.tests.elements.ButtonsTest","tests.demoqa.tests.elements.ButtonsTest","rightClickTest"
-"Register new user
-Check token and id","1799","Successful register [1]","","Thu Apr 23 19:45:02 UTC 2026","passed","Thu Apr 23 19:45:04 UTC 2026","","tests.reqres.tests.RegisterUserTest","tests.reqres.tests.RegisterUserTest","successRegisterTest"
-"","40533","Check accordion subitems","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:15 UTC 2026","","tests.demoqa.tests.widgets.AccordionTest","tests.demoqa.tests.widgets.AccordionTest","accordionTest"
-"","16584","On button click, alert will appear after 5 seconds","","Thu Apr 23 19:45:33 UTC 2026","passed","Thu Apr 23 19:45:50 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","alertFiveSecondWaitTest"
-"","30100","Move slider and check","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:05 UTC 2026","","tests.demoqa.tests.widgets.SliderTest","tests.demoqa.tests.widgets.SliderTest","sliderTest"
-"","49862","Fill text instead of numbers","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:26 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","notDigitTest"
-"Get books
-Check that fields not null","1614","Get all books","","Thu Apr 23 19:45:13 UTC 2026","passed","Thu Apr 23 19:45:15 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GetBooksTest","tests.demoqa.tests.bookStoreApplication.GetBooksTest","getBooksTest"
-"","1228","Fill wrong email","","Thu Apr 23 19:46:47 UTC 2026","passed","Thu Apr 23 19:46:49 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","wrongEmailTest"
-"","3622","Check redirect to main page via dynamic link","","Thu Apr 23 19:46:00 UTC 2026","passed","Thu Apr 23 19:46:04 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","dynamicLinkTest"
-"","11120","Check 'No' button","","Thu Apr 23 19:45:07 UTC 2026","passed","Thu Apr 23 19:45:18 UTC 2026","","tests.demoqa.tests.elements.RadioButtonTest","tests.demoqa.tests.elements.RadioButtonTest","tapNoTest"
-"","7641","Try submit empty form","","Thu Apr 23 19:45:19 UTC 2026","passed","Thu Apr 23 19:45:26 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","submitEmptyFormTest"
-"","11050","Filling out the form correctly","","Thu Apr 23 19:45:39 UTC 2026","passed","Thu Apr 23 19:45:50 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","correctFillTest"
-"","13926","The link redirects to the main page","","Thu Apr 23 19:45:26 UTC 2026","passed","Thu Apr 23 19:45:40 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","validLinkTest"
-"","66444","Select date and time","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:41 UTC 2026","","tests.demoqa.tests.widgets.DatePickerTest","tests.demoqa.tests.widgets.DatePickerTest","selectDateAndTimeTest"
+Delete user","8298","Successful Generate Token","","Thu Apr 23 21:23:10 UTC 2026","passed","Thu Apr 23 21:23:18 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","successGenerateTokenTest"
+"Get users
+Check that avatar and id are equal","1949","Check avatar and id [1]","","Thu Apr 23 21:23:11 UTC 2026","passed","Thu Apr 23 21:23:13 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkAvatarAndIdTest"
+"","21668","Open new tab","","Thu Apr 23 21:23:14 UTC 2026","passed","Thu Apr 23 21:23:36 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","newTabButtonTest"
 "Create user with new name only
 Send
-Check that only name is updated","2249","Partial update [1]","","Thu Apr 23 19:44:53 UTC 2026","passed","Thu Apr 23 19:44:55 UTC 2026","","tests.reqres.tests.UpdateUserTest","tests.reqres.tests.UpdateUserTest","partialUpdateTest"
+Check that only name is updated","1674","Partial update [1]","","Thu Apr 23 21:22:48 UTC 2026","passed","Thu Apr 23 21:22:50 UTC 2026","","tests.reqres.tests.UpdateUserTest","tests.reqres.tests.UpdateUserTest","partialUpdateTest"
+"","10835","Check 'No' button","","Thu Apr 23 21:23:12 UTC 2026","passed","Thu Apr 23 21:23:23 UTC 2026","","tests.demoqa.tests.elements.RadioButtonTest","tests.demoqa.tests.elements.RadioButtonTest","tapNoTest"
+"","623","Search non-existent record","","Thu Apr 23 21:24:51 UTC 2026","passed","Thu Apr 23 21:24:52 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","wrongSearchTest"
+"","3770","Resize without limits [1]","","Thu Apr 23 21:24:01 UTC 2026","passed","Thu Apr 23 21:24:05 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableTest"
+"","6232","Fill wrong email","","Thu Apr 23 21:23:30 UTC 2026","passed","Thu Apr 23 21:23:36 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","fillWrongEmailTest"
+"","5904","Select all sub-items","","Thu Apr 23 21:23:31 UTC 2026","passed","Thu Apr 23 21:23:37 UTC 2026","","tests.demoqa.tests.elements.CheckBoxTest","tests.demoqa.tests.elements.CheckBoxTest","selectAllTest"
+"","12550","Button becomes enabled after 5 seconds [1]","","Thu Apr 23 21:23:06 UTC 2026","passed","Thu Apr 23 21:23:18 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","willEnableButtonTest"
+"Delete user
+Check status code 204","543","Successful delete [1]","","Thu Apr 23 21:23:05 UTC 2026","passed","Thu Apr 23 21:23:06 UTC 2026","","tests.reqres.tests.DeleteUserTest","tests.reqres.tests.DeleteUserTest","successDeleteTest"
+"","11575","Check status code 404","","Thu Apr 23 21:23:37 UTC 2026","passed","Thu Apr 23 21:23:48 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","notFoundLinkTest"
+"","4984","Drag element inside parent and check [1]","","Thu Apr 23 21:23:57 UTC 2026","passed","Thu Apr 23 21:24:02 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","containerRestrictedParentTest"
+"","9226","Check multiple fill","","Thu Apr 23 21:23:38 UTC 2026","passed","Thu Apr 23 21:23:47 UTC 2026","","tests.demoqa.tests.widgets.AutoCompleteTest","tests.demoqa.tests.widgets.AutoCompleteTest","multipleTypeTest"
+"","6754","Check the boundary values [1]","","Thu Apr 23 21:23:44 UTC 2026","skipped","Thu Apr 23 21:23:51 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxBoundaryTest"
+"","10048","Check the boundary values [2]","","Thu Apr 23 21:23:51 UTC 2026","passed","Thu Apr 23 21:24:01 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxBoundaryTest"
+"Login valid user
+Check token","1826","Successful login [1]","","Thu Apr 23 21:23:02 UTC 2026","passed","Thu Apr 23 21:23:04 UTC 2026","","tests.reqres.tests.LoginUserTest","tests.reqres.tests.LoginUserTest","successLoginTest"
+"","28616","Broken link returns 500 status code","","Thu Apr 23 21:22:56 UTC 2026","passed","Thu Apr 23 21:23:25 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","brokenLinkTest"
+"","2387","Check redirect to main page","","Thu Apr 23 21:24:05 UTC 2026","passed","Thu Apr 23 21:24:07 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","homeLinkTest"
+"Create new user
+Register
+Check that response matches username
+Delete user","3119","Successful register","","Thu Apr 23 21:22:48 UTC 2026","passed","Thu Apr 23 21:22:51 UTC 2026","","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","successRegisterTest"
+"","27812","Multiselect drop down","","Thu Apr 23 21:23:09 UTC 2026","passed","Thu Apr 23 21:23:37 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","multiSelectTest"
+"","9134","Button changes color after 5 seconds [1]","","Thu Apr 23 21:23:19 UTC 2026","passed","Thu Apr 23 21:23:28 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","changeColorButtonTest"
+"","32525","Select value","","Thu Apr 23 21:22:36 UTC 2026","passed","Thu Apr 23 21:23:09 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","selectValueTest"
+"Create new user
+Login
+Delete books
+Check that status code 204
+Delete user","4752","Delete all books","","Thu Apr 23 21:23:18 UTC 2026","passed","Thu Apr 23 21:23:23 UTC 2026","","tests.demoqa.tests.bookStoreApplication.DeleteBooksTest","tests.demoqa.tests.bookStoreApplication.DeleteBooksTest","deleteBooksTest"
+"","5624","Select one","","Thu Apr 23 21:23:37 UTC 2026","passed","Thu Apr 23 21:23:42 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","selectOneTest"
+"","20312","Verify text inside the large modal dialog","","Thu Apr 23 21:23:20 UTC 2026","passed","Thu Apr 23 21:23:40 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","largeModalTest"
+"","15678","Check progress bar filling and control buttons [2]","","Thu Apr 23 21:23:40 UTC 2026","passed","Thu Apr 23 21:23:56 UTC 2026","","tests.demoqa.tests.widgets.ProgressBarTest","tests.demoqa.tests.widgets.ProgressBarTest","progressBarTest"
+"Login user without password
+Check error 'Missing password'","1109","Unsuccessful login [1]","","Thu Apr 23 21:23:04 UTC 2026","passed","Thu Apr 23 21:23:05 UTC 2026","","tests.reqres.tests.LoginUserTest","tests.reqres.tests.LoginUserTest","unsuccessfulLoginTest"
+"","6030","Fill only required fields","","Thu Apr 23 21:23:36 UTC 2026","passed","Thu Apr 23 21:23:42 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","fillPartialFormTest"
+"Create new user
+Login
+Add list of books
+Check that book is added
+Delete user","8095","Add list of books","","Thu Apr 23 21:23:06 UTC 2026","passed","Thu Apr 23 21:23:14 UTC 2026","","tests.demoqa.tests.bookStoreApplication.AddListOfBooksTest","tests.demoqa.tests.bookStoreApplication.AddListOfBooksTest","addListOfBooksTest"
+"","46424","Fill text instead of numbers","","Thu Apr 23 21:22:41 UTC 2026","passed","Thu Apr 23 21:23:27 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","notDigitTest"
+"","42640","Check accordion subitems","","Thu Apr 23 21:22:39 UTC 2026","passed","Thu Apr 23 21:23:22 UTC 2026","","tests.demoqa.tests.widgets.AccordionTest","tests.demoqa.tests.widgets.AccordionTest","accordionTest"
+"","2617","On button click, confirm box will appear. Set dismiss","","Thu Apr 23 21:24:09 UTC 2026","passed","Thu Apr 23 21:24:12 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","confirmButtonDismissTest"
+"","38867","Verify text inside the small modal dialog","","Thu Apr 23 21:22:41 UTC 2026","passed","Thu Apr 23 21:23:20 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","smallModalTest"
+"Get resources
+Check that fields not null","1717","Check not null [1]","","Thu Apr 23 21:22:51 UTC 2026","passed","Thu Apr 23 21:22:53 UTC 2026","","tests.reqres.tests.ListResourcesTest","tests.reqres.tests.ListResourcesTest","notNullTest"
+"Get users
+Check that emails end with 'reqres.in'","1493","Check emails [1]","","Thu Apr 23 21:23:09 UTC 2026","passed","Thu Apr 23 21:23:10 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkEmailsTest"
+"","33823","On button click, prompt box will appear","","Thu Apr 23 21:22:41 UTC 2026","passed","Thu Apr 23 21:23:15 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","promptButtonTest"
+"","27313","Upload file","","Thu Apr 23 21:22:42 UTC 2026","passed","Thu Apr 23 21:23:10 UTC 2026","","tests.demoqa.tests.elements.UploadAndDownloadTest","tests.demoqa.tests.elements.UploadAndDownloadTest","uploadTest"
+"","1291","Search existing record","","Thu Apr 23 21:24:50 UTC 2026","passed","Thu Apr 23 21:24:51 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","successSearchTest"
+"","30886","Move element in grid and check sortable [1]","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:11 UTC 2026","","tests.demoqa.tests.interactions.SortableTest","tests.demoqa.tests.interactions.SortableTest","gridTest"
+"","64092","Check progress bar filling and control buttons [1]","","Thu Apr 23 21:22:36 UTC 2026","skipped","Thu Apr 23 21:23:40 UTC 2026","","tests.demoqa.tests.widgets.ProgressBarTest","tests.demoqa.tests.widgets.ProgressBarTest","progressBarTest"
+"","34674","Select element in grid","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:15 UTC 2026","","tests.demoqa.tests.interactions.SelectableTest","tests.demoqa.tests.interactions.SelectableTest","gridTest"
+"","24805","Check status code 403","","Thu Apr 23 21:23:12 UTC 2026","passed","Thu Apr 23 21:23:37 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","forbiddenLinkTest"
+"Create new user
+Login
+Delete user","3568","Delete user","","Thu Apr 23 21:23:15 UTC 2026","passed","Thu Apr 23 21:23:19 UTC 2026","","tests.demoqa.tests.bookStoreApplication.DeleteUserTest","tests.demoqa.tests.bookStoreApplication.DeleteUserTest","successDeleteUserTest"
+"","15150","Move element in list and check sortable [1]","","Thu Apr 23 21:23:11 UTC 2026","passed","Thu Apr 23 21:23:26 UTC 2026","","tests.demoqa.tests.interactions.SortableTest","tests.demoqa.tests.interactions.SortableTest","listTest"
+"","27817","Drag element and check [1]","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:07 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","simpleTest"
+"","21819","On button click, confirm box will appear. Set accept","","Thu Apr 23 21:23:15 UTC 2026","passed","Thu Apr 23 21:23:37 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","confirmButtonAcceptTest"
+"","5012","Select date","","Thu Apr 23 21:23:42 UTC 2026","passed","Thu Apr 23 21:23:47 UTC 2026","","tests.demoqa.tests.widgets.DatePickerTest","tests.demoqa.tests.widgets.DatePickerTest","selectDateTest"
+"","24548","Button becomes visible after 5 seconds [1]","","Thu Apr 23 21:22:41 UTC 2026","passed","Thu Apr 23 21:23:06 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","visibleAfterButtonTest"
+"","1602","Delete data","","Thu Apr 23 21:24:45 UTC 2026","passed","Thu Apr 23 21:24:46 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","deleteButtonTest"
+"","17308","Check multiple remove","","Thu Apr 23 21:23:21 UTC 2026","passed","Thu Apr 23 21:23:38 UTC 2026","","tests.demoqa.tests.widgets.AutoCompleteTest","tests.demoqa.tests.widgets.AutoCompleteTest","multipleTypeRemoveTest"
+"Get resources
+Check that sorted by date","1136","Check sorted by date [1]","","Thu Apr 23 21:22:53 UTC 2026","passed","Thu Apr 23 21:22:54 UTC 2026","","tests.reqres.tests.ListResourcesTest","tests.reqres.tests.ListResourcesTest","dateOrderTest"
+"Create new user
+Check that response id and created time matches ","1604","Successful create [1]","","Thu Apr 23 21:23:14 UTC 2026","passed","Thu Apr 23 21:23:15 UTC 2026","","tests.reqres.tests.CreateUserTest","tests.reqres.tests.CreateUserTest","successCreateTest"
+"","3568","Check status code 401","","Thu Apr 23 21:23:59 UTC 2026","passed","Thu Apr 23 21:24:02 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","unauthorizedLinkTest"
+"","25224","Verify text inside the big frame","","Thu Apr 23 21:23:09 UTC 2026","passed","Thu Apr 23 21:23:34 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.FramesTest","tests.demoqa.tests.alertsFrameWindows.FramesTest","firstFrameTest"
+"Create new user
+Login
+Get user books
+Check booklist is empty
+Delete user","4864","Get user's book list","","Thu Apr 23 21:22:56 UTC 2026","passed","Thu Apr 23 21:23:01 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GetUsersBooksTest","tests.demoqa.tests.bookStoreApplication.GetUsersBooksTest","getUsersBooksTest"
+"","43359","Check single fill","","Thu Apr 23 21:22:37 UTC 2026","passed","Thu Apr 23 21:23:21 UTC 2026","","tests.demoqa.tests.widgets.AutoCompleteTest","tests.demoqa.tests.widgets.AutoCompleteTest","singleTypeTest"
+"","30148","Resize within acceptable limits [1]","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:10 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxPositiveTest"
+"Select default book
+Send book
+Check that response matches default book","1396","Get single book","","Thu Apr 23 21:23:09 UTC 2026","passed","Thu Apr 23 21:23:10 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GetBookTest","tests.demoqa.tests.bookStoreApplication.GetBookTest","getBookTest"
+"","5701","Check status code 301","","Thu Apr 23 21:23:53 UTC 2026","passed","Thu Apr 23 21:23:59 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","movedLinkTest"
+"","30660","Check status code 400","","Thu Apr 23 21:22:41 UTC 2026","passed","Thu Apr 23 21:23:12 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","badRequestLinkTest"
+"Create user with new data
+Send
+Check that data is updated","883","Full update [1]","","Thu Apr 23 21:22:50 UTC 2026","passed","Thu Apr 23 21:22:50 UTC 2026","","tests.reqres.tests.UpdateUserTest","tests.reqres.tests.UpdateUserTest","fullUpdateTest"
+"","31298","Drag element to the drop [1]","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:11 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","simpleTest"
+"","4493","Verify text after simple click","","Thu Apr 23 21:23:32 UTC 2026","passed","Thu Apr 23 21:23:36 UTC 2026","","tests.demoqa.tests.elements.ButtonsTest","tests.demoqa.tests.elements.ButtonsTest","clickMeTest"
+"","12989","Drag elements restricted to single axis [1]","","Thu Apr 23 21:23:36 UTC 2026","passed","Thu Apr 23 21:23:49 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","axisRestrictedTest"
+"","7279","Check 'yes' button","","Thu Apr 23 21:23:23 UTC 2026","passed","Thu Apr 23 21:23:30 UTC 2026","","tests.demoqa.tests.elements.RadioButtonTest","tests.demoqa.tests.elements.RadioButtonTest","tapYesTest"
+"","28489","Drag element and check cursor style [1]","","Thu Apr 23 21:23:08 UTC 2026","passed","Thu Apr 23 21:23:36 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","cursorStyleTest"
+"","4557","Check status code 204","","Thu Apr 23 21:23:48 UTC 2026","passed","Thu Apr 23 21:23:53 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","noContentLinkTest"
+"","2551","Check redirect to main page via dynamic link","","Thu Apr 23 21:24:02 UTC 2026","passed","Thu Apr 23 21:24:05 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","dynamicLinkTest"
+"","17709","Select and unselect one sub-item","","Thu Apr 23 21:23:13 UTC 2026","passed","Thu Apr 23 21:23:30 UTC 2026","","tests.demoqa.tests.elements.CheckBoxTest","tests.demoqa.tests.elements.CheckBoxTest","selectAndUnselectTest"
+"Create invalid user
+Login
+Check token, status, message
+Delete user","3191","Unsuccessful Generate Token","","Thu Apr 23 21:23:23 UTC 2026","passed","Thu Apr 23 21:23:26 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","errorGenerateTokenTest"
+"","2503","Old Style Select Menu","","Thu Apr 23 21:23:45 UTC 2026","passed","Thu Apr 23 21:23:48 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","oldStyleTest"
+"","13233","Filling out the form correctly","","Thu Apr 23 21:23:41 UTC 2026","passed","Thu Apr 23 21:23:55 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","correctFillTest"
+"Register new user without password
+Check error 'Missing password'","1952","Unsuccessful register [1]","","Thu Apr 23 21:22:54 UTC 2026","passed","Thu Apr 23 21:22:56 UTC 2026","","tests.reqres.tests.RegisterUserTest","tests.reqres.tests.RegisterUserTest","unsuccessfulRegisterTest"
+"","62397","Select date and time","","Thu Apr 23 21:22:39 UTC 2026","passed","Thu Apr 23 21:23:42 UTC 2026","","tests.demoqa.tests.widgets.DatePickerTest","tests.demoqa.tests.widgets.DatePickerTest","selectDateAndTimeTest"
+"","7770","Drag element inside container and check [1]","","Thu Apr 23 21:23:49 UTC 2026","passed","Thu Apr 23 21:23:57 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","containerRestrictedContainerTest"
+"","7990","Try submit empty form","","Thu Apr 23 21:23:22 UTC 2026","passed","Thu Apr 23 21:23:30 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","submitEmptyFormTest"
+"","3176","Fill wrong email","","Thu Apr 23 21:23:55 UTC 2026","passed","Thu Apr 23 21:23:58 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","wrongEmailTest"
+"Create new user
+Authorized
+Check that result is true
+Delete user","3375","Successful authorized","","Thu Apr 23 21:23:00 UTC 2026","passed","Thu Apr 23 21:23:04 UTC 2026","","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","successAuthorizedTest"
+"","1419","Filling out the form correctly","","Thu Apr 23 21:24:49 UTC 2026","passed","Thu Apr 23 21:24:50 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","successAddTest"
 "Create new user
 Login
 Add default book
 Delete default book
 Check that status code 204
-Delete user","3984","Delete single books","","Thu Apr 23 19:45:20 UTC 2026","passed","Thu Apr 23 19:45:24 UTC 2026","","tests.demoqa.tests.bookStoreApplication.DeleteBookTest","tests.demoqa.tests.bookStoreApplication.DeleteBookTest","deleteBookTest"
-"Create user with new data
-Send
-Check that data is updated","1505","Full update [1]","","Thu Apr 23 19:44:55 UTC 2026","passed","Thu Apr 23 19:44:56 UTC 2026","","tests.reqres.tests.UpdateUserTest","tests.reqres.tests.UpdateUserTest","fullUpdateTest"
-"","25637","Verify text inside parent and child frames","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:02 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.NestedFramesTest","tests.demoqa.tests.alertsFrameWindows.NestedFramesTest","nestedFrameTest"
-"","2613","Old Style Select Menu","","Thu Apr 23 19:45:42 UTC 2026","passed","Thu Apr 23 19:45:45 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","oldStyleTest"
-"","35021","Select value","","Thu Apr 23 19:44:32 UTC 2026","passed","Thu Apr 23 19:45:07 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","selectValueTest"
-"","1247","Fill negative age","","Thu Apr 23 19:46:46 UTC 2026","passed","Thu Apr 23 19:46:47 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","negativeAgeTest"
-"","29822","Select one sub-item","","Thu Apr 23 19:44:37 UTC 2026","passed","Thu Apr 23 19:45:07 UTC 2026","","tests.demoqa.tests.elements.CheckBoxTest","tests.demoqa.tests.elements.CheckBoxTest","selectOneTest"
-"","25699","Drag element and check [1]","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:01 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","simpleTest"
-"Create new user
-Login
-Delete user","3506","Delete user","","Thu Apr 23 19:45:13 UTC 2026","passed","Thu Apr 23 19:45:16 UTC 2026","","tests.demoqa.tests.bookStoreApplication.DeleteUserTest","tests.demoqa.tests.bookStoreApplication.DeleteUserTest","successDeleteUserTest"
-"","6594","Button changes color after 5 seconds [1]","","Thu Apr 23 19:45:30 UTC 2026","passed","Thu Apr 23 19:45:36 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","changeColorButtonTest"
-"","57125","Check progress bar filling and control buttons [1]","","Thu Apr 23 19:44:32 UTC 2026","skipped","Thu Apr 23 19:45:29 UTC 2026","","tests.demoqa.tests.widgets.ProgressBarTest","tests.demoqa.tests.widgets.ProgressBarTest","progressBarTest"
-"","10706","Fill wrong mobile number","","Thu Apr 23 19:45:28 UTC 2026","passed","Thu Apr 23 19:45:39 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","wrongMobileNumberTest"
+Delete user","5348","Delete single books","","Thu Apr 23 21:23:19 UTC 2026","passed","Thu Apr 23 21:23:25 UTC 2026","","tests.demoqa.tests.bookStoreApplication.DeleteBookTest","tests.demoqa.tests.bookStoreApplication.DeleteBookTest","deleteBookTest"
+"","26982","Move slider and check","","Thu Apr 23 21:22:39 UTC 2026","passed","Thu Apr 23 21:23:06 UTC 2026","","tests.demoqa.tests.widgets.SliderTest","tests.demoqa.tests.widgets.SliderTest","sliderTest"
+"Get books
+Check that fields not null","804","Get all books","","Thu Apr 23 21:23:14 UTC 2026","passed","Thu Apr 23 21:23:15 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GetBooksTest","tests.demoqa.tests.bookStoreApplication.GetBooksTest","getBooksTest"
+"","31214","Select one sub-item","","Thu Apr 23 21:22:42 UTC 2026","passed","Thu Apr 23 21:23:13 UTC 2026","","tests.demoqa.tests.elements.CheckBoxTest","tests.demoqa.tests.elements.CheckBoxTest","selectOneTest"
+"","29828","Check 'impressive' button","","Thu Apr 23 21:22:42 UTC 2026","passed","Thu Apr 23 21:23:12 UTC 2026","","tests.demoqa.tests.elements.RadioButtonTest","tests.demoqa.tests.elements.RadioButtonTest","tapImpressiveTest"
+"","1205","Fill negative age","","Thu Apr 23 21:24:46 UTC 2026","passed","Thu Apr 23 21:24:47 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","negativeAgeTest"
+"","3011","Standard multi select","","Thu Apr 23 21:23:42 UTC 2026","passed","Thu Apr 23 21:23:45 UTC 2026","","tests.demoqa.tests.widgets.SelectMenuTest","tests.demoqa.tests.widgets.SelectMenuTest","standardMultiSelectTest"
+"","11617","Download file","","Thu Apr 23 21:23:10 UTC 2026","passed","Thu Apr 23 21:23:21 UTC 2026","","tests.demoqa.tests.elements.UploadAndDownloadTest","tests.demoqa.tests.elements.UploadAndDownloadTest","downloadTest"
+"","10521","Resize to below minimum limit [1]","","Thu Apr 23 21:23:34 UTC 2026","passed","Thu Apr 23 21:23:44 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxBelowMinimumTest"
+"","25375","Drag 'acceptable' and 'not...' element to the drop [1]","","Thu Apr 23 21:23:11 UTC 2026","passed","Thu Apr 23 21:23:36 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","acceptTest"
+"","12633","Drag element to the 'greedy' and 'not...' drop [1]","","Thu Apr 23 21:23:36 UTC 2026","passed","Thu Apr 23 21:23:49 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","preventPropagationTest"
+"Get user by id '2'
+Check that user is real","1149","Get existing user [1]","","Thu Apr 23 21:23:06 UTC 2026","passed","Thu Apr 23 21:23:07 UTC 2026","","tests.reqres.tests.SingleUserTest","tests.reqres.tests.SingleUserTest","getRealUserTest"
 "Get user by id '666'
-Check that status code 404","915","Get non-existent user [1]","","Thu Apr 23 19:45:13 UTC 2026","passed","Thu Apr 23 19:45:14 UTC 2026","","tests.reqres.tests.SingleUserTest","tests.reqres.tests.SingleUserTest","getUnrealUserTest"
-"","31078","Resize within acceptable limits [1]","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:06 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxPositiveTest"
-"Register new user without password
-Check error 'Missing password'","1998","Unsuccessful register [1]","","Thu Apr 23 19:45:00 UTC 2026","passed","Thu Apr 23 19:45:02 UTC 2026","","tests.reqres.tests.RegisterUserTest","tests.reqres.tests.RegisterUserTest","unsuccessfulRegisterTest"
-"","1259","Filling out the form correctly","","Thu Apr 23 19:46:49 UTC 2026","passed","Thu Apr 23 19:46:50 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","successAddTest"
-"","6723","Drag element inside container and check [1]","","Thu Apr 23 19:45:47 UTC 2026","passed","Thu Apr 23 19:45:54 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","containerRestrictedContainerTest"
-"","2623","Check redirect to main page","","Thu Apr 23 19:46:04 UTC 2026","passed","Thu Apr 23 19:46:07 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","homeLinkTest"
-"","1525","Search existing record","","Thu Apr 23 19:46:50 UTC 2026","passed","Thu Apr 23 19:46:51 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","successSearchTest"
+Check that status code 404","617","Get non-existent user [1]","","Thu Apr 23 21:23:07 UTC 2026","passed","Thu Apr 23 21:23:08 UTC 2026","","tests.reqres.tests.SingleUserTest","tests.reqres.tests.SingleUserTest","getUnrealUserTest"
+"","1435","Edit data","","Thu Apr 23 21:24:52 UTC 2026","passed","Thu Apr 23 21:24:53 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","editButtonTest"
+"","14109","Image doesn't have a size","","Thu Apr 23 21:22:42 UTC 2026","passed","Thu Apr 23 21:22:56 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","brokenImageTest"
+"","13157","Select element in list","","Thu Apr 23 21:23:15 UTC 2026","passed","Thu Apr 23 21:23:28 UTC 2026","","tests.demoqa.tests.interactions.SelectableTest","tests.demoqa.tests.interactions.SelectableTest","listTest"
+"","31808","Verify text inside parent and child frames","","Thu Apr 23 21:22:41 UTC 2026","passed","Thu Apr 23 21:23:12 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.NestedFramesTest","tests.demoqa.tests.alertsFrameWindows.NestedFramesTest","nestedFrameTest"
+"","39000","Filling out the form correctly","","Thu Apr 23 21:22:43 UTC 2026","passed","Thu Apr 23 21:23:22 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","fillFullFormTest"
+"","21841","Verify text after right click","","Thu Apr 23 21:22:42 UTC 2026","passed","Thu Apr 23 21:23:04 UTC 2026","","tests.demoqa.tests.elements.ButtonsTest","tests.demoqa.tests.elements.ButtonsTest","rightClickTest"
+"","0","Valid image has non-zero width","","Thu Apr 23 21:23:42 UTC 2026","skipped","Thu Apr 23 21:23:42 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","validImageTest"
+"","28021","Verify text after double click","","Thu Apr 23 21:23:04 UTC 2026","failed","Thu Apr 23 21:23:32 UTC 2026","","tests.demoqa.tests.elements.ButtonsTest","tests.demoqa.tests.elements.ButtonsTest","doubleClickTest"
+"","75392","Navigating the table","","Thu Apr 23 21:23:27 UTC 2026","passed","Thu Apr 23 21:24:43 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","navigationButtonsTest"
+"","28092","Check menu and all subitems","","Thu Apr 23 21:22:39 UTC 2026","passed","Thu Apr 23 21:23:07 UTC 2026","","tests.demoqa.tests.widgets.MenuTest","tests.demoqa.tests.widgets.MenuTest","menuTest"
+"","14963","Click Button to see alert","","Thu Apr 23 21:23:54 UTC 2026","failed","Thu Apr 23 21:24:09 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","alertSimpleTest"
+"","23612","Resize to above maximum limit [1]","","Thu Apr 23 21:23:10 UTC 2026","passed","Thu Apr 23 21:23:34 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxAboveMaximumTest"
+"","9443","Check revert draggable element [1]","","Thu Apr 23 21:23:49 UTC 2026","passed","Thu Apr 23 21:23:58 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","revertDraggableTest"
 "Get resource by id '2'
-Check that resource is real","1482","Get existing resource [1]","","Thu Apr 23 19:45:06 UTC 2026","passed","Thu Apr 23 19:45:07 UTC 2026","","tests.reqres.tests.SingleResourceTest","tests.reqres.tests.SingleResourceTest","getRealResourceTest"
+Check that resource is real","1409","Get existing resource [1]","","Thu Apr 23 21:23:00 UTC 2026","passed","Thu Apr 23 21:23:02 UTC 2026","","tests.reqres.tests.SingleResourceTest","tests.reqres.tests.SingleResourceTest","getRealResourceTest"
+"","17439","On button click, alert will appear after 5 seconds","","Thu Apr 23 21:23:37 UTC 2026","passed","Thu Apr 23 21:23:54 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","alertFiveSecondWaitTest"
+"","1744","Fill negative salary","","Thu Apr 23 21:24:43 UTC 2026","passed","Thu Apr 23 21:24:45 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","negativeSalaryTest"
 "Send request with 3 sec delay
-Check that response data is valid","18099","Get users with delayed response [1]","","Thu Apr 23 19:44:32 UTC 2026","passed","Thu Apr 23 19:44:50 UTC 2026","","tests.reqres.tests.DelayTest","tests.reqres.tests.DelayTest","getDelayUsers"
-"","9073","Check revert draggable element [1]","","Thu Apr 23 19:45:48 UTC 2026","passed","Thu Apr 23 19:45:57 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","revertDraggableTest"
-"","39006","Filling out the form correctly","","Thu Apr 23 19:44:39 UTC 2026","passed","Thu Apr 23 19:45:18 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","fillFullFormTest"
-"","3942","On button click, confirm box will appear. Set dismiss","","Thu Apr 23 19:45:55 UTC 2026","passed","Thu Apr 23 19:45:59 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","confirmButtonDismissTest"
-"","27276","Drag 'acceptable' and 'not...' element to the drop [1]","","Thu Apr 23 19:45:09 UTC 2026","passed","Thu Apr 23 19:45:36 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","acceptTest"
-"","1259","Edit data","","Thu Apr 23 19:46:52 UTC 2026","passed","Thu Apr 23 19:46:53 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","editButtonTest"
-"","37723","Check text in tabs","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:12 UTC 2026","","tests.demoqa.tests.widgets.TabsTest","tests.demoqa.tests.widgets.TabsTest","tabsTest"
-"","27496","Verify text inside the small modal dialog","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:04 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","tests.demoqa.tests.alertsFrameWindows.ModalDialogsTest","smallModalTest"
-"Create new user
-Login
-Get user books
-Check booklist is empty
-Delete user","6808","Get user's book list","","Thu Apr 23 19:45:01 UTC 2026","passed","Thu Apr 23 19:45:08 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GetUsersBooksTest","tests.demoqa.tests.bookStoreApplication.GetUsersBooksTest","getUsersBooksTest"
-"","11561","Drag element to the 'greedy' and 'not...' drop [1]","","Thu Apr 23 19:45:36 UTC 2026","passed","Thu Apr 23 19:45:48 UTC 2026","","tests.demoqa.tests.interactions.DroppableTest","tests.demoqa.tests.interactions.DroppableTest","preventPropagationTest"
-"","28380","On button click, prompt box will appear","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:05 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","promptButtonTest"
-"","11272","Button becomes visible after 5 seconds [2]","","Thu Apr 23 19:45:11 UTC 2026","passed","Thu Apr 23 19:45:23 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","visibleAfterButtonTest"
-"Create new user
-Login
-Add list of books
-Check that book is added
-Delete user","10824","Add list of books","","Thu Apr 23 19:45:07 UTC 2026","passed","Thu Apr 23 19:45:17 UTC 2026","","tests.demoqa.tests.bookStoreApplication.AddListOfBooksTest","tests.demoqa.tests.bookStoreApplication.AddListOfBooksTest","addListOfBooksTest"
-"Create new user
-Authorized
-Check that result is true
-Delete user","3650","Successful authorized","","Thu Apr 23 19:45:01 UTC 2026","passed","Thu Apr 23 19:45:05 UTC 2026","","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","successAuthorizedTest"
-"Get resource by id '666'
-Check status code 404","1558","Get non-existent resource [1]","","Thu Apr 23 19:45:04 UTC 2026","passed","Thu Apr 23 19:45:06 UTC 2026","","tests.reqres.tests.SingleResourceTest","tests.reqres.tests.SingleResourceTest","getUnrealResourceTest"
-"","33400","Broken link returns 500 status code","","Thu Apr 23 19:44:53 UTC 2026","passed","Thu Apr 23 19:45:26 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","brokenLinkTest"
-"","5697","Check status code 301","","Thu Apr 23 19:45:51 UTC 2026","passed","Thu Apr 23 19:45:57 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","movedLinkTest"
-"","8982","Check the boundary values [1]","","Thu Apr 23 19:45:51 UTC 2026","passed","Thu Apr 23 19:46:00 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxBoundaryTest"
-"","26843","Upload file","","Thu Apr 23 19:44:39 UTC 2026","passed","Thu Apr 23 19:45:06 UTC 2026","","tests.demoqa.tests.elements.UploadAndDownloadTest","tests.demoqa.tests.elements.UploadAndDownloadTest","uploadTest"
-"Create new user
-Register
-Check that response matches username
-Delete user","3007","Successful register","","Thu Apr 23 19:44:53 UTC 2026","passed","Thu Apr 23 19:44:56 UTC 2026","","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","successRegisterTest"
-"","34627","Button becomes visible after 5 seconds [1]","","Thu Apr 23 19:44:36 UTC 2026","skipped","Thu Apr 23 19:45:11 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","visibleAfterButtonTest"
-"","11213","Open new window","","Thu Apr 23 19:45:31 UTC 2026","passed","Thu Apr 23 19:45:42 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","newWindowButtonTest"
-"","30672","Check status code 400","","Thu Apr 23 19:44:37 UTC 2026","passed","Thu Apr 23 19:45:08 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","badRequestLinkTest"
-"Get users
-Get root
-Check that the quantity matches","908","Check number of elements [1]","","Thu Apr 23 19:45:16 UTC 2026","passed","Thu Apr 23 19:45:17 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkNumberOfElementsTest"
-"","6680","Fill only required fields","","Thu Apr 23 19:45:32 UTC 2026","passed","Thu Apr 23 19:45:38 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","fillPartialFormTest"
-"","23102","Check multiple remove","","Thu Apr 23 19:45:09 UTC 2026","passed","Thu Apr 23 19:45:32 UTC 2026","","tests.demoqa.tests.widgets.AutoCompleteTest","tests.demoqa.tests.widgets.AutoCompleteTest","multipleTypeRemoveTest"
-"","5417","Fill wrong email","","Thu Apr 23 19:45:26 UTC 2026","passed","Thu Apr 23 19:45:32 UTC 2026","","tests.demoqa.tests.elements.TextBoxTest","tests.demoqa.tests.elements.TextBoxTest","fillWrongEmailTest"
-"","7363","Resize to below minimum limit [2]","","Thu Apr 23 19:45:44 UTC 2026","passed","Thu Apr 23 19:45:51 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxBelowMinimumTest"
-"","13164","Drag elements restricted to single axis [1]","","Thu Apr 23 19:45:34 UTC 2026","passed","Thu Apr 23 19:45:47 UTC 2026","","tests.demoqa.tests.interactions.DraggableTest","tests.demoqa.tests.interactions.DraggableTest","axisRestrictedTest"
-"","29661","Verify text inside the small frame","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:06 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.FramesTest","tests.demoqa.tests.alertsFrameWindows.FramesTest","secondFrameTest"
-"Create new user with wrong password
-Try register
-Check response error message
-Delete user","10261","Unsuccessful register","","Thu Apr 23 19:44:40 UTC 2026","passed","Thu Apr 23 19:44:50 UTC 2026","","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","tests.demoqa.tests.bookStoreApplication.RegisterUserTest","unsuccessfulRegisterTest"
-"","6220","Select all sub-items","","Thu Apr 23 19:45:25 UTC 2026","passed","Thu Apr 23 19:45:31 UTC 2026","","tests.demoqa.tests.elements.CheckBoxTest","tests.demoqa.tests.elements.CheckBoxTest","selectAllTest"
-"","35239","Hover and check text [1]","","Thu Apr 23 19:44:35 UTC 2026","passed","Thu Apr 23 19:45:10 UTC 2026","","tests.demoqa.tests.widgets.ToolTipsTest","tests.demoqa.tests.widgets.ToolTipsTest","toolTipsTest"
-"","11559","Resize to below minimum limit [1]","","Thu Apr 23 19:45:32 UTC 2026","skipped","Thu Apr 23 19:45:44 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxBelowMinimumTest"
-"Create new user
-Login
-Delete books
-Check that status code 204
-Delete user","4388","Delete all books","","Thu Apr 23 19:45:16 UTC 2026","passed","Thu Apr 23 19:45:20 UTC 2026","","tests.demoqa.tests.bookStoreApplication.DeleteBooksTest","tests.demoqa.tests.bookStoreApplication.DeleteBooksTest","deleteBooksTest"
-"","25994","Resize to above maximum limit [1]","","Thu Apr 23 19:45:06 UTC 2026","passed","Thu Apr 23 19:45:32 UTC 2026","","tests.demoqa.tests.interactions.ResizableTest","tests.demoqa.tests.interactions.ResizableTest","resizableBoxAboveMaximumTest"
-"Get users
-Check that avatar and id are equal","225","Check avatar and id [1]","","Thu Apr 23 19:45:16 UTC 2026","passed","Thu Apr 23 19:45:16 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkAvatarAndIdTest"
-"","6805","Button becomes enabled after 5 seconds [1]","","Thu Apr 23 19:45:23 UTC 2026","passed","Thu Apr 23 19:45:30 UTC 2026","","tests.demoqa.tests.elements.DynamicPropertiesTest","tests.demoqa.tests.elements.DynamicPropertiesTest","willEnableButtonTest"
-"","6849","Verify text after simple click","","Thu Apr 23 19:45:21 UTC 2026","passed","Thu Apr 23 19:45:28 UTC 2026","","tests.demoqa.tests.elements.ButtonsTest","tests.demoqa.tests.elements.ButtonsTest","clickMeTest"
-"","14174","Verify text after double click","","Thu Apr 23 19:45:07 UTC 2026","passed","Thu Apr 23 19:45:21 UTC 2026","","tests.demoqa.tests.elements.ButtonsTest","tests.demoqa.tests.elements.ButtonsTest","doubleClickTest"
-"","13125","Move element in list and check sortable [1]","","Thu Apr 23 19:45:08 UTC 2026","passed","Thu Apr 23 19:45:21 UTC 2026","","tests.demoqa.tests.interactions.SortableTest","tests.demoqa.tests.interactions.SortableTest","listTest"
+Check that response data is valid","11215","Get users with delayed response [1]","","Thu Apr 23 21:22:36 UTC 2026","passed","Thu Apr 23 21:22:47 UTC 2026","","tests.reqres.tests.DelayTest","tests.reqres.tests.DelayTest","getDelayUsers"
+"","53062","Change subjects","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:33 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","changeSubjectsTest"
+"","7900","Fill wrong mobile number","","Thu Apr 23 21:23:34 UTC 2026","passed","Thu Apr 23 21:23:41 UTC 2026","","tests.demoqa.tests.forms.PracticeFormTest","tests.demoqa.tests.forms.PracticeFormTest","wrongMobileNumberTest"
+"Get root
+Check that the quantity matches","979","Check root [1]","","Thu Apr 23 21:23:08 UTC 2026","passed","Thu Apr 23 21:23:09 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkRootTest"
+"","41874","Check text in tabs","","Thu Apr 23 21:22:39 UTC 2026","passed","Thu Apr 23 21:23:21 UTC 2026","","tests.demoqa.tests.widgets.TabsTest","tests.demoqa.tests.widgets.TabsTest","tabsTest"
+"","28377","Verify text inside the small frame","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:09 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.FramesTest","tests.demoqa.tests.alertsFrameWindows.FramesTest","secondFrameTest"
 "Create new user
 Login
 Set default book
 Change book
 Check that book is changed
-Delete user","9906","Replace book in user's collection","","Thu Apr 23 19:45:12 UTC 2026","passed","Thu Apr 23 19:45:22 UTC 2026","","tests.demoqa.tests.bookStoreApplication.ChangeBookTest","tests.demoqa.tests.bookStoreApplication.ChangeBookTest","changeBookTest"
-"","11315","Download file","","Thu Apr 23 19:45:06 UTC 2026","passed","Thu Apr 23 19:45:17 UTC 2026","","tests.demoqa.tests.elements.UploadAndDownloadTest","tests.demoqa.tests.elements.UploadAndDownloadTest","downloadTest"
-"","35740","Check single fill","","Thu Apr 23 19:44:33 UTC 2026","passed","Thu Apr 23 19:45:09 UTC 2026","","tests.demoqa.tests.widgets.AutoCompleteTest","tests.demoqa.tests.widgets.AutoCompleteTest","singleTypeTest"
-"","3559","Check status code 401","","Thu Apr 23 19:45:57 UTC 2026","passed","Thu Apr 23 19:46:00 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","unauthorizedLinkTest"
-"Get user by id '2'
-Check that user is real","1393","Get existing user [1]","","Thu Apr 23 19:45:11 UTC 2026","passed","Thu Apr 23 19:45:13 UTC 2026","","tests.reqres.tests.SingleUserTest","tests.reqres.tests.SingleUserTest","getRealUserTest"
-"","24132","Check status code 403","","Thu Apr 23 19:45:08 UTC 2026","passed","Thu Apr 23 19:45:32 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","forbiddenLinkTest"
+Delete user","9195","Replace book in user's collection","","Thu Apr 23 21:23:12 UTC 2026","passed","Thu Apr 23 21:23:21 UTC 2026","","tests.demoqa.tests.bookStoreApplication.ChangeBookTest","tests.demoqa.tests.bookStoreApplication.ChangeBookTest","changeBookTest"
+"","1173","Fill wrong email","","Thu Apr 23 21:24:47 UTC 2026","passed","Thu Apr 23 21:24:49 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","wrongEmailTest"
+"Get resource by id '666'
+Check status code 404","1073","Get non-existent resource [1]","","Thu Apr 23 21:22:59 UTC 2026","passed","Thu Apr 23 21:23:00 UTC 2026","","tests.reqres.tests.SingleResourceTest","tests.reqres.tests.SingleResourceTest","getUnrealResourceTest"
+"Register new user
+Check token and id","2772","Successful register [1]","","Thu Apr 23 21:22:56 UTC 2026","passed","Thu Apr 23 21:22:59 UTC 2026","","tests.reqres.tests.RegisterUserTest","tests.reqres.tests.RegisterUserTest","successRegisterTest"
+"","11896","Open new window","","Thu Apr 23 21:23:36 UTC 2026","passed","Thu Apr 23 21:23:48 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","newWindowButtonTest"
+"Create new invalid user
+Authorized
+Check that response has 404","3990","Unsuccessful Authorized","","Thu Apr 23 21:22:51 UTC 2026","passed","Thu Apr 23 21:22:55 UTC 2026","","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","tests.demoqa.tests.bookStoreApplication.AuthorizedTest","notFoundAuthorizedTest"
+"","17104","The link redirects to the main page","","Thu Apr 23 21:23:25 UTC 2026","passed","Thu Apr 23 21:23:42 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","validLinkTest"
+"","34151","Open new window (about:blank)","","Thu Apr 23 21:22:40 UTC 2026","passed","Thu Apr 23 21:23:14 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","newWindowMessageButtonTest"
 "Get users
-Check that emails end with 'reqres.in'","754","Check emails [1]","","Thu Apr 23 19:45:15 UTC 2026","passed","Thu Apr 23 19:45:16 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkEmailsTest"
-"","25158","Verify text inside the big frame","","Thu Apr 23 19:45:06 UTC 2026","passed","Thu Apr 23 19:45:31 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.FramesTest","tests.demoqa.tests.alertsFrameWindows.FramesTest","firstFrameTest"
-"","13539","Image doesn't have a size","","Thu Apr 23 19:44:38 UTC 2026","passed","Thu Apr 23 19:44:52 UTC 2026","","tests.demoqa.tests.elements.BrokenLinksTest","tests.demoqa.tests.elements.BrokenLinksTest","brokenImageTest"
-"Login valid user
-Check token","1174","Successful login [1]","","Thu Apr 23 19:45:08 UTC 2026","passed","Thu Apr 23 19:45:09 UTC 2026","","tests.reqres.tests.LoginUserTest","tests.reqres.tests.LoginUserTest","successLoginTest"
-"","5347","Click Button to see alert","","Thu Apr 23 19:45:50 UTC 2026","passed","Thu Apr 23 19:45:55 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.AlertsTest","tests.demoqa.tests.alertsFrameWindows.AlertsTest","alertSimpleTest"
-"","26361","Open new window (about:blank)","","Thu Apr 23 19:44:36 UTC 2026","passed","Thu Apr 23 19:45:02 UTC 2026","","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","tests.demoqa.tests.alertsFrameWindows.BrowserWindowsTest","newWindowMessageButtonTest"
-"Select default book
-Send book
-Check that response matches default book","856","Get single book","","Thu Apr 23 19:45:06 UTC 2026","passed","Thu Apr 23 19:45:07 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GetBookTest","tests.demoqa.tests.bookStoreApplication.GetBookTest","getBookTest"
-"Login user without password
-Check error 'Missing password'","1203","Unsuccessful login [1]","","Thu Apr 23 19:45:09 UTC 2026","passed","Thu Apr 23 19:45:10 UTC 2026","","tests.reqres.tests.LoginUserTest","tests.reqres.tests.LoginUserTest","unsuccessfulLoginTest"
-"Create invalid user
-Login
-Check token, status, message
-Delete user","3533","Unsuccessful Generate Token","","Thu Apr 23 19:45:22 UTC 2026","passed","Thu Apr 23 19:45:26 UTC 2026","","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","tests.demoqa.tests.bookStoreApplication.GenerateTokenTest","errorGenerateTokenTest"
-"","657","Search non-existent record","","Thu Apr 23 19:46:51 UTC 2026","passed","Thu Apr 23 19:46:52 UTC 2026","","tests.demoqa.tests.elements.WebTablesTest","tests.demoqa.tests.elements.WebTablesTest","wrongSearchTest"
-"","12066","Check status code 404","","Thu Apr 23 19:45:32 UTC 2026","passed","Thu Apr 23 19:45:44 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","notFoundLinkTest"
-"","6884","Check status code 204","","Thu Apr 23 19:45:44 UTC 2026","passed","Thu Apr 23 19:45:51 UTC 2026","","tests.demoqa.tests.elements.LinksTest","tests.demoqa.tests.elements.LinksTest","noContentLinkTest"
+Get root
+Check that the quantity matches","881","Check number of elements [1]","","Thu Apr 23 21:23:13 UTC 2026","passed","Thu Apr 23 21:23:14 UTC 2026","","tests.reqres.tests.ListUsersTest","tests.reqres.tests.ListUsersTest","checkNumberOfElementsTest"
