@@ -1,0 +1,4 @@
+# Reqres.in API key
+# Get your key at https://reqres.in/ and put it in config.properties (gitignored)
+
+api.key=your-reqres-api-key-here
