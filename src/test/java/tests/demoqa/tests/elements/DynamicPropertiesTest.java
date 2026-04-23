@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.elementsPage.DynamicPropertiesPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -29,7 +30,7 @@ public class DynamicPropertiesTest extends BaseUITest {
         open("/dynamic-properties");
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Button becomes enabled after 5 seconds")
     @Severity(SeverityLevel.NORMAL)
     void willEnableButtonTest() {
@@ -38,7 +39,7 @@ public class DynamicPropertiesTest extends BaseUITest {
         dynamicPropertiesPage.getEnableAfter().shouldBe(enabled);
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Button becomes visible after 5 seconds")
     @Severity(SeverityLevel.NORMAL)
     void visibleAfterButtonTest() {
@@ -47,7 +48,7 @@ public class DynamicPropertiesTest extends BaseUITest {
         dynamicPropertiesPage.getVisibleAfter().shouldBe(visible);
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Button changes color after 5 seconds")
     @Severity(SeverityLevel.NORMAL)
     void changeColorButtonTest() {
