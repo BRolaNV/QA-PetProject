@@ -29,6 +29,13 @@ jobs:
           REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: mvn test -Dchromeoptions.args="--headless=new,--no-sandbox,--disable-dev-shm-usage"
 
+      - name: Install Allure
+        if: always()
+        run: |
+          curl -sLo allure.zip https://github.com/allure-framework/allure2/releases/download/2.32.0/allure-2.32.0.zip
+          unzip -q allure.zip -d /opt/
+          echo "/opt/allure-2.32.0/bin" >> $GITHUB_PATH
+
       - name: Get Allure history
         uses: actions/checkout@v4
         if: always()
@@ -37,12 +44,11 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Allure report action
-        uses: simple-elo/allure-report-action@v1.7
+      - name: Generate Allure report
         if: always()
-        with:
-            allure_results: target/allure-results
-            allure_history: allure-history
+        run: |
+          cp -r gh-pages/history target/allure-results/history || true
+          allure generate target/allure-results -o allure-report --clean
 
       - name: Deploy to GitHub Pages
         if: always()
@@ -50,4 +56,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
