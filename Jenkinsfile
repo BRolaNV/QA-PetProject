@@ -30,7 +30,7 @@ pipeline {
 
     post {
         always {
-            allure results: ['target/allure-results']
+            allure results: [[path: 'target/allure-results']]
         }
     }
 }
