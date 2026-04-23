@@ -1,5 +1,6 @@
 package tests.demoqa.pages.interactionsPage;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Getter;
@@ -17,6 +18,7 @@ public class ResizablePage {
 
     @Step("Move element by offset")
     public ResizablePage moveElementByOffSet(int xOffset, int yOffset, SelenideElement element) {
+        element.shouldBe(Condition.visible);
         actions()
                 .moveToElement(element)
                 .pause(200)

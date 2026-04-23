@@ -46,7 +46,6 @@ public class BrokenLinksTest extends BaseUITest {
     @DisplayName("Image doesn't have a size")
     @Severity(SeverityLevel.NORMAL)
     void brokenImageTest() {
-
         assertEquals(0, brokenLinksPage.getBrokenImageWidth());
     }
 

@@ -3,6 +3,7 @@ package tests.demoqa.pages.elementsPage;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
@@ -32,6 +33,7 @@ public class BrokenLinksPage {
     }
 
     public Long getBrokenImageWidth() {
+        brokenImage.shouldBe(visible);
         long width = executeJavaScript(
                 "return arguments[0].naturalWidth",
                 brokenImage.toWebElement()
