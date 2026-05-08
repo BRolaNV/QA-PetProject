@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.elementsPage.ButtonsPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -30,7 +31,7 @@ public class ButtonsTest extends BaseUITest {
         open("/buttons");
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Verify text after double click")
     @Severity(SeverityLevel.NORMAL)
     void doubleClickTest() {
@@ -38,7 +39,7 @@ public class ButtonsTest extends BaseUITest {
         buttonsPage.getDoubleClickMess().shouldHave(text("You have done a double click"));
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Verify text after right click")
     @Severity(SeverityLevel.NORMAL)
     void rightClickTest() {

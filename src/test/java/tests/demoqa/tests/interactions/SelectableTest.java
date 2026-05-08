@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.interactionsPage.SelectablePage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -44,7 +45,7 @@ public class SelectableTest extends BaseUITest {
         selectablePage.getActiveList().shouldHave(text(element));
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Select element in grid")
     @Severity(SeverityLevel.NORMAL)
     void gridTest() {

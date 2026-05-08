@@ -17,6 +17,7 @@
 - [Особенности реализации](#-особенности-реализации)
 - [Запуск тестов](#-запуск-тестов)
 - [Allure Report](#-allure-report)
+- [Selenoid](#-selenoid)
 
 ---
 
@@ -33,12 +34,13 @@
   <a href="https://www.jenkins.io/"><img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins"/></a>
   <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/></a>
   <a href="https://www.selenium.dev/documentation/grid/"><img src="https://img.shields.io/badge/Selenium_Grid-43B02A?style=for-the-badge&logo=selenium&logoColor=white" alt="Selenium Grid"/></a>
+  <a href="https://aerokube.com/selenoid/"><img src="https://img.shields.io/badge/Selenoid-00B4AB?style=for-the-badge&logo=selenium&logoColor=white" alt="Selenoid"/></a>
   <a href="https://projectlombok.org/"><img src="https://img.shields.io/badge/Lombok-BC4521?style=for-the-badge&logo=lombok&logoColor=white" alt="Lombok"/></a>
   <a href="https://www.datafaker.net/"><img src="https://img.shields.io/badge/Datafaker-6C3483?style=for-the-badge&logo=java&logoColor=white" alt="Datafaker"/></a>
 </p>
 
 | Категория | Технологии |
-|-----------|---------|
+|-----------|-----------|
 | Язык | Java 17 |
 | Сборка | Maven |
 | Тестовый фреймворк | JUnit 5 · JUnit Pioneer |
@@ -47,7 +49,7 @@
 | Данные | Datafaker · Lombok |
 | Отчётность | Allure Report |
 | CI/CD | GitHub Actions · Jenkins |
-| Инфраструктура  Docker · Selenium Grid |
+| Инфраструктура | Docker · Selenium Grid · Selenoid |
 
 ---
 
@@ -156,11 +158,45 @@ docker compose up -d
 
 Pipeline: `Checkout` → `Build` → `Test` (API-ключ через `withCredentials`) → `Allure Report`
 
+### Selenoid (Docker)
+
+```bash
+# Поднять Selenoid
+cd infrastructure/selenoid
+docker compose up -d
+
+# Selenoid UI: http://localhost:8081
+```
+
+Запуск тестов через Selenoid:
+
+```bash
+mvn test -Dremote=true -DgridUrl=http://localhost:4445/wd/hub
+```
+
 ---
 
 ## 📊 Allure Report
 
 <p align="center">
-  <img src="src/test/resources/allure-report.png" alt="Allure Report" width="1000"/>
+  <img src="docs/images/allure-report.png" alt="Allure Report" width="1000"/>
+</p>
+
+---
+
+## 🎥 Selenoid
+
+<p align="center">
+  <img src="docs/images/selenoid-ui.png" alt="Selenoid UI" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="docs/images/selenoid-session.png" alt="Selenoid Live Session" width="1000"/>
+</p>
+
+---
+
+<p align="center">
+  <b><a href="https://github.com/BRolaNV">BRolaNV</a></b>
 </p>
 

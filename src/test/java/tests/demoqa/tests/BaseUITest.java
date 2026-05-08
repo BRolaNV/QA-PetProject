@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.Map;
+
 @ExtendWith(AllureAttachmentsExtension.class)
 public abstract class BaseUITest {
     @BeforeEach
@@ -27,7 +29,11 @@ public abstract class BaseUITest {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless=new");
+
+            options.setCapability("selenoid:options", Map.of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
 
             Configuration.browserCapabilities = options;
         }

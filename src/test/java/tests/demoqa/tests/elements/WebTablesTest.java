@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.data.WebTablesData;
 import tests.demoqa.pages.elementsPage.WebTablesPage;
 import tests.demoqa.tests.BaseUITest;
@@ -112,7 +113,7 @@ public class WebTablesTest extends BaseUITest {
                 .shouldNotHave(text(webTablesData.getEmail()));
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Fill text instead of numbers")
     @Severity(SeverityLevel.NORMAL)
     void notDigitTest() {

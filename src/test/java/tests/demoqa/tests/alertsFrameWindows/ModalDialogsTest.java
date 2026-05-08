@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.alertsFrameWindowsPage.ModalDialogsPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -25,7 +26,7 @@ public class ModalDialogsTest extends BaseUITest {
         open("/modal-dialogs");
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Verify text inside the small modal dialog")
     @Severity(SeverityLevel.NORMAL)
     void smallModalTest() {

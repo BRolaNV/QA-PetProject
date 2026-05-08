@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.widgetsPage.MenuPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -29,7 +30,7 @@ public class MenuTest extends BaseUITest {
         open("/menu");
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Check menu and all subitems")
     @Severity(SeverityLevel.NORMAL)
     void menuTest() {

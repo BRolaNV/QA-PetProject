@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 .kotlin
 src/test/resources/config.properties
+infrastructure/selenoid/video/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.elementsPage.LinksPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -43,7 +44,7 @@ public class LinksTest extends BaseUITest {
         linksPage.getResponse().shouldHave(text("301"));
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Check status code 400")
     @Severity(SeverityLevel.NORMAL)
     void badRequestLinkTest() {

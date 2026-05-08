@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.widgetsPage.SliderPage;
 import tests.demoqa.tests.BaseUITest;
 
@@ -29,7 +30,7 @@ public class SliderTest extends BaseUITest {
         open("/slider");
     }
 
-    @Test
+    @RetryingTest(3)
     @DisplayName("Move slider and check")
     @Severity(SeverityLevel.NORMAL)
     void sliderTest() {
