@@ -4,7 +4,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.elementsPage.DynamicPropertiesPage;
 import tests.demoqa.tests.BaseUITest;

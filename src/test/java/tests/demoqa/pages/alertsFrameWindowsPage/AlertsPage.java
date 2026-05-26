@@ -3,6 +3,7 @@ package tests.demoqa.pages.alertsFrameWindowsPage;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AlertsPage {
@@ -16,25 +17,25 @@ public class AlertsPage {
 
     @Step("Click the alert button")
     public AlertsPage clickAlertButton() {
-        alertBtn.click();
+        alertBtn.shouldBe(visible).click();
         return this;
     }
 
     @Step("Click the timer alert button")
     public AlertsPage clickTimerAlertButton() {
-        timerAlertBtn.click();
+        timerAlertBtn.shouldBe(visible).click();
         return this;
     }
 
     @Step("Click the confirm button")
     public AlertsPage clickConfirmButton() {
-        confirmBtn.click();
+        confirmBtn.shouldBe(visible).click();
         return this;
     }
 
     @Step("Click the prompt button")
     public AlertsPage clickPromptButton() {
-        promptBtn.click();
+        promptBtn.shouldBe(visible).click();
         return this;
     }
 

@@ -26,6 +26,7 @@ public class DefaultData {
                     "as well as a reference to common commands and procedures for those of you with Git exp")
             .website("http://chimera.labs.oreilly.com/books/1230000000561/index.html")
             .build();
+
     public static BookData bookForChange = BookData.builder()
             .isbn("9781449331818")
             .title("Learning JavaScript Design Patterns")
