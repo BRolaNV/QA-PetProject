@@ -1,27 +1,27 @@
 # 🧪 QA Automation Pet Project
 
-Проект автоматизации тестирования, демонстрирующий навыки UI и API тестирования.  
-Покрывает веб-приложение [demoqa.com](https://demoqa.com) (UI + API) и REST API [reqres.in](https://reqres.in).
+A test automation project showcasing UI and API testing skills.  
+Covers the [demoqa.com](https://demoqa.com) web application (UI + API) and the [reqres.in](https://reqres.in) REST API.
 
-**124 теста** — 90 UI, 14 DemoQA API, 19 Reqres API, 1 Disabled.
+**124 tests** — 90 UI, 14 DemoQA API, 19 Reqres API, 1 Disabled.
 
 📊 **[Allure Report (GitHub Pages)](https://brolanv.github.io/QA-PetProject/)**
 
 ---
 
-## 📑 Оглавление
+## 📑 Table of Contents
 
-- [Стек технологий](#-стек-технологий)
-- [Покрытие тестами](#-покрытие-тестами)
-- [Архитектура проекта](#-архитектура-проекта)
-- [Особенности реализации](#-особенности-реализации)
-- [Запуск тестов](#-запуск-тестов)
+- [Tech Stack](#-tech-stack)
+- [Test Coverage](#-test-coverage)
+- [Project Structure](#-project-structure)
+- [Key Features](#-key-features)
+- [How to Run](#-how-to-run)
 - [Allure Report](#-allure-report)
 - [Selenoid](#-selenoid)
 
 ---
 
-## 🛠 Стек технологий
+## 🛠 Tech Stack
 
 <p align="center">
   <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/></a>
@@ -39,60 +39,60 @@
   <a href="https://www.datafaker.net/"><img src="https://img.shields.io/badge/Datafaker-6C3483?style=for-the-badge&logo=java&logoColor=white" alt="Datafaker"/></a>
 </p>
 
-| Категория | Технологии |
-|-----------|-----------|
-| Язык | Java 17 |
-| Сборка | Maven |
-| Тестовый фреймворк | JUnit 5 · JUnit Pioneer |
-| UI тесты | Selenide |
-| API тесты | REST Assured |
-| Данные | Datafaker · Lombok |
-| Отчётность | Allure Report |
+| Category | Technologies |
+|----------|-------------|
+| Language | Java 17 |
+| Build | Maven |
+| Test Framework | JUnit 5 · JUnit Pioneer |
+| UI Tests | Selenide |
+| API Tests | REST Assured |
+| Test Data | Datafaker · Lombok |
+| Reporting | Allure Report |
 | CI/CD | GitHub Actions · Jenkins |
-| Инфраструктура | Docker · Selenium Grid · Selenoid |
+| Infrastructure | Docker · Selenium Grid · Selenoid |
 
 ---
 
-## ✅ Покрытие тестами
+## ✅ Test Coverage
 
-### UI тесты (demoqa.com)
+### UI Tests (demoqa.com)
 
-| Раздел | Страницы |
-|--------|----------|
+| Section | Pages |
+|---------|-------|
 | **Elements** | TextBox, CheckBox, RadioButton, WebTables, Buttons, Links, BrokenLinks, Upload/Download, DynamicProperties |
-| **Forms** | Practice Form (позитивные и негативные сценарии) |
+| **Forms** | Practice Form (positive and negative scenarios) |
 | **Alerts, Frame & Windows** | BrowserWindows, Alerts, Frames, NestedFrames, ModalDialogs |
 | **Widgets** | Accordion, AutoComplete, DatePicker, ProgressBar, Slider, Tabs, ToolTips, Menu, SelectMenu |
 | **Interactions** | Sortable, Selectable, Resizable, Droppable, Draggable |
 
-### API тесты
+### API Tests
 
-| API | Покрытие |
+| API | Coverage |
 |-----|----------|
-| **DemoQA BookStore** | Регистрация, авторизация, генерация токена, CRUD книг и пользователей |
-| **Reqres.in** | CRUD пользователей, регистрация, логин, валидация списков и ресурсов |
+| **DemoQA BookStore** | Registration, authorization, token generation, CRUD operations for books and users |
+| **Reqres.in** | CRUD operations for users, registration, login, list and resource validation |
 
 ---
 
-## 📁 Архитектура проекта
+## 📁 Project Structure
 
 ```
 src/test/java/
 ├── helpers/
-│   └── AllureAttachmentsExtension   # Скриншоты и page source при падении
+│   └── AllureAttachmentsExtension   # Screenshots and page source on failure
 ├── tests/
 │   ├── demoqa/
-│   │   ├── data/                    # Тестовые данные (PracticeFormData, WebTablesData)
+│   │   ├── data/                    # Test data (PracticeFormData, WebTablesData)
 │   │   ├── pages/                   # Page Objects
 │   │   │   ├── alertsFrameWindowsPage/
 │   │   │   ├── elementsPage/
 │   │   │   ├── formsPage/
 │   │   │   ├── interactionsPage/
 │   │   │   └── widgetsPage/
-│   │   └── tests/                   # UI и BookStore API тесты
+│   │   └── tests/                   # UI and BookStore API tests
 │   │       ├── alertsFrameWindows/
 │   │       ├── bookStoreApplication/
-│   │       │   ├── baseTest/        # BaseApiTest для BookStore
+│   │       │   ├── baseTest/        # BaseApiTest for BookStore
 │   │       │   └── pojo/            # BookData, UserData, DefaultData
 │   │       ├── elements/
 │   │       ├── forms/
@@ -100,55 +100,55 @@ src/test/java/
 │   │       └── widgets/
 │   ├── reqres/
 │   │   ├── pojo/                    # UserData, ResourcesData, RootData
-│   │   ├── tests/                   # API тесты Reqres
-│   │   ├── APIReader                # Чтение API-ключа (env → file fallback)
-│   │   └── BaseApiTest              # Базовый класс с RequestSpec
+│   │   ├── tests/                   # Reqres API tests
+│   │   ├── APIReader                # API key reader (env → file fallback)
+│   │   └── BaseApiTest              # Base class with RequestSpec
 │   └── specifications/
-│       └── Specifications           # RequestSpec / ResponseSpec для всех API
+│       └── Specifications           # RequestSpec / ResponseSpec for all APIs
 ```
 
 ---
 
-## 💡 Особенности реализации
+## 💡 Key Features
 
-- **Page Object Pattern** — UI тесты построены на страничных объектах с Selenide, каждая страница инкапсулирует локаторы и действия
-- **Allure интеграция** — `@Epic`, `@Feature`, `@Story`, `@Step`, `@Severity`, `@Description`; скриншоты при падении через `AllureAttachmentsExtension`; логирование HTTP-запросов через `AllureRestAssured`; Selenide-шаги через `AllureSelenide`
-- **Параллельный запуск** — JUnit 5 parallel execution (3 потока), API тесты Reqres изолированы в `SAME_THREAD` для защиты от rate limiting
-- **CI/CD** — GitHub Actions с автоматической генерацией Allure-отчёта на GitHub Pages; Jenkins pipeline с Selenium Grid в Docker
-- **Безопасность** — API-ключи не коммитятся в репозиторий; хранятся в GitHub Secrets и Jenkins Credentials; `APIReader` реализует fallback: переменная окружения → локальный файл
-- **Retry** — нестабильные тесты (drag-and-drop, hover, dynamic properties) помечены `@RetryingTest` + `@Flaky` через JUnit Pioneer
-- **Тестовые данные** — генерируются через Datafaker, модели описаны с помощью Lombok (`@Builder`, `@Getter`, `@EqualsAndHashCode`)
+- **Page Object Pattern** — UI tests are built on page objects with Selenide, each page encapsulates locators and actions
+- **Allure Integration** — `@Epic`, `@Feature`, `@Story`, `@Step`, `@Severity`, `@Description`; failure screenshots via `AllureAttachmentsExtension`; HTTP request logging via `AllureRestAssured`; Selenide steps via `AllureSelenide`
+- **Parallel Execution** — JUnit 5 parallel execution (3 threads), Reqres API tests isolated with `SAME_THREAD` to prevent rate limiting
+- **CI/CD** — GitHub Actions with automatic Allure report generation on GitHub Pages; Jenkins pipeline with Selenium Grid in Docker
+- **Security** — API keys are never committed to the repository; stored in GitHub Secrets and Jenkins Credentials; `APIReader` implements env → file fallback
+- **Retry** — flaky tests (drag-and-drop, hover, dynamic properties) are annotated with `@RetryingTest` + `@Flaky` via JUnit Pioneer
+- **Test Data** — generated with Datafaker, models defined with Lombok (`@Builder`, `@Getter`, `@EqualsAndHashCode`)
 
 ---
 
-## 🚀 Запуск тестов
+## 🚀 How to Run
 
-### Локально
+### Locally
 
 ```bash
-# Клонировать репозиторий
+# Clone the repository
 git clone https://github.com/BRolaNV/QA-PetProject.git
 cd QA-PetProject
 
-# Создать config.properties из примера
+# Create config.properties from the example
 cp src/test/resources/config.properties.example src/test/resources/config.properties
-# Вписать свой API-ключ от reqres.in
+# Add your reqres.in API key
 
-# Запустить все тесты
+# Run all tests
 mvn test
 
-# Сгенерировать Allure-отчёт локально
+# Generate Allure report locally
 allure serve target/allure-results
 ```
 
 ### GitHub Actions (CI)
 
-Тесты запускаются автоматически при push в `main`. Allure-отчёт публикуется на [GitHub Pages](https://brolanv.github.io/QA-PetProject/).
+Tests run automatically on push to `main`. Allure report is published to [GitHub Pages](https://brolanv.github.io/QA-PetProject/).
 
 ### Jenkins + Selenium Grid (Docker)
 
 ```bash
-# Поднять инфраструктуру
+# Start infrastructure
 cd infrastructure
 docker compose up -d
 
@@ -156,19 +156,19 @@ docker compose up -d
 # Selenium Grid: http://localhost:4444
 ```
 
-Pipeline: `Checkout` → `Build` → `Test` (API-ключ через `withCredentials`) → `Allure Report`
+Pipeline: `Checkout` → `Build` → `Test` (API key via `withCredentials`) → `Allure Report`
 
 ### Selenoid (Docker)
 
 ```bash
-# Поднять Selenoid
+# Start Selenoid
 cd infrastructure/selenoid
 docker compose up -d
 
 # Selenoid UI: http://localhost:8081
 ```
 
-Запуск тестов через Selenoid:
+Run tests via Selenoid:
 
 ```bash
 mvn test -Dremote=true -DgridUrl=http://localhost:4445/wd/hub
@@ -192,6 +192,12 @@ mvn test -Dremote=true -DgridUrl=http://localhost:4445/wd/hub
 
 <p align="center">
   <img src="docs/images/selenoid-session.png" alt="Selenoid Live Session" width="1000"/>
+</p>
+
+---
+
+<p align="center">
+  <b><a href="https://github.com/BRolaNV">BRolaNV</a></b>
 </p>
 
 ---
